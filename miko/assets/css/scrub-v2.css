@@ -1,7 +1,7 @@
 /* scrub hero system — V2 warm editorial (cream + teal) */
-@font-face{font-family:"Syne";src:url("../assets/syne800.woff2") format("woff2");font-weight:800;font-display:swap}
-@font-face{font-family:"Space Grotesk";src:url("../assets/sg400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Space Grotesk";src:url("../assets/sg700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Syne";src:url("../syne800.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Space Grotesk";src:url("../sg400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Space Grotesk";src:url("../sg700.woff2") format("woff2");font-weight:700;font-display:swap}
 :root{--ink:#FAF6F0;--titan:#6B7280;--aqua:#2D5F5F;--amber:#2D5F5F;--cream:#1A1A1A;--line:#E5DDD3}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}

@@ -1,7 +1,7 @@
 /* scrub hero system — adapted for Miko Pierson IG variants */
-@font-face{font-family:"Syne";src:url("../assets/syne800.woff2") format("woff2");font-weight:800;font-display:swap}
-@font-face{font-family:"Space Grotesk";src:url("../assets/sg400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Space Grotesk";src:url("../assets/sg700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Syne";src:url("../syne800.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Space Grotesk";src:url("../sg400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Space Grotesk";src:url("../sg700.woff2") format("woff2");font-weight:700;font-display:swap}
 :root{--ink:#0A0A0B;--titan:#9AA0A6;--aqua:#D4A574;--amber:#D4A574;--cream:#F5F1E8;--line:#1F2124}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
