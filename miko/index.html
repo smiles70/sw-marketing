@@ -1,75 +1,76 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MIKO PIERSON — Website Variants</title>
+<title>Miko Pierson — Website Variants</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;background:#0A0A0B;color:#E9EDF0;line-height:1.6}
+body{font-family:'Montserrat',sans-serif;background:#0A0A0B;color:#E9EDF0;line-height:1.7}
 a,button{min-height:44px;display:inline-flex;align-items:center}
-header{padding:100px 8vw 40px;text-align:center}
-header h1{font-size:clamp(28px,5vw,52px);margin-bottom:12px;font-weight:700;letter-spacing:-.02em}
-header p{color:#8A929B;font-size:18px;max-width:600px;margin:0 auto 8px}
-header .meta{font-size:13px;color:#6B7280;margin-top:16px}
-header .meta a{color:#D4A574;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:40px 6vw 80px;max-width:1200px;margin:0 auto}
-.card{display:block;background:#101317;border:1px solid #1E2226;border-radius:8px;overflow:hidden;text-decoration:none;color:#E9EDF0;transition:.2s}
-.card:hover{border-color:#D4A574;transform:translateY(-6px);box-shadow:0 16px 48px rgba(212,165,116,.1)}
-.card-img{height:200px;overflow:hidden;position:relative}
-.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+header{padding:120px 8vw 60px;text-align:center}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);margin-bottom:16px;font-weight:700}
+header p{color:#8A929B;font-size:18px;max-width:600px;margin:0 auto}
+header .meta{margin-top:20px;font-size:13px;color:#6B7280}
+header .meta a{color:#C9A227;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 6vw 80px;max-width:1200px;margin:0 auto}
+.card{display:block;background:#101317;border:1px solid #1E2226;border-radius:4px;overflow:hidden;text-decoration:none;color:#E9EDF0;transition:.3s}
+.card:hover{border-color:#C9A227;transform:translateY(-8px);box-shadow:0 24px 60px rgba(201,162,39,.12)}
+.card-img{height:240px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .card:hover .card-img img{transform:scale(1.08)}
-.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(10,10,11,.8))}
-.card-body{padding:28px}
-.card-num{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#D4A574;font-weight:600;margin-bottom:12px}
-.card h2{font-size:22px;margin-bottom:10px;font-weight:700}
-.card-desc{font-size:14px;color:#8A929B;margin-bottom:16px}
-.card-cta{font-size:14px;color:#D4A574;font-weight:600}
+.card-body{padding:32px}
+.card-num{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C9A227;font-weight:600;margin-bottom:12px}
+.card h2{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:10px}
+.card p{font-size:14px;color:#8A929B;margin-bottom:16px}
+.card-cta{font-size:13px;color:#C9A227;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 footer{text-align:center;padding:40px 8vw;color:#6B7280;font-size:13px;border-top:1px solid #1E2226}
-footer a{color:#D4A574;text-decoration:none}
+footer a{color:#C9A227;text-decoration:none}
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-<h1>MIKO PIERSON — Website Variants</h1>
-<p>Scroll-scrub cinematic variants · 12 IG posts analyzed · voice-matched content</p>
+<h1>Miko Pierson — Website Variants</h1>
+<p>Research-backed beauty industry design · 3 directions · voice-matched content from 11 IG posts</p>
 <div class="meta">
 <a href="https://instagram.com/mikopierson" target="_blank" rel="noopener">@mikopierson</a> · 8,080 followers · Master Stylist & Business Coach · Durham, NC<br>
-<a href="posts/index.html">View post concepts →</a>
+Typography: Playfair Display + Montserrat · Imagery: high-res Unsplash/Pexels · Layout: industry-researched
 </div>
 </header>
 <div class="grid">
 <a class="card" href="v1/index.html">
-<div class="card-img"><img src="assets/frames/v1/f001.jpg" alt="The Gap Fixer"></div>
+<div class="card-img"><img src="assets/img/hero-scissors.jpg" alt="Dark Luxe"></div>
 <div class="card-body">
 <div class="card-num">Variant 1</div>
-<h2>The Gap Fixer</h2>
-<p class="card-desc">Dark cinematic · charcoal + gold · scroll-scrub hero with her caption lines as narrative bands</p>
+<h2>Dark Luxe</h2>
+<p>Charcoal + gold · editorial luxury · cinematic hero · Sally Hershberger / Oribe pattern</p>
 <span class="card-cta">View variant →</span>
 </div>
 </a>
 <a class="card" href="v2/index.html">
-<div class="card-img"><img src="assets/frames/v2/f001.jpg" alt="The Classroom"></div>
+<div class="card-img"><img src="assets/img/hero-brush.jpg" alt="Quiet Luxury"></div>
 <div class="card-body">
 <div class="card-num">Variant 2</div>
-<h2>The Classroom</h2>
-<p class="card-desc">Warm editorial · cream + teal · workshop-forward, educational scroll narrative</p>
+<h2>Quiet Luxury</h2>
+<p>Cream + espresso + mocha · warm editorial · Pantone 2025 palette · Spoke & Weal pattern</p>
 <span class="card-cta">View variant →</span>
 </div>
 </a>
 <a class="card" href="v3/index.html">
-<div class="card-img"><img src="assets/frames/v3/f001.jpg" alt="The Chair"></div>
+<div class="card-img"><img src="assets/img/hero-styling.jpg" alt="Modern Editorial"></div>
 <div class="card-body">
 <div class="card-num">Variant 3</div>
-<h2>The Chair</h2>
-<p class="card-desc">Soft intimate · neutral + rose · story-led, local, dual-service positioning</p>
+<h2>Modern Editorial</h2>
+<p>White + black + rose · clean minimal · Nine Zero One / Madison Reed pattern</p>
 <span class="card-cta">View variant →</span>
 </div>
 </a>
 </div>
 <footer>
-Generated by ig-variant-studio · scroll-scrub engine · <a href="https://github.com/smiles70/websitebuilder">website-maker</a>
+Research: top 10 US salon websites · beauty industry trends 2025-2026 · ig-variant-studio · <a href="https://github.com/smiles70/websitebuilder">website-maker</a>
 </footer>
 </body>
 </html>
