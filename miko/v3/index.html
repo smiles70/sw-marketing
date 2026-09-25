@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miko Pierson — The Chair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F0EB;--accent:#C47B6B;--text:#2A2A2A;--muted:#8A8080;--head:"Inter";--body:"Inter"}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:var(--head);font-weight:700}
+a,button{min-height:44px;display:inline-flex;align-items:center}
+.muted{color:var(--muted)}
+.accent{color:var(--accent)}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;background:rgba(0,0,0,.3);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 5vw;height:56px}
+nav .logo{font-family:var(--head);font-size:16px;color:var(--accent);margin-right:auto;font-weight:700}
+nav a{color:var(--muted);font-size:13px;padding:8px 14px;text-decoration:none;border-radius:6px;transition:.2s}
+nav a:hover{color:var(--text)}
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:80px 8vw 60px;max-width:900px}
+.hero .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
+.hero h1{font-size:clamp(36px,6vw,72px);line-height:1.05;margin-bottom:20px}
+.hero .sub{font-size:clamp(16px,2vw,22px);color:var(--muted);max-width:600px;margin-bottom:32px}
+.hero .cta{display:inline-flex;align-items:center;padding:14px 28px;background:var(--accent);color:var(--bg);text-decoration:none;font-weight:600;border-radius:8px;font-size:15px}
+.hero .meta{margin-top:24px;font-size:13px;color:var(--muted)}
+/* sections */
+.block{padding:64px 8vw;max-width:900px;border-top:1px solid rgba(128,128,128,.15)}
+.block h2{font-size:clamp(24px,3vw,36px);margin-bottom:16px}
+.block p{font-size:16px;max-width:600px}
+/* posts strip */
+.posts{padding:64px 8vw;background:rgba(128,128,128,.05)}
+.posts h2{margin-bottom:24px}
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.post-card{background:rgba(128,128,128,.08);border-radius:12px;padding:20px;border:1px solid rgba(128,128,128,.1)}
+.post-card .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:600}
+.post-card p{font-size:14px;line-height:1.5}
+/* footer */
+footer{padding:48px 8vw;border-top:1px solid rgba(128,128,128,.15);text-align:center}
+footer a{color:var(--accent);text-decoration:none}
+.variant-badge{position:fixed;bottom:16px;right:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;z-index:200}
+@media(max-width:600px){.hero{padding-top:100px}.post-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<span class="logo">Miko Pierson</span>
+<a href="../index.html">All variants</a>
+<a href="../posts/index.html">Post concepts</a>
+<a href="https://instagram.com/mikopierson" target="_blank" rel="noopener">Instagram</a>
+</nav>
+
+<div class="hero">
+<div class="kicker">The Chair</div>
+<h1>Hair by Miko Pierson — Durham, NC</h1>
+<p class="sub">Master stylist. Business coach. Your chair, your business, your rules.</p>
+<a class="cta" href="#">Book a service.</a>
+<div class="meta">8080 followers · Durham, NC · </div>
+</div>
+
+<section class="block"><h2>Hero with book appointment CTA</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section><section class="block"><h2>Styling services + pricing</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section><section class="block"><h2>Business coaching (separate section)</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section><section class="block"><h2>Gallery (Instagram feed embed)</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section><section class="block"><h2>About + Durham story</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section><section class="block"><h2>FAQ</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section><section class="block"><h2>Contact + directions</h2><p class="muted">Section content would go here — this is a mock variant for review.</p></section>
+
+<div class="posts">
+<h2>Post concepts <span class="muted" style="font-size:14px;font-weight:400">— voice-matched from her IG</span></h2>
+<div class="post-grid">
+<div class="post-card"><span class="tag">client_retention</span><p>A great service doesn&#x27;t guarantee a returning client.</p></div><div class="post-card"><span class="tag">pricing_profitability</span><p>A full schedule can hide a weak business.</p></div><div class="post-card"><span class="tag">business_gaps</span><p>You can be extremely talented and still have gaps costing you clients.</p></div><div class="post-card"><span class="tag">consultation</span><p>Your service menu should make booking easier — not create more questions.</p></div>
+</div>
+</div>
+
+<footer>
+<p class="muted">Generated from <a href="https://instagram.com/mikopierson" target="_blank" rel="noopener">@mikopierson</a> · 11 posts analyzed · <a href="../index.html">All variants</a></p>
+</footer>
+
+<div class="variant-badge">Variant 3 of 3</div>
+</body>
+</html>
