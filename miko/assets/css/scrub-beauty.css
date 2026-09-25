@@ -55,47 +55,75 @@ img { display:block; max-width:100%; }
 @keyframes hint { 50% { transform:translate(-50%,8px); } }
 .live .scroll-hint { animation:none; opacity:0; transition:opacity .4s; }
 
-/* === Mobile: designed alternative, not degraded fallback === */
+/* === Mobile: designed alternative — compressed hero + stacked content === */
 @media(max-width:768px), (prefers-reduced-motion: reduce) {
   .static-hero #scrub-hero { height:auto; }
   .static-hero .stage { position:relative; height:auto; min-height:auto; display:flex; flex-direction:column; }
-  .static-hero .scrub-poster { position:relative; width:100%; height:50vh; object-fit:cover; z-index:0; }
+  .static-hero .scrub-poster { position:relative; width:100%; height:55vh; object-fit:cover; z-index:0; }
   .static-hero canvas,.static-hero .ring,.static-hero .scrim { display:none; }
   .static-hero .band { position:relative; opacity:1; transform:none; left:0; right:0; bottom:auto; padding:0; margin:0; }
   .static-hero .band:not(.final) { display:none; }
-  .static-hero .band.final { padding:40px 6vw; background:var(--bg); text-align:center; }
-  .static-hero .band.final h2 { font-size:clamp(28px,7vw,40px); color:var(--text); text-shadow:none; }
-  .static-hero .band .btn { margin-top:20px; }
+  .static-hero .band.final { padding:32px 6vw 48px; background:var(--bg); text-align:center; }
+  .static-hero .band.final h2 { font-size:clamp(26px,7vw,36px); color:var(--text); text-shadow:none; margin-bottom:16px; }
+  .static-hero .band .btn { margin-top:8px; }
   .static-hero .scroll-hint { display:none; }
   .static-hero .below { margin-top:0; }
 
-  /* Mobile nav */
-  .nav { padding:14px 5vw; }
-  .nav .brand { font-size:18px; }
-  .nav .book-btn { padding:8px 16px; font-size:11px; }
+  /* Mobile nav — compact, thumb-friendly */
+  .nav { padding:12px 5vw; }
+  .nav .brand { font-size:17px; }
+  .nav .links a { font-size:11px; padding:6px 10px; }
+  .nav .book-btn { padding:8px 14px; font-size:10px; }
 
-  /* Mobile stats */
+  /* Mobile stats — 2x2 grid, compact */
   .stats { grid-template-columns:repeat(2,1fr); }
-  .stat { padding:28px 4vw; }
-  .stat b { font-size:32px; }
+  .stat { padding:24px 4vw; border-right:none; border-bottom:1px solid var(--line); }
+  .stat b { font-size:28px; }
+  .stat span { font-size:9px; }
 
-  /* Mobile sections */
-  .dual-path,.blueprint,.services,.portfolio,.testimonials { padding:60px 6vw; }
-  .dual-path h2,.blueprint h2,.services h2,.portfolio h2,.testimonials h2 { font-size:26px; }
-  .path-grid { grid-template-columns:1fr; gap:20px; }
-  .stage-flow { flex-direction:column; }
-  .stage-arrow { transform:rotate(90deg); align-self:center; }
-  .service-grid { grid-template-columns:1fr; gap:16px; }
-  .service-card { padding:24px; }
-  .gallery { grid-template-columns:1fr 1fr; }
-  .testimonial .quote { font-size:18px; }
+  /* Mobile sections — tighter padding, readable */
+  .dual-path,.blueprint,.services,.portfolio,.testimonials { padding:48px 5vw; }
+  .dual-path h2,.blueprint h2,.services h2,.portfolio h2,.testimonials h2 { font-size:24px; margin-bottom:12px; }
+  .dual-path > p,.blueprint > p,.services > p,.portfolio > p { font-size:15px; margin-bottom:32px; }
 
-  /* CTA band */
-  .cta-band { padding:80px 6vw; }
-  .cta-band h2 { font-size:32px; }
+  /* Mobile cards — full width, touch-friendly */
+  .path-grid { grid-template-columns:1fr; gap:16px; }
+  .path-card img { height:180px; }
+  .path-card-body { padding:24px; }
+  .path-card h3 { font-size:22px; }
 
-  /* Footer */
-  .footer-inner { flex-direction:column; gap:24px; }
+  /* Mobile blueprint — vertical stack */
+  .stage-flow { flex-direction:column; gap:12px; }
+  .stage-arrow { transform:rotate(90deg); align-self:center; font-size:20px; }
+  .stage-step { padding:20px; }
+  .stage-step .stage-num { font-size:32px; }
+  .stage-step .stage-name { font-size:18px; }
+
+  /* Mobile services — stacked cards */
+  .service-grid { grid-template-columns:1fr; gap:12px; }
+  .service-card { padding:20px; }
+  .service-card .price { font-size:22px; }
+
+  /* Mobile gallery — 2 cols, compact */
+  .gallery { grid-template-columns:1fr 1fr; gap:8px; }
+  .gallery-item .label { font-size:11px; padding:12px; }
+
+  /* Mobile testimonials — readable */
+  .testimonial { padding:0; margin-bottom:32px; }
+  .testimonial .quote { font-size:17px; line-height:1.5; }
+
+  /* Mobile CTA — prominent, thumb-friendly */
+  .cta-band { padding:60px 5vw; }
+  .cta-band h2 { font-size:26px; }
+  .cta-band p { font-size:15px; }
+  .cta-band .btn { padding:14px 28px; font-size:12px; }
+
+  /* Mobile footer — stacked */
+  .footer-inner { flex-direction:column; gap:20px; }
+  .footer { padding:40px 5vw 30px; }
+
+  /* Mobile variant badge — subtle */
+  .variant-badge { font-size:9px; padding:6px 10px; bottom:12px; right:12px; }
 }
 
 /* === Below-fold content === */
