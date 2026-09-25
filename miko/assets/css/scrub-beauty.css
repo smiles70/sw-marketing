@@ -6,6 +6,12 @@
 .v1 { --bg:#0E0D0B; --bg-alt:#161513; --text:#F5F1E8; --muted:#9A9290; --accent:#C9A227; --accent-hover:#B08D57; --card:#1A1917; --line:#2A2825; --overlay:rgba(14,13,11,0.55); }
 .v2 { --bg:#F5F0E8; --bg-alt:#EFE9E0; --text:#2B2622; --muted:#8A8080; --accent:#A47864; --accent-hover:#8B6553; --card:#FFFFFF; --line:#E0D8D0; --overlay:rgba(245,240,232,0.35); }
 .v3 { --bg:#FFFFFF; --bg-alt:#FAFAFA; --text:#1A1A1A; --muted:#8A8080; --accent:#C47B6B; --accent-hover:#A8655A; --card:#F8F6F4; --line:#ECECEC; --overlay:rgba(0,0,0,0.25); }
+/* V4: The Educator — deep green + cream (matcha mochi, wellness trend) */
+.v4 { --bg:#F2F5EE; --bg-alt:#E8EDE4; --text:#1E2B1E; --muted:#7A8A7A; --accent:#4A6B4A; --accent-hover:#3A5A3A; --card:#FFFFFF; --line:#D0D8CC; --overlay:rgba(242,245,238,0.35); }
+/* V5: The Creative — black + white + red accent (bold editorial) */
+.v5 { --bg:#0A0A0A; --bg-alt:#141414; --text:#FAFAFA; --muted:#999; --accent:#DC2626; --accent-hover:#B91C1C; --card:#1A1A1A; --line:#2A2A2A; --overlay:rgba(10,10,10,0.55); }
+/* V6: The Local — warm taupe + terracotta (cozy luxury) */
+.v6 { --bg:#F7F3EE; --bg-alt:#EDE6DD; --text:#3D3530; --muted:#8A7F75; --accent:#C1705B; --accent-hover:#A85E4A; --card:#FFFFFF; --line:#DDD3C8; --overlay:rgba(247,243,238,0.35); }
 
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
