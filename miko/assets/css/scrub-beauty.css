@@ -280,18 +280,13 @@ h1,h2,h3,h4,.stat b,.stage-num,.price { font-optical-sizing:auto; }
 /* Direction B — Botanical Technical: ink/paper/verdant/mint/lime */
 .v10 { --bg:#0D2226; --bg-alt:#0A1B1E; --text:#EEF0E9; --muted:#8FA8A0; --accent:#1F5C4C; --accent-hover:#2A7A64; --card:#12282D; --line:#2A4440; --overlay:rgba(13,34,38,0.55); --on-accent:#EEF0E9; --accent-btn:#1F5C4C; --muted-strong:#B5C8C0; --accent-stat:#A9D6BE; --pop:#D7E35E; --font-display:'Libre Caslon Text',Georgia,serif; --font-body:'Work Sans',-apple-system,sans-serif; }
 /* Direction C — Romantic Editorial: plum/parchment/rose/gold/sage */
-.v11 { --bg:#3D2B3F; --bg-alt:#2E1F30; --text:#F8F3EA; --muted:#CBB8C8; --accent:#E8A8B8; --accent-hover:#F0BCCB; --card:#463450; --line:#5A4660; --overlay:rgba(61,43,63,0.55); --on-accent:#F8F3EA; --accent-btn:#8E4A5B; --muted-strong:#E0D4DD; --accent-stat:#C9A96A; --pop:#C9A96A; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'Karla',-apple-system,sans-serif; }
 /* Direction D — Bold Modernist: midnight/paper/blue/sky/red */
 .v12 { --bg:#171A26; --bg-alt:#101320; --text:#F7F5F0; --muted:#9AA0B8; --accent:#2B50E0; --accent-hover:#4A68F0; --card:#1F2333; --line:#333950; --overlay:rgba(23,26,38,0.55); --on-accent:#F7F5F0; --accent-btn:#2B50E0; --muted-strong:#C4C8D8; --accent-stat:#B9C8F5; --pop:#E0432B; --font-display:'Space Grotesk',-apple-system,sans-serif; --font-body:'Inter',-apple-system,sans-serif; }
 
-/* portrait IG reels at native scale — letterboxed on theme bg, no crop */
-.v10 .stage canvas, .v11 .stage canvas, .v12 .stage canvas { object-fit:contain; background:var(--bg); }
-.v10 .scrub-poster, .v11 .scrub-poster, .v12 .scrub-poster { object-fit:contain; background-color:var(--bg); background-size:contain; }
 
 /* accent2/pop token used where a second voice color is wanted */
 .v10 .tag, .v10 .stage-badge { color:var(--pop); }
 .v12 .tag, .v12 .stage-badge { color:var(--pop); }
-.v11 .stat b { font-style:italic; }
 
 /* founder-video section (native 9:16, uncropped) */
 .founder-video { padding:100px 6vw; background:var(--bg-alt); display:flex; justify-content:center; }
@@ -300,3 +295,11 @@ h1,h2,h3,h4,.stat b,.stage-num,.price { font-optical-sizing:auto; }
 .founder-video .fv-copy h2 { font-size:clamp(26px,3.4vw,38px); margin-bottom:16px; }
 .founder-video .fv-copy p { color:var(--muted); font-size:16px; max-width:46ch; }
 @media (max-width:860px){ .founder-video-inner{grid-template-columns:1fr;} .founder-video video{max-width:340px;margin:0 auto;} }
+
+/* === v13-v15: guide directions, additional compositions === */
+/* v13 — Direction B LIGHT mode: paper bg, ink text, verdant accent */
+.v13 { --bg:#EEF0E9; --bg-alt:#E2E8DC; --text:#0D2226; --muted:#4A5F58; --accent:#1F5C4C; --accent-hover:#2A7A64; --card:#FFFFFF; --line:#C4CCC2; --overlay:rgba(238,240,233,0.4); --on-accent:#EEF0E9; --accent-btn:#1F5C4C; --muted-strong:#3D5049; --accent-stat:#1F5C4C; --pop:#5A8A00; --font-display:'Libre Caslon Text',Georgia,serif; --font-body:'Work Sans',-apple-system,sans-serif; }
+/* v14 — chosen direction, founder-forward (copper lighter on dark) */
+.v14 { --bg:#1E1915; --bg-alt:#2A2218; --text:#F4EEE6; --muted:#B8A898; --accent:#D08A5E; --accent-hover:#E09A6E; --card:#2A241C; --line:#3E342A; --overlay:rgba(30,25,21,0.55); --on-accent:#1E1915; --accent-btn:#9C5530; --muted-strong:#D4C8BA; --accent-stat:#D08A5E; --font-display:'Fraunces',Georgia,serif; --font-body:'Hanken Grotesk',-apple-system,sans-serif; }
+/* v15 — Direction D LIGHT mode: paper bg, midnight ink, electric blue */
+.v15 { --bg:#F7F5F0; --bg-alt:#EBE8E0; --text:#171A26; --muted:#565C72; --accent:#2B50E0; --accent-hover:#1D3CB8; --card:#FFFFFF; --line:#D8D4C8; --overlay:rgba(247,245,240,0.4); --on-accent:#F7F5F0; --accent-btn:#2B50E0; --muted-strong:#454B60; --accent-stat:#2B50E0; --pop:#E0432B; --font-display:'Space Grotesk',-apple-system,sans-serif; --font-body:'Inter',-apple-system,sans-serif; }
