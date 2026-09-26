@@ -303,3 +303,8 @@ h1,h2,h3,h4,.stat b,.stage-num,.price { font-optical-sizing:auto; }
 .v14 { --bg:#1E1915; --bg-alt:#1E1915; --text:#F4EEE6; --muted:rgba(244,238,230,0.62); --accent:#9C5530; --accent-hover:#D08A5E; --card:rgba(244,238,230,0.06); --line:rgba(244,238,230,0.14); --overlay:rgba(30,25,21,0.55); --on-accent:#F4EEE6; --accent-btn:#9C5530; --muted-strong:rgba(244,238,230,0.78); --accent-stat:#D08A5E; --font-display:'Fraunces',Georgia,serif; --font-body:'Hanken Grotesk',-apple-system,sans-serif; }
 /* v15 — Direction D LIGHT mode: paper bg, midnight ink, electric blue */
 .v15 { --bg:#F4EEE6; --bg-alt:#F4EEE6; --text:#1E1915; --muted:rgba(30,25,21,0.62); --accent:#9C5530; --accent-hover:#D08A5E; --card:rgba(30,25,21,0.045); --line:rgba(30,25,21,0.14); --overlay:rgba(244,238,230,0.4); --on-accent:#F4EEE6; --accent-btn:#9C5530; --muted-strong:rgba(30,25,21,0.78); --accent-stat:#9C5530; --font-display:'Fraunces',Georgia,serif; --font-body:'Hanken Grotesk',-apple-system,sans-serif; }
+
+/* never browser-default blue: selection + focus ring in guide copper */
+::selection { background:#9C5530; color:#F4EEE6; }
+:focus-visible { outline:2px solid #9C5530; outline-offset:2px; }
+a { color:inherit; }
