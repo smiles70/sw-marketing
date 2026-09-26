@@ -34,7 +34,6 @@
         (stage || hero.parentNode || document.body).appendChild(vid);
       }
     } catch (e) {}
-    updateBands(0);
     return;
   }
 
@@ -108,10 +107,10 @@
   for (let c = 0; c < concurrency; c++) loadNext();
 
   /* ---------- band plateaus (smoothstep + --k), delta-gated ---------- */
-  const smoothstep = (p, a, b) => {
+  function smoothstep(p, a, b) {
     const t = Math.min(1, Math.max(0, (p - a) / (b - a)));
     return t * t * (3 - 2 * t);
-  };
+  }
   const cache = bands.map(() => ({ o: -1, k: -1 }));
   function updateBands(p) {
     bands.forEach((el, i) => {
