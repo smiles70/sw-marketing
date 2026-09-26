@@ -80,8 +80,8 @@ img { display:block; max-width:100%; }
   /* Mobile stats — 2x2 grid, compact, no truncation */
   .stats { grid-template-columns:repeat(2,1fr); }
   .stat { padding:22px 3vw; border-right:none; border-bottom:1px solid var(--line); }
-  .stat b { font-size:26px; }
-  .stat span { font-size:9px; letter-spacing:.12em; line-height:1.4; display:block; word-wrap:break-word; hyphens:auto; }
+  .stat b { font-size:30px; }
+  .stat span { font-size:11px; letter-spacing:.08em; line-height:1.4; display:block; word-wrap:break-word; hyphens:auto; margin-top:6px; }
 
   /* Mobile sections — tighter padding, readable */
   .dual-path,.blueprint,.services,.portfolio,.testimonials { padding:48px 5vw; }
