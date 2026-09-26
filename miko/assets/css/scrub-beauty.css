@@ -245,3 +245,11 @@ figcaption { display:block; }
   figure.testimonial { padding-left:16px; }
   blockquote.quote { font-size:16px; }
 }
+
+/* === Mobile section overrides — appended last so they win cascade === */
+@media(max-width:768px) {
+  .dual-path h2,.blueprint h2,.services h2,.portfolio h2,.testimonials h2,
+  .blueprint .blueprint-inner h2,.services .services-inner h2 { font-size:24px !important; margin-bottom:12px; }
+  .dual-path > p,.blueprint > p,.services > p,.portfolio > p { font-size:15px; }
+  h2 { word-wrap:break-word; overflow-wrap:break-word; }
+}
