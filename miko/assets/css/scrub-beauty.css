@@ -31,8 +31,8 @@ img { display:block; max-width:100%; }
 .nav .links { display:flex; gap:8px; align-items:center; }
 .nav .links a { color:#fff; text-decoration:none; font-size:13px; font-weight:500; padding:8px 16px; border-radius:4px; transition:color .2s; letter-spacing:.03em; text-transform:uppercase; }
 .nav .links a:hover { color:var(--accent); }
-.nav .book-btn { background:var(--accent); color:var(--bg) !important; font-weight:600; padding:10px 24px; border-radius:2px; }
-.nav .book-btn:hover { background:var(--accent-hover); }
+.nav .book-btn { border:1.5px solid var(--accent); background:transparent; color:var(--accent) !important; font-weight:600; padding:10px 24px; border-radius:2px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; }
+.nav .book-btn:hover { background:var(--accent); color:var(--bg) !important; }
 @media(max-width:768px) { .nav .links a:not(.book-btn) { display:none; } }
 
 /* === Scrub hero === */
