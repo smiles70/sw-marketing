@@ -75,11 +75,11 @@ img { display:block; max-width:100%; }
   .nav .links a { font-size:11px; padding:6px 10px; }
   .nav .book-btn { padding:8px 14px; font-size:10px; }
 
-  /* Mobile stats — 2x2 grid, compact */
+  /* Mobile stats — 2x2 grid, compact, no truncation */
   .stats { grid-template-columns:repeat(2,1fr); }
-  .stat { padding:24px 4vw; border-right:none; border-bottom:1px solid var(--line); }
-  .stat b { font-size:28px; }
-  .stat span { font-size:9px; }
+  .stat { padding:22px 3vw; border-right:none; border-bottom:1px solid var(--line); }
+  .stat b { font-size:26px; }
+  .stat span { font-size:9px; letter-spacing:.12em; line-height:1.4; display:block; word-wrap:break-word; hyphens:auto; }
 
   /* Mobile sections — tighter padding, readable */
   .dual-path,.blueprint,.services,.portfolio,.testimonials { padding:48px 5vw; }
