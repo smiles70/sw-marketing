@@ -257,3 +257,21 @@ figcaption { display:block; }
 /* === Measure caps — section subs nested inside inner wrappers === */
 .dual-path > p,.blueprint-inner > p,.services-inner > p,.portfolio > p,.testimonials-inner > p { max-width:65ch; margin-left:auto; margin-right:auto; }
 .services-inner > p,.blueprint-inner > p { text-align:center; }
+
+/* === Phase 2: better-typography (jakubkrehel) applied rules === */
+/* Wrapping: balance headings, pretty descriptions, break-word safety */
+h1,h2,h3,h4 { text-wrap:balance; }
+p,.service-card li,.stage-step p { text-wrap:pretty; overflow-wrap:break-word; }
+
+/* Fraunces is variable with opsz axis — let it optically size */
+h1,h2,h3,h4,.stat b,.stage-num,.price { font-optical-sizing:auto; }
+
+/* Stat numbers are changing values — tabular digits stop layout shift */
+.stat b { font-variant-numeric:tabular-nums; }
+
+/* Display sizes read tighter with slight negative tracking */
+.band.final h2 { letter-spacing:-0.015em; }
+.dual-path h2,.services h2,.blueprint h2,.testimonials h2,.portfolio h2 { letter-spacing:-0.01em; }
+
+/* Long-form measure cap — Bringhurst 66ch ideal for reading columns */
+.cta-band p,.testimonial blockquote { max-width:66ch; margin-left:auto; margin-right:auto; }
