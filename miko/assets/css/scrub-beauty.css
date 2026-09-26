@@ -18,7 +18,9 @@
 html { scroll-behavior:smooth; }
 body { font-family:'Hanken Grotesk',-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 h1,h2,h3,.serif { font-family:'Fraunces',Georgia,serif; font-weight:700; letter-spacing:-0.01em; }
-a,button { min-height:44px; display:inline-flex; align-items:center; }
+a,button { min-height:44px; }
+.btn,.book-btn,.arrow { display:inline-flex; align-items:center; }
+.path-card { display:block; }
 img { display:block; max-width:100%; }
 
 /* === Nav === */
