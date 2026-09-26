@@ -7,7 +7,7 @@
 .v1 { --bg:#1E1915; --bg-alt:#2A2218; --text:#F4EEE6; --muted:#A89888; --accent:#9C5530; --accent-hover:#7A4426; --card:#2A241C; --line:#3E342A; --overlay:rgba(30,25,21,0.55);  --on-accent:#F4EEE6; --accent-btn:var(--accent); --muted-strong:#C4B8AA; --accent-stat:var(--accent); }
 .v2 { --bg:#F4EEE6; --bg-alt:#EAE0D5; --text:#1E1915; --muted:#655A50; --accent:#9C5530; --accent-hover:#7A4426; --card:#FFFFFF; --line:#DDD3C8; --overlay:rgba(244,238,230,0.35);  --on-accent:#F4EEE6; --accent-btn:var(--accent); --muted-strong:#655A50; --accent-stat:var(--accent); }
 .v3 { --bg:#FFFFFF; --bg-alt:#FAF8F5; --text:#1E1915; --muted:#5F554B; --accent:#D08A5E; --accent-hover:#B8764A; --card:#F8F6F4; --line:#ECE5DC; --overlay:rgba(0,0,0,0.25);  --on-accent:#1E1915; --accent-btn:var(--accent); --muted-strong:#655A50; --accent-stat:#A86838; }
-.v4 { --bg:#F2F5EE; --bg-alt:#E8EDE4; --text:#1E2B1E; --muted:#546054; --accent:#4A6B4A; --accent-hover:#3A5A3A; --card:#FFFFFF; --line:#D0D8CC; --overlay:rgba(242,245,238,0.35);  --on-accent:#F4EEE6; --accent-btn:var(--accent); --muted-strong:#4F5F4F; --accent-stat:var(--accent); }
+.v4 { --bg:#F4EEE6; --bg-alt:#EBE3D8; --text:#1E1915; --muted:#6B5D4F; --accent:#9C5530; --accent-hover:#7A4426; --card:#FFFFFF; --line:#D9CFC2; --overlay:rgba(244,238,230,0.35);  --on-accent:#F4EEE6; --accent-btn:var(--accent); --muted-strong:#655A50; --accent-stat:#A86838; }
 .v5 { --bg:#0A0A0A; --bg-alt:#141414; --text:#FAFAFA; --muted:#999; --accent:#DC2626; --accent-hover:#B91C1C; --card:#1A1A1A; --line:#2A2A2A; --overlay:rgba(10,10,10,0.55);  --on-accent:#FAFAFA; --accent-btn:#991B1B; --muted-strong:#C0C0C0; --accent-stat:var(--accent); }
 .v6 { --bg:#F7F3EE; --bg-alt:#EDE6DD; --text:#3D3530; --muted:#655A50; --accent:#C1705B; --accent-hover:#A85E4A; --card:#FFFFFF; --line:#DDD3C8; --overlay:rgba(247,243,238,0.35);  --on-accent:#1E1915; --accent-btn:var(--accent); --muted-strong:#655A50; --accent-stat:#A85E4A; }
 .v7 { --bg:#1A0F1E; --bg-alt:#241428; --text:#F0E8EE; --muted:#A08098; --accent:#B05E8A; --accent-hover:#96507A; --card:#221A26; --line:#3A2E3E; --overlay:rgba(26,15,30,0.55);  --on-accent:#F0E8EE; --accent-btn:#8A4470; --muted-strong:#C0A8B8; --accent-stat:var(--accent); }
@@ -278,14 +278,14 @@ h1,h2,h3,h4,.stat b,.stage-num,.price { font-optical-sizing:auto; }
 
 /* === v10-v12: brand-consulting directions (extracted style artifacts) === */
 /* Direction B — Botanical Technical: ink/paper/verdant/mint/lime */
-.v10 { --bg:#0D2226; --bg-alt:#0A1B1E; --text:#EEF0E9; --muted:#8FA8A0; --accent:#1F5C4C; --accent-hover:#2A7A64; --card:#12282D; --line:#2A4440; --overlay:rgba(13,34,38,0.55); --on-accent:#EEF0E9; --accent-btn:#1F5C4C; --muted-strong:#B5C8C0; --accent-stat:#A9D6BE; --pop:#D7E35E; --font-display:'Libre Caslon Text',Georgia,serif; --font-body:'Work Sans',-apple-system,sans-serif; }
+.v10 { --bg:#1E1915; --bg-alt:#2A2218; --text:#F4EEE6; --muted:#A89888; --accent:#D08A5E; --accent-hover:#E09A6E; --card:#2A241C; --line:#3E342A; --overlay:rgba(30,25,21,0.55); --on-accent:#1E1915; --accent-btn:#9C5530; --muted-strong:#C4B8AA; --accent-stat:#D08A5E; --font-display:'Fraunces',Georgia,serif; --font-body:'Hanken Grotesk',-apple-system,sans-serif; }
 /* Direction C — Romantic Editorial: plum/parchment/rose/gold/sage */
 /* Direction D — Bold Modernist: midnight/paper/blue/sky/red */
 .v12 { --bg:#171A26; --bg-alt:#101320; --text:#F7F5F0; --muted:#9AA0B8; --accent:#2B50E0; --accent-hover:#4A68F0; --card:#1F2333; --line:#333950; --overlay:rgba(23,26,38,0.55); --on-accent:#F7F5F0; --accent-btn:#2B50E0; --muted-strong:#C4C8D8; --accent-stat:#B9C8F5; --pop:#E0432B; --font-display:'Space Grotesk',-apple-system,sans-serif; --font-body:'Inter',-apple-system,sans-serif; }
 
 
 /* accent2/pop token used where a second voice color is wanted */
-.v10 .tag, .v10 .stage-badge { color:var(--pop); }
+.v10 .tag, .v10 .stage-badge { color:var(--accent); }
 .v12 .tag, .v12 .stage-badge { color:var(--pop); }
 
 /* founder-video section (native 9:16, uncropped) */
@@ -298,7 +298,7 @@ h1,h2,h3,h4,.stat b,.stage-num,.price { font-optical-sizing:auto; }
 
 /* === v13-v15: guide directions, additional compositions === */
 /* v13 — Direction B LIGHT mode: paper bg, ink text, verdant accent */
-.v13 { --bg:#EEF0E9; --bg-alt:#E2E8DC; --text:#0D2226; --muted:#4A5F58; --accent:#1F5C4C; --accent-hover:#2A7A64; --card:#FFFFFF; --line:#C4CCC2; --overlay:rgba(238,240,233,0.4); --on-accent:#EEF0E9; --accent-btn:#1F5C4C; --muted-strong:#3D5049; --accent-stat:#1F5C4C; --pop:#5A8A00; --font-display:'Libre Caslon Text',Georgia,serif; --font-body:'Work Sans',-apple-system,sans-serif; }
+.v13 { --bg:#F4EEE6; --bg-alt:#EAE0D5; --text:#1E1915; --muted:#655A50; --accent:#9C5530; --accent-hover:#7A4426; --card:#FFFFFF; --line:#DDD3C8; --overlay:rgba(244,238,230,0.4); --on-accent:#F4EEE6; --accent-btn:#9C5530; --muted-strong:#655A50; --accent-stat:#A86838; --font-display:'Fraunces',Georgia,serif; --font-body:'Hanken Grotesk',-apple-system,sans-serif; }
 /* v14 — chosen direction, founder-forward (copper lighter on dark) */
 .v14 { --bg:#1E1915; --bg-alt:#2A2218; --text:#F4EEE6; --muted:#B8A898; --accent:#D08A5E; --accent-hover:#E09A6E; --card:#2A241C; --line:#3E342A; --overlay:rgba(30,25,21,0.55); --on-accent:#1E1915; --accent-btn:#9C5530; --muted-strong:#D4C8BA; --accent-stat:#D08A5E; --font-display:'Fraunces',Georgia,serif; --font-body:'Hanken Grotesk',-apple-system,sans-serif; }
 /* v15 — Direction D LIGHT mode: paper bg, midnight ink, electric blue */
