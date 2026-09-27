@@ -57,10 +57,10 @@ img { display:block; max-width:100%; }
 @keyframes hint { 50% { transform:translate(-50%,8px); } }
 .live .scroll-hint { animation:none; opacity:0; transition:opacity .4s; }
 
-/* === Static hero (mobile / reduced-motion / loop-forced): compressed hero + stacked content === */
+/* === Static hero (mobile / reduced-motion / loop-forced) === */
 .static-hero #scrub-hero { height:auto; }
 .static-hero .stage { position:relative; height:auto; min-height:auto; display:flex; flex-direction:column; }
-.static-hero .scrub-poster { position:relative; width:100%; height:70vh; object-fit:cover; z-index:0; }
+.static-hero .scrub-poster { position:relative; width:100%; height:55vh; object-fit:cover; z-index:0; }
 .static-hero canvas,.static-hero .ring,.static-hero .scrim { display:none; }
 .static-hero .band { position:relative; opacity:1; transform:none; left:0; right:0; bottom:auto; padding:0; margin:0; }
 .static-hero .band:not(.final) { display:none; }
@@ -70,6 +70,16 @@ img { display:block; max-width:100%; }
 .static-hero .band .tag, .static-hero .band p { color:var(--muted); }
 .static-hero .scroll-hint { display:none; }
 .static-hero .below { margin-top:0; }
+
+/* Desktop static = full-bleed loop: video fills viewport, band overlays bottom */
+@media(min-width:769px) {
+  .static-hero .scrub-poster { height:100vh; }
+  .static-hero .stage video { height:100vh; }
+  .static-hero .scrim { display:block; opacity:1; }
+  .static-hero .band.final { position:absolute; left:0; right:0; bottom:9vh; z-index:6; background:transparent; padding:0; }
+  .static-hero .band.final h2 { color:#F4EEE6; text-shadow:0 2px 24px #000e,0 0 60px #000a; }
+  .static-hero .band.final .tag, .static-hero .band.final p { color:rgba(244,238,230,.9); }
+}
 
 @media(max-width:768px), (prefers-reduced-motion: reduce) {
   .static-hero .scrub-poster { height:55vh; }
