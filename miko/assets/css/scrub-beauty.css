@@ -362,3 +362,4 @@ a { color:inherit; }
   .subpage .scard { padding:16px 18px; gap:12px; }
 }
 .subpage .reveal { opacity:1 !important; transform:none !important; }
+.subpage .pcard, .subpage .scard { scroll-margin-top:90px; }
