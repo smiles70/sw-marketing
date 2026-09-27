@@ -16,21 +16,24 @@
   const ringC = document.querySelector(".ring circle");
 
   const staticMode = innerWidth < 760 ||
-    matchMedia("(prefers-reduced-motion: reduce)").matches;
+    matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    window.SCRUB_FORCE_LOOP;
   if (staticMode || !hero || !canvas) {
     document.body.classList.add("static-hero");
-    // Mobile parity: swap the still poster for a short ambient loop when one
-    // exists (../assets/video/loop-vN.mp4). Poster stays as the fallback.
+    // Static mode: swap the still poster for a short ambient loop when one
+    // exists. Wide viewports get loop-hd-vN.mp4 (1080w); narrow get loop-vN.mp4.
     try {
       const vDir = (window.SCRUB_DIR || "").match(/frames\/(v\d+)/);
       if (vDir && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
         const vid = document.createElement("video");
         vid.muted = true; vid.loop = true; vid.autoplay = true;
         vid.setAttribute("playsinline", ""); vid.setAttribute("muted", "");
-        vid.src = `${DIR}/../../video/loop-${vDir[1]}.mp4`;
+        const sd = `${DIR}/../../video/loop-${vDir[1]}.mp4`;
+        const hd = `${DIR}/../../video/loop-hd-${vDir[1]}.mp4`;
+        vid.src = innerWidth >= 760 ? hd : sd;
+        vid.onerror = () => { if (vid.src.endsWith(hd)) { vid.src = sd; } else vid.remove(); };
         vid.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s";
         vid.oncanplay = () => { vid.style.opacity = 1; if (poster) poster.style.opacity = 0; };
-        vid.onerror = () => vid.remove();
         (stage || hero.parentNode || document.body).appendChild(vid);
       }
     } catch (e) {}
