@@ -18,6 +18,8 @@ body{background:#1E1915}
 .cov{background:#F4EEE6;border-radius:18px;padding:8vh 6vw;box-shadow:0 30px 80px rgba(0,0,0,.35)}
 #cap{position:fixed;left:0;right:0;bottom:0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B9AC9C;background:rgba(30,25,21,.92);padding:6px 14px;text-align:center;z-index:40;display:none}
 #cap a{color:#D08A5E;text-decoration:none}
+.framecta{position:fixed;right:24px;bottom:48px;z-index:45;background:#9C5530;color:#fff;border-radius:99px;padding:12px 30px;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35);white-space:nowrap}
+.framecta:hover{background:#b06a44}
 .dctarow{margin-top:34px}
 .dcta{display:inline-block;background:#9C5530;color:#fff;border-radius:99px;padding:12px 30px;font-size:15px;font-weight:600;text-decoration:none;margin:0 8px}
 .dcta.ghost{background:transparent;color:#9C5530;border:1.5px solid #9C5530}
@@ -54,12 +56,14 @@ body{background:#1E1915}
 <aside class="notes">Artist to CEO, each stage gated at 80%, workshops on real numbers.</aside>
 </section>
 
-<section data-background-iframe="https://shear-equity-course-production.up.railway.app/syllabus.html" data-preload data-caption="Syllabus — the curriculum landing — <a href=&quot;https://shear-equity-course-production.up.railway.app/syllabus.html&quot; target=&quot;_blank&quot;>open live ↗</a>">
-<aside class="notes">The training app: 110 narrated classes, four stages, graded workshops, verifiable certificate.</aside>
+<section data-background-iframe="https://shear-equity-course-production.up.railway.app/syllabus.html" data-preload data-caption="Syllabus — <a href=&quot;https://shear-equity-course-production.up.railway.app/syllabus.html&quot; target=&quot;_blank&quot;>open live ↗</a>">
+<a class="framecta" href="https://shear-equity-course-production.up.railway.app/login.html" target="_blank" rel="noopener">Sign in to the course ↗</a>
+<aside class="notes">The training app: 110 narrated classes, four stages, graded workshops, verifiable certificate. Sign-in opens in a real tab — iframes cannot hold auth sessions in private browsing.</aside>
 </section>
 
-<section data-background-iframe="https://app-production-fd4a.up.railway.app" data-preload data-caption="CRM — sign-in — <a href=&quot;https://app-production-fd4a.up.railway.app&quot; target=&quot;_blank&quot;>open live ↗</a>">
-<aside class="notes">The customized CRM. Leads scored, offers sequenced by readiness — the back office that works while she teaches.</aside>
+<section data-background-iframe="https://app-production-fd4a.up.railway.app" data-preload data-caption="Miko’s CRM — <a href=&quot;https://app-production-fd4a.up.railway.app&quot; target=&quot;_blank&quot;>open live ↗</a>">
+<a class="framecta" href="https://app-production-fd4a.up.railway.app" target="_blank" rel="noopener">Open CRM to sign in ↗</a>
+<aside class="notes">The customized CRM. Auth runs in a real tab — cross-origin iframes cannot hold Clerk sessions in private browsing.</aside>
 </section>
 
 <section><div class="cov">
