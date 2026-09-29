@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miko Pierson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:'Hanken Grotesk',sans-serif;background:#F4EEE6;color:#4A423B;line-height:1.7}
+a,button{min-height:44px;display:inline-flex;align-items:center}
+header{padding:120px 8vw 60px;text-align:center}
+header h1{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,56px);margin-bottom:16px;font-weight:700}
+header p{color:#8A7A6C;font-size:18px;max-width:600px;margin:0 auto}
+header .pitch{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.4vw,24px);color:#9C5530;max-width:640px;margin:18px auto 0;line-height:1.4}
+.signoff{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.6vw,26px);color:#1E1915;text-align:center;padding:20px 6vw 24px;max-width:720px;margin:0 auto;line-height:1.4}
+.keys{text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A7A6C;padding:0 6vw 56px}
+.keys a{color:#9C5530;text-decoration:none}
+.keys a:hover{text-decoration:underline}
+.ctarow{text-align:center;margin-top:34px}
+.mbtn{display:inline-flex;align-items:center;justify-content:center;background:#9C5530;color:#fff;border-radius:99px;padding:14px 34px;font-size:16px;font-weight:600;text-decoration:none;margin:0 8px;border:1.5px solid #9C5530}
+.mbtn.ghost{background:transparent;color:#9C5530}
+.mbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(156,85,48,.25)}
+.coveronly{display:flex;flex-direction:column;align-items:center;min-height:100vh;background:#F4EEE6}
+.coverbtn{flex:1;display:flex;align-items:center;justify-content:center;width:100%;padding:24px;position:relative;text-decoration:none}
+.coverbtn img{max-height:min(78vh,720px);max-width:92vw;object-fit:contain;border-radius:18px;box-shadow:0 30px 80px rgba(30,25,21,.22);transition:transform .25s,box-shadow .25s}
+.coverbtn:hover img{transform:scale(1.01);box-shadow:0 36px 96px rgba(30,25,21,.3)}
+.coverbtn .coverhint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8A7A6C}
+.hubgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1120px;margin:36px auto 40px;padding:0 5vw}
+.hubcard{display:flex;flex-direction:column;background:#fff;border:1px solid #E3D9CB;border-radius:14px;padding:34px 30px;text-decoration:none;color:#4A423B;transition:transform .18s,border-color .18s,box-shadow .18s}
+.hubcard:hover{transform:translateY(-4px);border-color:#9C5530;box-shadow:0 20px 50px rgba(156,85,48,.14)}
+.hubcard .hubnum{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:#9C5530;margin-bottom:12px}
+.hubcard h2{font-family:'Fraunces',serif;font-size:26px;color:#1E1915;margin-bottom:10px}
+.hubcard p{font-size:14.5px;color:#8A7A6C;line-height:1.6;flex:1}
+.hubcard .hubgo{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9C5530;margin-top:18px}
+@media(max-width:860px){.hubgrid{grid-template-columns:1fr;gap:14px}.hubcard{padding:24px 22px}}
+header .meta{margin-top:20px;font-size:13px;color:#8A7A6C}
+header .meta a{color:#9C5530;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,400px));gap:24px;padding:40px 6vw 80px;max-width:1200px;margin:0 auto;justify-content:center}
+.card.hidden{display:none}
+.card{display:block;background:#fff;border:1px solid #E3D9CB;border-radius:14px;overflow:hidden;text-decoration:none;color:#4A423B;transition:.3s}
+.card:hover{border-color:#9C5530;transform:translateY(-8px);box-shadow:0 24px 60px rgba(156,85,48,.15)}
+.card-img{height:240px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-body{padding:32px}
+.card-num{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9C5530;font-weight:600;margin-bottom:12px}
+.card h2{font-family:'Fraunces',serif;font-size:26px;margin-bottom:10px}
+.card p{font-size:14px;color:#8A7A6C;margin-bottom:16px}
+.card-cta{font-size:13px;color:#9C5530;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+footer{text-align:center;padding:40px 8vw;color:#8A7A6C;font-size:13px;border-top:1px solid #E3D9CB}
+footer a{color:#9C5530;text-decoration:none}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head><body>
+<header style="padding:56px 8vw 20px;text-align:center">
+<h1 style="font-size:clamp(28px,4vw,40px)">Two directions.</h1>
+<div class="pitch" style="margin-top:8px">One front door — pick the face.</div>
+<div class="meta"><a href="options.html">← back to the package</a> · <a href="deck.html">▶ presentation</a></div>
+</header>
+<div class="grid">
+<a class="card hidden" href="v1/index.html"><div class="card-img"><img src="assets/video/poster-v1.jpg" alt="Dark Luxe"></div><div class="card-body"><div class="card-num">Variant 1</div><h2>Dark Luxe</h2><p>Charred umber + gold · dark editorial luxury · cinematic scroll-scrub</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v2/index.html"><div class="card-img"><img src="assets/video/poster-v2.jpg" alt="Quiet Luxury"></div><div class="card-body"><div class="card-num">Variant 2</div><h2>Quiet Luxury</h2><p>Ivory linen + espresso · quiet luxury · real video scroll-scrub</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v3/index.html"><div class="card-img"><img src="assets/video/poster-v3.jpg" alt="Modern Editorial"></div><div class="card-body"><div class="card-num">Variant 3</div><h2>Modern Editorial</h2><p>White + black + rose · clean minimal · real video scroll-scrub</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v4/index.html"><div class="card-img"><img src="assets/video/poster-v4.jpg" alt="The Educator"></div><div class="card-body"><div class="card-num">Variant 4</div><h2>The Educator</h2><p>Deep green + cream · educator-first · real video scroll-scrub</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v5/index.html"><div class="card-img"><img src="assets/video/poster-v5.jpg" alt="The Creative"></div><div class="card-body"><div class="card-num">Variant 5</div><h2>The Creative</h2><p>Black + white + red · bold editorial · real video scroll-scrub</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v6/index.html"><div class="card-img"><img src="assets/video/poster-v6.jpg" alt="The Local"></div><div class="card-body"><div class="card-num">Variant 6</div><h2>The Local</h2><p>Warm taupe + terracotta · cozy local · real video scroll-scrub</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v7/index.html"><div class="card-img"><img src="assets/video/poster-v7.jpg" alt="The Specialist"></div><div class="card-body"><div class="card-num">Variant 7</div><h2>The Specialist</h2><p>Deep plum + cream · premium short-hair specialist · real video</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v8/index.html"><div class="card-img"><img src="assets/video/poster-v8.jpg" alt="The Natural"></div><div class="card-body"><div class="card-num">Variant 8</div><h2>The Natural</h2><p>Rich brown + copper · natural/textured hair · real video</p><span class="card-cta">View variant →</span></div></a>
+<a class="card hidden" href="v9/index.html"><div class="card-img"><img src="assets/video/poster-v9.jpg" alt="The Community"></div><div class="card-body"><div class="card-num">Variant 9</div><h2>The Community</h2><p>Warm ink + copper · Fraunces + Hanken · community reel</p><span class="card-cta">View variant →</span></div></a>
+<a class="card" href="v10/index.html"><div class="card-img"><img src="assets/video/poster-v10.jpg" alt="The Institute"></div><div class="card-body"><div class="card-num">Variant 10</div><h2>The Institute</h2><p>Warm ink + copper · Fraunces + Hanken · IG reel hero</p><span class="card-cta">View variant →</span></div></a>
+<a class="card" href="v12/index.html"><div class="card-img"><img src="assets/video/poster-v12.jpg" alt="The Modernist"></div><div class="card-body"><div class="card-num">Variant 12</div><h2>The Modernist</h2><p>Warm ink + copper · Fraunces + Hanken · IG reel hero</p><span class="card-cta">View variant →</span></div></a>
+
+<div class="signoff">Talent fills a chair. Systems build a salon — and Mindbyndr built your solution.</div>
+<div class="keys"><a href="index.html">0 cover</a> · <a href="v10/index.html">1 v10</a> · <a href="v12/index.html">2 v12</a> · <a href="v10/programs.html">3 programs</a> · <a href="v10/blueprint.html">4 blueprint</a> · <a href="https://shear-equity-course-production.up.railway.app/syllabus.html">5 syllabus</a> · <a href="https://shear-equity-course-production.up.railway.app/login.html">6 sign in</a> · <a href="https://app-production-fd4a.up.railway.app">7 CRM</a>
+<div class="signoff">Talent fills a chair. Systems build a salon — and Mindbyndr built your solution.</div>
+<div class="keys"><a href="index.html">0 cover</a> · <a href="options.html">8 options</a> · <a href="v10/index.html">1 v10</a> · <a href="v12/index.html">2 v12</a> · <a href="deck.html">9 deck</a></div>
+<footer>
+Scroll-scrub engine · 120 real video frames per variant · Shear Equity voice · ig-variant-studio
+</footer>
+<script>(function(){var M={'0':'index.html','1':'v10/index.html','2':'v12/index.html','3':'v10/programs.html','4':'v10/blueprint.html','5':'https://shear-equity-course-production.up.railway.app/syllabus.html','6':'https://shear-equity-course-production.up.railway.app/login.html','7':'https://app-production-fd4a.up.railway.app','8':'options.html','9':'deck.html'};document.addEventListener('keydown',function(e){if(e.target.matches('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;var t=M[e.key];if(t)location.href=t;});})();</script>
+</body>
+</html>
