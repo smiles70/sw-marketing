@@ -124,6 +124,13 @@ figure.testimonial{border-left:none!important}
 .v12 .path-card .arrow::after{content:"";width:22px;height:10px;background:currentColor;clip-path:polygon(0 42%,78% 42%,62% 0,100% 50%,62% 100%,78% 58%,0 58%);color:var(--accent);transition:transform var(--d1) var(--ease)}
 .v12 .path-card:hover .arrow::after{transform:translateX(6px)}
 .v12 summary::after{content:"+";width:22px;height:22px;border:1.5px solid var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1}
+/* microcopy system — one language for every small-text surface, nothing orphaned */
+.v12 .tag,.v12 .source,.v12 .how-cell b,.v12 .stat span,.v12 .footer-col h4,.v12 .footer-bottom,.v12 .capture .note,.v12 .context-bar,.v12 .stage-badge{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.v12 .source,.v12 .footer-bottom,.v12 .capture .note{letter-spacing:.1em;text-transform:none;font-weight:500}
+.v12 .source{padding-left:14px;position:relative}
+.v12 .source::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:1px;background:var(--accent)}
+.v12 .context-bar{border-bottom:1px solid var(--line)}
+.v12 .footer-bottom{border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
 /* bespoke chrome — scrollbar, selection, focus, drawn close buttons */
 .v12 ::-webkit-scrollbar{width:10px}
 .v12 ::-webkit-scrollbar-track{background:var(--bg)}
