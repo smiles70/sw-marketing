@@ -12,6 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='8' width='16' height='16' fill='%239C5530' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="../assets/video/poster-v12.jpg">
 <link rel="stylesheet" href="../assets/css/scrub-beauty.css?v=8">
@@ -156,10 +157,40 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 .v12 section.wipe{clip-path:none!important;opacity:1!important}
 #thread{display:none}
 }
+/* signature art system — the cut-diamond motif + icon set */
+.v12 .stage-ico,.v12 .card-ico{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.v12 .stage-ico{width:40px;height:40px;margin:0 auto 14px;display:block;color:var(--accent);opacity:.4;transition:opacity var(--d2),transform var(--d2) cubic-bezier(.34,1.56,.64,1)}
+.v12 .stage-step.lit .stage-ico{opacity:1;transform:translateY(-3px) scale(1.08)}
+.v12 .stage-num{display:none}
+.v12 .card-ico{width:34px;height:34px;padding:7px;border:1.5px solid var(--accent);border-radius:50%;color:var(--accent);margin-bottom:14px;transition:transform var(--d1) var(--ease),background var(--d1)}
+.v12 .service-card:hover .card-ico,.v12 .path-card:hover .card-ico{transform:rotate(-8deg) scale(1.06)}
+.v12 .stage-badge{display:inline-flex;align-items:center;gap:8px}
+.v12 .stage-badge::before{content:"";width:8px;height:8px;background:var(--accent);transform:rotate(45deg);flex:none}
+/* brand mark — diamond ligature before wordmark */
+.v12 .brand{display:inline-flex;align-items:center;gap:10px}
+.v12 .brand::before{content:"";width:14px;height:14px;border:1.5px solid var(--accent);transform:rotate(45deg);flex:none}
+/* grain — page never reads flat (feTurbulence, no asset) */
+.v12 .below{position:relative}
+.v12 .below::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+.v12 .below>*{position:relative;z-index:2}
+/* favicon-grade corner mark — diamond watermark at footer */
+.v12 .footer-inner{position:relative}
+.v12 .footer-inner::after{content:"";position:absolute;right:4vw;top:50%;width:60px;height:60px;border:1px solid var(--line);transform:translateY(-50%) rotate(45deg);opacity:.6;pointer-events:none}
+.v12 .footer-inner::before{content:"";position:absolute;right:calc(4vw + 21px);top:50%;width:18px;height:18px;background:var(--accent);transform:translateY(-50%) rotate(45deg);opacity:.5;pointer-events:none}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Miko Pierson Institute","description":"Miko Pierson Institute — Business coaching for hairstylists. Beauty school teaches the craft. Nobody teaches the business.","founder":{"@type":"Person","name":"Miko Pierson"}}</script>
 </head>
 <body class="v12">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="i-shears" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+<symbol id="i-ledger" viewBox="0 0 24 24"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4M2 10h4M2 14h4M2 18h4"/><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-crown" viewBox="0 0 24 24"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 0-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></symbol>
+<symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2m-5-5 2-2m-5-5 2-2m9 11 2-2"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
 
 <div id="thread" aria-hidden="true"><i></i></div>
 
@@ -200,7 +231,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <div class="path-grid"><a class="path-card reveal" href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">
 <div class="path-card-body">
 <div class="tag">FREE — START HERE</div>
-<h3>Owner Readiness Score + Masterclass</h3>
+<svg class="card-ico" aria-hidden="true"><use href="#i-badge"/></svg><h3>Owner Readiness Score + Masterclass</h3>
 <p>12 questions, your stage, and what to fix first — plus the free class that starts the work.</p>
 <span class="arrow" data-label="TAKE IT">→</span>
 </div>
@@ -208,7 +239,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <a class="path-card reveal" href="programs.html">
 <div class="path-card-body">
 <div class="tag">PROGRAMS</div>
-<h3>The Owner’s Chair</h3>
+<svg class="card-ico" aria-hidden="true"><use href="#i-cap"/></svg><h3>The Owner’s Chair</h3>
 <p>The numbers are known and systems are forming — she’s ready to run the salon, not just the chair.</p>
 <span class="arrow" data-label="SEE PROGRAMS">→</span>
 </div>
@@ -223,25 +254,25 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <div class="service-card reveal">
 <div class="stage-badge">FREE</div>
 <div class="price">Free</div>
-<h3>Owner Readiness Score + Masterclass</h3>
+<svg class="card-ico" aria-hidden="true"><use href="#i-badge"/></svg><h3>Owner Readiness Score + Masterclass</h3>
 <ul><li>12-question assessment of where you stand</li><li>Your stage on the chair-to-CEO path</li><li>What to fix first</li></ul>
 </div>
 <div class="service-card reveal">
 <div class="stage-badge">LOW-TICKET</div>
 <div class="price">Workshop</div>
-<h3>Price for Profit</h3>
+<svg class="card-ico" aria-hidden="true"><use href="#i-ruler"/></svg><h3>Price for Profit</h3>
 <ul><li>Pricing math for fully-booked stylists</li><li>Rebooking + client-worth systems</li><li>Stop guessing at your numbers</li></ul>
 </div>
 <div class="service-card reveal">
 <div class="stage-badge">CORE</div>
 <div class="price">Group</div>
-<h3>The Owner’s Chair</h3>
+<svg class="card-ico" aria-hidden="true"><use href="#i-cap"/></svg><h3>The Owner’s Chair</h3>
 <ul><li>Weekly operator calls + playbooks</li><li>Payroll, margin, lease standards</li><li>Run the salon, not just the chair</li></ul>
 </div>
 <div class="service-card reveal">
 <div class="stage-badge">APPLY</div>
 <div class="price">By application</div>
-<h3>Salon CEO Intensive</h3>
+<svg class="card-ico" aria-hidden="true"><use href="#i-crown"/></svg><h3>Salon CEO Intensive</h3>
 <ul><li>For owners scaling beyond their own chair</li><li>Team leadership + multi-revenue systems</li><li>Application-only cohort</li></ul>
 </div>
 </div>
@@ -259,22 +290,22 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <h2>The Blueprint</h2>
 <p>Four stages. One path from chair to CEO.</p>
 <div class="stage-flow"><div class="stage-step">
-<div class="stage-num">01</div>
+<svg class="stage-ico" aria-hidden="true"><use href="#i-shears"/></svg><div class="stage-num">01</div>
 <div class="stage-name">Artist</div>
 <p>Master the chair and learn to read your real numbers — what you earn, keep and lose per client.</p>
 </div><div class="stage-arrow">→</div>
 <div class="stage-step">
-<div class="stage-num">02</div>
+<svg class="stage-ico" aria-hidden="true"><use href="#i-ledger"/></svg><div class="stage-num">02</div>
 <div class="stage-name">Operator</div>
 <p>Price for profit, build rebooking systems, and run your chair like the business it is.</p>
 </div><div class="stage-arrow">→</div>
 <div class="stage-step">
-<div class="stage-num">03</div>
+<svg class="stage-ico" aria-hidden="true"><use href="#i-key"/></svg><div class="stage-num">03</div>
 <div class="stage-name">Owner</div>
 <p>Sign the lease, make the first hire, and hold payroll and margin standards that keep doors open.</p>
 </div><div class="stage-arrow">→</div>
 <div class="stage-step">
-<div class="stage-num">04</div>
+<svg class="stage-ico" aria-hidden="true"><use href="#i-crown"/></svg><div class="stage-num">04</div>
 <div class="stage-name">CEO</div>
 <p>Lead a team, scale revenue beyond your own chair, and step back without it falling apart.</p>
 </div>
