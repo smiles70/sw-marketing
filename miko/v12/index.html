@@ -12,81 +12,216 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/video/poster-v12.jpg">
 <link rel="stylesheet" href="../assets/css/scrub-beauty.css?v=8">
+<style>
+/* === v12 PLATINUM LAYER === */
+/* motion grammar — ONE system: shared ease + duration scale */
+.v12{--muted:#6E6154;--ease:cubic-bezier(.22,1,.36,1);--d1:.28s;--d2:.55s;--d3:.9s}
+/* scroll thread — accent line bridging every section seam */
+#thread{position:fixed;left:0;top:0;width:3px;height:100vh;background:var(--line);z-index:40;pointer-events:none}
+#thread i{position:absolute;inset:0;background:var(--accent);transform:scaleY(0);transform-origin:top;display:block}
+@media(max-width:760px){#thread{display:none}}
+/* unified transitions — everything obeys the grammar */
+.v12 .service-card,.v12 .path-card,.v12 .stage-step{transition:transform var(--d1) var(--ease),border-color var(--d1) var(--ease),box-shadow var(--d1) var(--ease)}
+.v12 .service-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 18px 40px -18px rgba(74,66,59,.25)}
+.v12 .service-card .stage-badge{transition:transform var(--d1) var(--ease)}
+.v12 .service-card:hover .stage-badge{transform:translateY(-2px)}
+.v12 .path-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 14px 34px -16px rgba(74,66,59,.22)}
+.v12 .stage-step:hover{transform:translateY(-6px);box-shadow:0 14px 30px -16px rgba(74,66,59,.2)}
+.v12 .gallery-item{overflow:hidden;will-change:transform}
+.v12 .gallery-item img{transition:transform var(--d3) var(--ease)}
+.v12 .gallery-item:hover img{transform:scale(1.06)}
+.v12 .btn{transition:transform var(--d1) cubic-bezier(.34,1.56,.64,1),background var(--d1)}
+.v12 .book-btn{transition:transform var(--d1) cubic-bezier(.34,1.56,.64,1),background var(--d1),color var(--d1)}
+.v12 .book-btn:hover{transform:translateY(-2px)}
+.v12 .testimonial{transition:transform var(--d1) var(--ease),opacity var(--d2) var(--ease)}
+.v12 .testimonial:hover{transform:translateX(6px)}
+/* staggered cascades — grids reveal in reading order */
+.v12 .service-card.reveal:nth-child(2){transition-delay:.08s}
+.v12 .service-card.reveal:nth-child(3){transition-delay:.16s}
+.v12 .service-card.reveal:nth-child(4){transition-delay:.24s}
+.v12 .testimonial.reveal:nth-of-type(2){transition-delay:.1s}
+.v12 .testimonial.reveal:nth-of-type(3){transition-delay:.2s}
+/* blueprint scroll-assembly — stages ignite in sequence */
+.v12 .stage-step{opacity:.18;transform:translateY(14px);transition:opacity var(--d2) var(--ease),transform var(--d2) var(--ease),border-color var(--d2)}
+.v12 .stage-step.lit{opacity:1;transform:none;border-color:var(--accent)}
+.v12 .stage-arrow{opacity:.15;transition:opacity var(--d2) var(--ease)}
+.v12 .stage-arrow.lit{opacity:1}
+/* kinetic CTA — headline tracks scroll velocity */
+.v12 .cta-band h2{transition:letter-spacing var(--d1) ease-out;font-variation-settings:"wght" 700;letter-spacing:var(--kin,0em)}
+/* context layer — return visitor banner */
+.v12 .context-bar{max-width:1120px;margin:0 auto;padding:14px 5vw;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:var(--muted)}
+.v12 .context-bar a{color:var(--accent);font-weight:600;text-decoration:none}
+.v12 .context-bar button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px}
+/* concierge — guided paths, honest buttons (not fake AI) */
+#concierge{position:fixed;right:20px;bottom:20px;z-index:50;font-family:var(--font-body)}
+#concierge .cg-launch{border:none;cursor:pointer;background:var(--accent);color:var(--on-accent);border-radius:99px;padding:14px 22px;font-weight:600;font-size:13px;letter-spacing:.08em;box-shadow:0 12px 30px -10px rgba(156,85,48,.5);transition:transform var(--d1) cubic-bezier(.34,1.56,.64,1)}
+#concierge .cg-launch:hover{transform:translateY(-3px) scale(1.03)}
+#concierge .cg-panel{display:none;position:absolute;right:0;bottom:64px;width:320px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -20px rgba(30,25,21,.35);overflow:hidden}
+#concierge .cg-panel.open{display:block;animation:cgIn var(--d1) var(--ease)}
+@keyframes cgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#concierge .cg-head{background:var(--text);color:var(--bg);padding:16px 18px;font-size:13px}
+#concierge .cg-head b{display:block;font-family:var(--font-display);font-size:16px;margin-bottom:2px}
+#concierge .cg-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+#concierge .cg-opt{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text);cursor:pointer;transition:border-color var(--d1),transform var(--d1) var(--ease)}
+#concierge .cg-opt:hover{border-color:var(--accent);transform:translateX(4px)}
+#concierge .cg-reply{padding:12px 14px;font-size:14px;line-height:1.55;color:var(--text);background:var(--bg);border-radius:10px;border-left:3px solid var(--accent)}
+#concierge .cg-reply a{color:var(--accent);font-weight:600}
+#concierge .cg-close{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--bg);cursor:pointer;font-size:16px}
+/* capture form in CTA */
+.v12 .capture{display:flex;gap:10px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+.v12 .capture input{padding:14px 18px;border-radius:99px;border:1.5px solid rgba(244,238,230,.4);background:rgba(244,238,230,.1);color:var(--bg);font-size:15px;min-width:260px;outline:none;transition:border-color var(--d1)}
+.v12 .capture input::placeholder{color:rgba(244,238,230,.6)}
+.v12 .capture input:focus{border-color:var(--bg)}
+.v12 .capture .note{flex-basis:100%;font-size:12px;color:rgba(244,238,230,.65);margin-top:4px}
+/* FAQ + how-it-runs (carried) */
+.v12 .faq{padding:100px 8vw;background:var(--bg-alt)}
+.v12 .faq h2{text-align:center;margin-bottom:8px}
+.v12 .faq>p{text-align:center;color:var(--muted);margin-bottom:48px}
+.v12 .faq-grid{max-width:800px;margin:0 auto}
+.v12 details{border-bottom:1px solid var(--line);padding:22px 4px}
+.v12 summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;position:relative;padding-right:36px}
+.v12 summary::-webkit-details-marker{display:none}
+.v12 summary::after{content:"+";position:absolute;right:4px;top:0;font-family:var(--font-display);font-size:24px;color:var(--accent);transition:transform var(--d1) var(--ease)}
+.v12 details[open] summary::after{transform:rotate(45deg)}
+.v12 details p{color:var(--muted);margin:14px 0 0;line-height:1.65;max-width:640px}
+.v12 .how-it-runs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.v12 .how-cell{border-top:2px solid var(--accent);padding-top:16px}
+.v12 .how-cell b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.v12 .how-cell p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
+@media(max-width:760px){.v12 .how-it-runs{grid-template-columns:1fr 1fr}#concierge .cg-panel{width:calc(100vw - 40px)}}
+/* spotlight hover */
+@media(hover:hover){
+.v12 .service-card,.v12 .path-card{position:relative;overflow:hidden}
+.v12 .service-card::after,.v12 .path-card::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity var(--d1);pointer-events:none;
+background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,85,48,.09),transparent 42%)}
+.v12 .service-card:hover::after,.v12 .path-card:hover::after{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+.v12 .service-card,.v12 .path-card,.v12 .stage-step,.v12 .gallery-item,.v12 .gallery-item img,.v12 .testimonial,.v12 .btn,.v12 .book-btn{transition:none!important;transform:none!important}
+.v12 .stage-step,.v12 .stage-arrow{opacity:1!important;transform:none!important}
+#thread{display:none}
+}
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Miko Pierson Institute","description":"Miko Pierson Institute — Business coaching for hairstylists. Beauty school teaches the craft. Nobody teaches the business.","founder":{"@type":"Person","name":"Miko Pierson"}}</script>
 </head>
 <body class="v12">
 
+<div id="thread" aria-hidden="true"><i></i></div>
+
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
 <a class="brand" href="../index.html" aria-label="Miko Pierson — home">Miko <span>Pierson</span></a>
 <div class="links" role="menubar">
-<a href="../index.html" role="menuitem">Options</a>
-<a href="https://app-production-fd4a.up.railway.app" role="menuitem">Admin</a>
-<a href="#portfolio" role="menuitem">Proof</a>
+<a href="#blueprint" role="menuitem">Blueprint</a>
+<a href="#proof" role="menuitem">Results</a>
 <a href="#coaching" role="menuitem">Coaching</a>
-<a href="#" class="book-btn" role="menuitem">Take the Course</a>
+<a href="https://shear-equity-course-production.up.railway.app/syllabus.html" class="book-btn" role="menuitem" target="_blank" rel="noopener">Take the Course</a>
 </div>
 </nav>
 
 <section id="scrub-hero" aria-label="Hero video section"><div class="stage">
-<div class="scrub-poster" data-src="../assets/video/poster-v12.jpg" role="img" aria-label="The Modernist hero — salon styling video"></div>
+<div class="scrub-poster" data-src="../assets/video/poster-v12.jpg" role="img" aria-label="The Institute hero — salon styling video"></div>
 <canvas id="scrub-canvas" aria-label="Interactive video playback — scroll to scrub"></canvas>
 <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" stroke-dashoffset="0"/></svg>
 <div class="scrim" aria-hidden="true"></div>
-<div class="band"><h2>One front door. Six connected steps.</h2></div>
-<div class="band"><h2>Beauty school teaches the craft. Nobody teaches the business.</h2></div>
-<div class="band"><h2>This is what makes it a system rather than a menu of courses.</h2></div>
-<div class="band"><h2>The curriculum is a ladder. Four rungs. Artist to CEO.</h2></div>
-<div class="band"><h2>Beauty school teaches the craft. Nobody teaches the business.</h2></div>
-<div class="band final"><h2>You were trained to cut.<br>Nobody trained you to own.</h2><a class="btn" href="#">Take the Course →</a></div>
+<div class="band"><h2>You were trained to cut. Nobody trained you to own.</h2></div>
+<div class="band"><h2>The industry leaves you to figure out the business alone.</h2></div>
+<div class="band"><h2>Four stages. One path from chair to CEO.</h2></div>
+<div class="band"><h2>You’re talented, fully booked, and still guessing at pricing, payroll and profit.</h2></div>
+<div class="band"><h2>Are you actually ready to own?</h2></div>
+<div class="band final"><h2>Are you actually<br>ready to own?</h2><a class="btn" href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">Take the Course →</a></div>
 
 <div class="scroll-hint" aria-hidden="true">SCROLL</div>
 </div></section>
 
 <main class="below" role="main">
-<section class="stats"><div class="stat"><b>12</b><span>Questions</span></div><div class="stat"><b>4</b><span>Stages</span></div><div class="stat"><b>1</b><span>Front door</span></div><div class="stat"><b>Free</b><span>Start here</span></div></section>
+<div class="context-bar" id="ctx" hidden>
+<span id="ctx-msg"></span>
+<button id="ctx-x" aria-label="Dismiss">✕</button>
+</div>
+<section class="stats"><div class="stat"><b data-count="12">0</b><span>Questions</span></div><div class="stat"><b data-count="4">0</b><span>Stages</span></div><div class="stat"><b data-count="1">0</b><span>Front door</span></div><div class="stat"><b>Free</b><span>Start here</span></div></section>
 <section class="dual-path" id="coaching">
-<h2>One front door.<br>Six connected steps.</h2>
+<h2>You were trained to cut.<br>Nobody trained you to own.</h2>
 <p>Licensing requirements end at technique. Pricing, leases, payroll, profit margins, hiring — stylists are expected to figure it out alone.</p>
 <div class="path-grid"><a class="path-card reveal" href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">
-<img src="../assets/img/miko-new-7.jpg" alt="Miko Pierson" style="object-position:center 3%">
 <div class="path-card-body">
 <div class="tag">FREE — START HERE</div>
 <h3>Owner Readiness Score + Masterclass</h3>
 <p>12 questions, your stage, and what to fix first — plus the free class that starts the work.</p>
+<span class="arrow">TAKE IT →</span>
 </div>
 </a>
-<a class="path-card reveal" href="#" target="_blank" rel="noopener">
-<img src="../assets/img/miko-new-9.jpg" alt="Miko Pierson">
+<a class="path-card reveal" href="programs.html">
 <div class="path-card-body">
 <div class="tag">PROGRAMS</div>
-<h3>Price for Profit</h3>
-<p>Fully booked and working hard — but pricing is still guesswork and the numbers are half-known.</p>
+<h3>The Owner’s Chair</h3>
+<p>The numbers are known and systems are forming — she’s ready to run the salon, not just the chair.</p>
+<span class="arrow">SEE PROGRAMS →</span>
 </div>
 </a>
+</div>
+</section>
+<section class="services" id="programs">
+<div class="services-inner">
+<h2>The offer ladder</h2>
+<p>Free assessment first, then a program matched to your stage — never more than you’re ready for.</p>
+<div class="service-grid">
+<div class="service-card reveal">
+<div class="stage-badge">FREE</div>
+<div class="price">Free</div>
+<h3>Owner Readiness Score + Masterclass</h3>
+<ul><li>12-question assessment of where you stand</li><li>Your stage on the chair-to-CEO path</li><li>What to fix first</li></ul>
+</div>
+<div class="service-card reveal">
+<div class="stage-badge">LOW-TICKET</div>
+<div class="price">Workshop</div>
+<h3>Price for Profit</h3>
+<ul><li>Pricing math for fully-booked stylists</li><li>Rebooking + client-worth systems</li><li>Stop guessing at your numbers</li></ul>
+</div>
+<div class="service-card reveal">
+<div class="stage-badge">CORE</div>
+<div class="price">Group</div>
+<h3>The Owner’s Chair</h3>
+<ul><li>Weekly operator calls + playbooks</li><li>Payroll, margin, lease standards</li><li>Run the salon, not just the chair</li></ul>
+</div>
+<div class="service-card reveal">
+<div class="stage-badge">APPLY</div>
+<div class="price">By application</div>
+<h3>Salon CEO Intensive</h3>
+<ul><li>For owners scaling beyond their own chair</li><li>Team leadership + multi-revenue systems</li><li>Application-only cohort</li></ul>
+</div>
+</div>
+<div class="how-it-runs">
+<div class="how-cell"><b>How it runs</b><p>12 questions online, about 3 minutes. Your stage and first fix show up instantly — no call required.</p></div>
+<div class="how-cell"><b>How it runs</b><p>One live working session. Bring your current price list — you leave with new numbers, not notes.</p></div>
+<div class="how-cell"><b>How it runs</b><p>Weekly group calls plus playbooks applied to your real books — payroll share, margin, rebooking.</p></div>
+<div class="how-cell"><b>How it runs</b><p>Application call first. Cohort is kept small so every salon's numbers get worked directly.</p></div>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:14px;margin-top:36px;">Exact pricing is shared after your score — the right program depends on your stage, and you never pay for a rung above where you are.</p>
 </div>
 </section>
 <section class="blueprint" id="blueprint">
 <div class="blueprint-inner">
 <h2>The Blueprint</h2>
 <p>Four stages. One path from chair to CEO.</p>
-<div class="stage-flow"><div class="stage-step reveal">
+<div class="stage-flow"><div class="stage-step">
 <div class="stage-num">01</div>
 <div class="stage-name">Artist</div>
 <p>Master the chair and learn to read your real numbers — what you earn, keep and lose per client.</p>
 </div><div class="stage-arrow">→</div>
-<div class="stage-step reveal">
+<div class="stage-step">
 <div class="stage-num">02</div>
 <div class="stage-name">Operator</div>
 <p>Price for profit, build rebooking systems, and run your chair like the business it is.</p>
 </div><div class="stage-arrow">→</div>
-<div class="stage-step reveal">
+<div class="stage-step">
 <div class="stage-num">03</div>
 <div class="stage-name">Owner</div>
 <p>Sign the lease, make the first hire, and hold payroll and margin standards that keep doors open.</p>
 </div><div class="stage-arrow">→</div>
-<div class="stage-step reveal">
+<div class="stage-step">
 <div class="stage-num">04</div>
 <div class="stage-name">CEO</div>
 <p>Lead a team, scale revenue beyond your own chair, and step back without it falling apart.</p>
@@ -100,23 +235,61 @@
 <div class="fv-copy"><div class="tag">YOUR GUIDE</div><h2>A salon owner first.<br>A coach because she had to be.</h2><p>She teaches the numbers nobody taught her — rebooking, payroll share, margin.</p></div>
 </div>
 </section>
+<section class="testimonials" id="proof">
+<!-- MOCK PROOF — placeholder testimonials + credentials pending real data. Do not ship as final. -->
+<div class="testimonials-inner">
+<h2>Stylists who stopped guessing</h2>
+<figure class="testimonial reveal">
+<blockquote class="quote">&ldquo;I raised my prices 30% in month one and nobody blinked. I&rsquo;d been leaving rent money on the table for years.&rdquo;</blockquote>
+<figcaption class="author">— Dana R.</figcaption>
+<div class="source">Salon suite owner, 6 yrs behind the chair</div>
+</figure>
+<figure class="testimonial reveal">
+<blockquote class="quote">&ldquo;I finally know my payroll share. I stopped paying myself last and panicking at the end of the month.&rdquo;</blockquote>
+<figcaption class="author">— Marisol T.</figcaption>
+<div class="source">Studio owner, 3 chairs</div>
+</figure>
+<figure class="testimonial reveal">
+<blockquote class="quote">&ldquo;The 12-question score alone told me why I felt stuck. Then the masterclass told me what to do about it.&rdquo;</blockquote>
+<figcaption class="author">— Jess K.</figcaption>
+<div class="source">Commission stylist → suite renter</div>
+</figure>
+<div class="credentials reveal" style="margin-top:60px;text-align:center;border-top:1px solid var(--line);padding-top:48px;">
+<div class="tag" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px;">The person teaching this</div>
+<p style="color:var(--muted);font-size:16px;max-width:560px;margin:0 auto;line-height:1.6;">Miko Pierson — salon owner first, coach second. Built a booked-out book and a working salon before teaching anyone else how. Teaches rebooking math, payroll share, and margin — the numbers beauty school skipped.</p>
+</div>
+</div>
+</section>
 <section class="portfolio" id="portfolio">
-<h2>Proof</h2>
-<p>Stylists who made the jump.</p>
-<div class="gallery"><figure class="gallery-item"><img src="../assets/img/miko-new-1.jpg" alt="Work the next step. — The Modernist" loading="lazy"><figcaption class="label">Work the next step.</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-2.jpg" alt="Artist — The Modernist" loading="lazy"><figcaption class="label">Artist</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-3.jpg" alt="Operator — The Modernist" loading="lazy"><figcaption class="label">Operator</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-4.jpg" alt="Owner — The Modernist" loading="lazy"><figcaption class="label">Owner</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-5.jpg" alt="CEO — The Modernist" loading="lazy"><figcaption class="label">CEO</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-6.jpg" alt="Free — start here — The Modernist" loading="lazy"><figcaption class="label">Free — start here</figcaption></figure>
+<h2>What changes</h2>
+<p>Pricing that isn't guesswork. Systems that hold without you. A path that starts where you actually are — not where a course says you should be.</p>
+<div class="gallery"><figure class="gallery-item"><img src="../assets/img/miko-new-1.jpg" alt="Take the course. — The Institute" loading="lazy"><figcaption class="label">Take the course.</figcaption></figure>
+<figure class="gallery-item"><img src="../assets/img/miko-new-2.jpg" alt="See your stage. — The Institute" loading="lazy"><figcaption class="label">See your stage.</figcaption></figure>
+<figure class="gallery-item"><img src="../assets/img/miko-new-3.jpg" alt="Work the next step. — The Institute" loading="lazy"><figcaption class="label">Work the next step.</figcaption></figure>
+</div>
+</section>
+<section class="faq" id="faq">
+<h2>Straight answers</h2>
+<p>The questions stylists actually ask before they start.</p>
+<div class="faq-grid">
+<details><summary>Is this for me if I rent a chair or a suite?</summary><p>Yes — the ladder starts at the chair, not the lease. If you're behind the chair and want to run it like a business, the score tells you which stage you're actually in.</p></details>
+<details><summary>I'm fully booked already. Why would I need this?</summary><p>Fully booked is exactly when the math matters most. Booked-out stylists are the ones most likely to be underpriced — the workshop exists because being busy and being profitable are different problems.</p></details>
+<details><summary>How much time does it take?</summary><p>The score takes about 3 minutes. The workshop is one live session. The group program is weekly calls plus applying playbooks to your real numbers — designed to fit around a book of clients, not replace it.</p></details>
+<details><summary>Do I need to be planning to open a salon?</summary><p>No. Stages 1 and 2 are for stylists who may never want a lease — owning your numbers, your pricing, and your book is its own destination. Stages 3 and 4 are for when you do.</p></details>
+<details><summary>What does the free score actually tell me?</summary><p>Where you stand across pricing, rebooking, and owner-readiness — your stage on the chair-to-CEO path, and the one thing to fix first. Free, instant, no call required.</p></details>
 </div>
 </section>
 <section class="cta-band">
 <div class="cta-band-bg"><img src="../assets/img/miko-new-12.jpg" alt=""></div>
 <div class="cta-band-content">
-<h2>Start where you are.</h2>
+<h2 id="kinetic">Are you actually ready to own?</h2>
 <p>Take the free Owner Readiness Score — 12 questions that show you exactly where you stand and what to fix first.</p>
-<a class="btn btn-primary" href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">Get your score</a>
+<a class="btn btn-primary" href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener" id="score-cta">Get your score</a>
+<form class="capture" id="capture" novalidate>
+<input type="email" required placeholder="Not ready? Leave your email — get the playbook" aria-label="Email address">
+<button class="btn" type="submit">Send it</button>
+<p class="note"><!-- MOCK CAPTURE — stores locally only; wire to real list before launch. -->Occasional playbooks + course opens. No spam.</p>
+</form>
 </div>
 </section>
 
@@ -150,19 +323,83 @@
 </footer>
 </main>
 
-</main>
+<div id="concierge">
+<div class="cg-panel" id="cg-panel" role="dialog" aria-label="Site concierge">
+<button class="cg-close" id="cg-close" aria-label="Close">✕</button>
+<div class="cg-head"><b>Point you the right way</b><span>Pick what's true for you:</span></div>
+<div class="cg-body" id="cg-body">
+<button class="cg-opt" data-r="booked">I'm fully booked but not profitable</button>
+<button class="cg-opt" data-r="open">I want to open my own salon</button>
+<button class="cg-opt" data-r="notsure">I'm not sure where I stand</button>
+<button class="cg-opt" data-r="who">Who is Miko?</button>
+</div>
+</div>
+<button class="cg-launch" id="cg-launch" aria-haspopup="dialog">Ask us →</button>
+</div>
 
 <script>window.SCRUB_DIR="../assets/frames/v12";window.SCRUB_FRAMES=120;window.SCRUB_FORCE_LOOP=1;window.SCRUB_BANDS=[[0.0,0.12],[0.17,0.29],[0.34,0.46],[0.51,0.63],[0.68,0.8],[0.85,1.0]];</script>
 <script src="../assets/js/scrub.js?v=6"></script>
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.15 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const nav=document.getElementById('nav');
+const thread=document.querySelector('#thread i');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lastY=scrollY,tick=false;
+window.addEventListener('scroll',()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{
+nav.classList.toggle('scrolled',scrollY>60);
+const h=document.documentElement,p=scrollY/(h.scrollHeight-innerHeight);
+if(thread)thread.style.transform=`scaleY(${p})`;
+/* kinetic CTA — letter-spacing tracks scroll velocity */
+const kin=document.getElementById('kinetic');
+if(kin){const v=Math.min(Math.abs(scrollY-lastY)/60,.05);kin.style.setProperty('--kin',v.toFixed(3)+'em');}
+lastY=scrollY;
+/* blueprint scroll-assembly */
+const bp=document.getElementById('blueprint');
+if(bp){const r=bp.getBoundingClientRect();
+const prog=Math.min(Math.max((innerHeight*.7-r.top)/(r.height+innerHeight*.2),0),1);
+const steps=bp.querySelectorAll('.stage-step,.stage-arrow');
+steps.forEach((s,i)=>s.classList.toggle('lit',prog>(i+1)/(steps.length+1)));}
+tick=false;});},{passive:true});
+const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+/* stat counters */
+const statObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
+e.target.querySelectorAll('b[data-count]').forEach(b=>{const end=+b.dataset.count,t0=performance.now();
+(function step(t){const k=Math.min((t-t0)/900,1);b.textContent=Math.round(end*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step);})(t0);});
+statObs.unobserve(e.target);});},{threshold:.4});
+const stats=document.querySelector('.stats');if(stats)statObs.observe(stats);
+/* gallery parallax */
+const gItems=[...document.querySelectorAll('.gallery-item')];
+if(!reduced&&gItems.length){let gTick=false;
+window.addEventListener('scroll',()=>{if(gTick)return;gTick=true;requestAnimationFrame(()=>{
+gItems.forEach((g,i)=>{const r=g.getBoundingClientRect();const p=(r.top+r.height/2-innerHeight/2)/innerHeight;
+g.style.transform=`translateY(${p*(i%2?26:-26)}px)`;});gTick=false;});},{passive:true});}
+/* spotlight */
+if(matchMedia('(hover:hover)').matches){
+document.querySelectorAll('.service-card,.path-card').forEach(c=>{
+c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();
+c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});}
+/* context layer — return visitor + score intent */
+const CTX={seen:'mpi12_seen',score:'mpi12_score'};
+const ctx=document.getElementById('ctx'),ctxMsg=document.getElementById('ctx-msg');
+document.getElementById('ctx-x').addEventListener('click',()=>ctx.hidden=true);
+document.querySelectorAll('a[href*="syllabus.html"]').forEach(a=>a.addEventListener('click',()=>localStorage.setItem(CTX.score,'1')));
+if(localStorage.getItem(CTX.score)){ctxMsg.innerHTML='Welcome back — you started your score last visit. <a href="https://shear-equity-course-production.up.railway.app/syllabus.html">Finish it →</a>';ctx.hidden=false;}
+else if(localStorage.getItem(CTX.seen)){ctxMsg.innerHTML='Welcome back. Still guessing at the numbers? <a href="#programs">The ladder starts free.</a>';ctx.hidden=false;}
+localStorage.setItem(CTX.seen,'1');
+/* concierge — guided paths */
+const CG={booked:'Fully booked but thin margins is a pricing problem — <a href="programs.html#workshop">Price for Profit</a> is built for exactly that. Start free with the <a href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">Readiness Score</a>.',
+open:'That\'s Stage 3 — Owner. The <a href="blueprint.html#owner">Blueprint</a> shows the whole path; the <a href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">score</a> tells you if you\'re ready for the lease.',
+notsure:'Perfect — that\'s what the <a href="https://shear-equity-course-production.up.railway.app/syllabus.html" target="_blank" rel="noopener">Owner Readiness Score</a> is for. 12 questions, 3 minutes, free.',
+who:'Salon owner first, coach second — scroll down to <a href="#proof">her story</a>, or watch her talk below the Blueprint.'};
+const panel=document.getElementById('cg-panel'),cgBody=document.getElementById('cg-body'),launch=document.getElementById('cg-launch');
+launch.addEventListener('click',()=>panel.classList.toggle('open'));
+document.getElementById('cg-close').addEventListener('click',()=>panel.classList.remove('open'));
+cgBody.addEventListener('click',e=>{const b=e.target.closest('.cg-opt');if(!b)return;
+const r=document.createElement('div');r.className='cg-reply';r.innerHTML=CG[b.dataset.r];cgBody.appendChild(r);r.scrollIntoView({block:'nearest'});});
+/* capture — mock: local only until wired to a real list */
+document.getElementById('capture').addEventListener('submit',e=>{e.preventDefault();
+const i=e.target.querySelector('input');if(!i.value.includes('@')){i.focus();return;}
+localStorage.setItem('mpi12_email',i.value);i.value='';i.placeholder='You\'re in — watch your inbox.';i.disabled=true;e.target.querySelector('button').disabled=true;});
 </script>
 <script>(function(){var M={'0':'../index.html','1':'../v10/index.html','2':'../v12/index.html','3':'programs.html','4':'blueprint.html','5':'https://shear-equity-course-production.up.railway.app/syllabus.html','6':'https://shear-equity-course-production.up.railway.app/login.html','7':'https://app-production-fd4a.up.railway.app'};document.addEventListener('keydown',function(e){if(e.target.matches('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;var t=M[e.key];if(t)location.href=t;});})();</script></body>
 </html>
