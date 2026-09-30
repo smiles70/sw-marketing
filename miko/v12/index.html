@@ -38,6 +38,18 @@
 .v12 .book-btn:hover{transform:translateY(-2px)}
 .v12 .testimonial{transition:transform var(--d1) var(--ease),opacity var(--d2) var(--ease)}
 .v12 .testimonial:hover{transform:translateX(6px)}
+/* testimonial dynamism — staggered rise + accent bar draw + quote mark bloom */
+.v12 .testimonial.reveal{opacity:0;transform:translateY(30px)}
+.v12 .testimonial.reveal.visible{opacity:1;transform:none}
+.v12 .testimonial{position:relative}
+.v12 .testimonial::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform var(--d3) var(--ease) .15s}
+.v12 .testimonial.visible::before{transform:scaleY(1)}
+.v12 .testimonial .quote{position:relative}
+.v12 .testimonial .quote::before{content:"\201C";position:absolute;left:-14px;top:-34px;font-family:var(--font-display);font-size:90px;line-height:1;color:var(--accent);opacity:0;transform:scale(.4) rotate(-12deg);transition:opacity var(--d2) var(--ease) .35s,transform var(--d2) cubic-bezier(.34,1.56,.64,1) .35s}
+.v12 .testimonial.visible .quote::before{opacity:.22;transform:none}
+.v12 .testimonial .author,.v12 .testimonial .source{opacity:0;transform:translateX(-10px);transition:opacity var(--d2) var(--ease) .5s,transform var(--d2) var(--ease) .5s}
+.v12 .testimonial.visible .author,.v12 .testimonial.visible .source{opacity:1;transform:none}
+figure.testimonial{border-left:none!important}
 /* staggered cascades — grids reveal in reading order */
 .v12 .service-card.reveal:nth-child(2){transition-delay:.08s}
 .v12 .service-card.reveal:nth-child(3){transition-delay:.16s}
