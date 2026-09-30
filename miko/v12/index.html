@@ -124,6 +124,18 @@ figure.testimonial{border-left:none!important}
 .v12 .path-card .arrow::after{content:"";width:22px;height:10px;background:currentColor;clip-path:polygon(0 42%,78% 42%,62% 0,100% 50%,62% 100%,78% 58%,0 58%);color:var(--accent);transition:transform var(--d1) var(--ease)}
 .v12 .path-card:hover .arrow::after{transform:translateX(6px)}
 .v12 summary::after{content:"+";width:22px;height:22px;border:1.5px solid var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1}
+/* bespoke chrome — scrollbar, selection, focus, drawn close buttons */
+.v12 ::-webkit-scrollbar{width:10px}
+.v12 ::-webkit-scrollbar-track{background:var(--bg)}
+.v12 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:5px;border:2px solid var(--bg)}
+.v12 ::selection{background:var(--accent);color:var(--bg)}
+.v12 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.v12 #ctx-x,#concierge .cg-close{font-size:0;width:26px;height:26px;position:relative;border:1px solid currentColor;border-radius:50%;opacity:.7;transition:opacity var(--d1),transform var(--d1) var(--ease);display:block}
+.v12 #ctx-x::before,.v12 #ctx-x::after,#concierge .cg-close::before,#concierge .cg-close::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:currentColor}
+.v12 #ctx-x::before,#concierge .cg-close::before{transform:translate(-50%,-50%) rotate(45deg)}
+.v12 #ctx-x::after,#concierge .cg-close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+.v12 #ctx-x:hover,#concierge .cg-close:hover{opacity:1;transform:rotate(90deg)}
+.v12 .cg-launch i.arr{display:inline-block;width:16px;height:9px;background:currentColor;clip-path:polygon(0 40%,75% 40%,58% 0,100% 50%,58% 100%,75% 60%,0 60%);margin-left:8px;vertical-align:0}
 /* spotlight hover */
 @media(hover:hover){
 .v12 .service-card,.v12 .path-card{position:relative;overflow:hidden}
@@ -367,7 +379,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <button class="cg-opt" data-r="who">Who is Miko?</button>
 </div>
 </div>
-<button class="cg-launch" id="cg-launch" aria-haspopup="dialog">Ask us →</button>
+<button class="cg-launch" id="cg-launch" aria-haspopup="dialog">Ask us <i class="arr" aria-hidden="true"></i></button>
 </div>
 
 <script>window.SCRUB_DIR="../assets/frames/v12";window.SCRUB_FRAMES=120;window.SCRUB_FORCE_LOOP=1;window.SCRUB_BANDS=[[0.0,0.12],[0.17,0.29],[0.34,0.46],[0.51,0.63],[0.68,0.8],[0.85,1.0]];</script>
