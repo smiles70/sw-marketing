@@ -62,7 +62,10 @@ figure.testimonial{border-left:none!important}
 .v12 .stage-arrow{opacity:.15;transition:opacity var(--d2) var(--ease)}
 .v12 .stage-arrow.lit{opacity:1}
 /* kinetic CTA — headline tracks scroll velocity */
+.v12 .cta-band{background:#241E19} /* dark fallback so light text never sits on cream if img fails */
 .v12 .cta-band h2{transition:letter-spacing var(--d1) ease-out;font-variation-settings:"wght" 700;letter-spacing:var(--kin,0em)}
+/* measure cap — no paragraph wider than ~65ch */
+.v12 .portfolio p,.v12 .credentials p{max-width:65ch;margin-left:auto;margin-right:auto}
 /* context layer — return visitor banner */
 .v12 .context-bar{max-width:1120px;margin:0 auto;padding:14px 5vw;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:var(--muted)}
 .v12 .context-bar a{color:var(--accent);font-weight:600;text-decoration:none}
@@ -107,6 +110,18 @@ figure.testimonial{border-left:none!important}
 /* seam wipes — sections diagonal-clip open on entry */
 .v12 section.wipe{clip-path:polygon(0 6%,100% 0,100% 94%,0 100%);opacity:.35;transition:clip-path var(--d3) var(--ease),opacity var(--d3) var(--ease)}
 .v12 section.wipe.visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);opacity:1}
+/* bespoke markers — no stock glyphs */
+.v12 .stage-arrow{font-size:0;width:26px;height:2px;background:var(--accent);position:relative;transition:width var(--d1) var(--ease)}
+.v12 .stage-arrow::after{content:"";position:absolute;right:-6px;top:-3.5px;width:9px;height:9px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:rotate(45deg)}
+.v12 .service-card ul{list-style:none;padding-left:0}
+.v12 .service-card li{position:relative;padding-left:20px}
+.v12 .service-card li::before{content:"";position:absolute;left:0;top:.45em;width:7px;height:7px;background:var(--accent);transform:rotate(45deg);transition:transform var(--d1) var(--ease)}
+.v12 .service-card:hover li::before{transform:rotate(225deg)}
+.v12 .path-card .arrow{font-size:0;display:inline-flex;align-items:center;gap:10px}
+.v12 .path-card .arrow::before{content:attr(data-label);font-size:12px;letter-spacing:.12em;font-weight:600}
+.v12 .path-card .arrow::after{content:"";width:22px;height:10px;background:currentColor;clip-path:polygon(0 42%,78% 42%,62% 0,100% 50%,62% 100%,78% 58%,0 58%);color:var(--accent);transition:transform var(--d1) var(--ease)}
+.v12 .path-card:hover .arrow::after{transform:translateX(6px)}
+.v12 summary::after{content:"+";width:22px;height:22px;border:1.5px solid var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1}
 /* spotlight hover */
 @media(hover:hover){
 .v12 .service-card,.v12 .path-card{position:relative;overflow:hidden}
@@ -166,7 +181,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <div class="tag">FREE — START HERE</div>
 <h3>Owner Readiness Score + Masterclass</h3>
 <p>12 questions, your stage, and what to fix first — plus the free class that starts the work.</p>
-<span class="arrow">TAKE IT →</span>
+<span class="arrow" data-label="TAKE IT">→</span>
 </div>
 </a>
 <a class="path-card reveal" href="programs.html">
@@ -174,7 +189,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <div class="tag">PROGRAMS</div>
 <h3>The Owner’s Chair</h3>
 <p>The numbers are known and systems are forming — she’s ready to run the salon, not just the chair.</p>
-<span class="arrow">SEE PROGRAMS →</span>
+<span class="arrow" data-label="SEE PROGRAMS">→</span>
 </div>
 </a>
 </div>
