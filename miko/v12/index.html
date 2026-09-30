@@ -92,6 +92,9 @@
 .v12 .how-cell b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .v12 .how-cell p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
 @media(max-width:760px){.v12 .how-it-runs{grid-template-columns:1fr 1fr}#concierge .cg-panel{width:calc(100vw - 40px)}}
+/* seam wipes — sections diagonal-clip open on entry */
+.v12 section.wipe{clip-path:polygon(0 6%,100% 0,100% 94%,0 100%);opacity:.35;transition:clip-path var(--d3) var(--ease),opacity var(--d3) var(--ease)}
+.v12 section.wipe.visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);opacity:1}
 /* spotlight hover */
 @media(hover:hover){
 .v12 .service-card,.v12 .path-card{position:relative;overflow:hidden}
@@ -102,6 +105,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 @media(prefers-reduced-motion:reduce){
 .v12 .service-card,.v12 .path-card,.v12 .stage-step,.v12 .gallery-item,.v12 .gallery-item img,.v12 .testimonial,.v12 .btn,.v12 .book-btn{transition:none!important;transform:none!important}
 .v12 .stage-step,.v12 .stage-arrow{opacity:1!important;transform:none!important}
+.v12 section.wipe{clip-path:none!important;opacity:1!important}
 #thread{display:none}
 }
 </style>
@@ -163,7 +167,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 </a>
 </div>
 </section>
-<section class="services" id="programs">
+<section class="services wipe" id="programs">
 <div class="services-inner">
 <h2>The offer ladder</h2>
 <p>Free assessment first, then a program matched to your stage — never more than you’re ready for.</p>
@@ -202,7 +206,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:36px;">Exact pricing is shared after your score — the right program depends on your stage, and you never pay for a rung above where you are.</p>
 </div>
 </section>
-<section class="blueprint" id="blueprint">
+<section class="blueprint wipe" id="blueprint">
 <div class="blueprint-inner">
 <h2>The Blueprint</h2>
 <p>Four stages. One path from chair to CEO.</p>
@@ -229,13 +233,13 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 </div>
 </div>
 </section>
-<section class="founder-video">
+<section class="founder-video wipe">
 <div class="founder-video-inner">
-<video src="../assets/video/founder-talk.mp4" poster="../assets/video/poster-founder.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Miko Pierson"></video>
+<video src="../assets/video/founder-talk.mp4" poster="../assets/img/v12-graded/poster-founder.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Miko Pierson"></video>
 <div class="fv-copy"><div class="tag">YOUR GUIDE</div><h2>A salon owner first.<br>A coach because she had to be.</h2><p>She teaches the numbers nobody taught her — rebooking, payroll share, margin.</p></div>
 </div>
 </section>
-<section class="testimonials" id="proof">
+<section class="testimonials wipe" id="proof">
 <!-- MOCK PROOF — placeholder testimonials + credentials pending real data. Do not ship as final. -->
 <div class="testimonials-inner">
 <h2>Stylists who stopped guessing</h2>
@@ -260,15 +264,15 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 </div>
 </div>
 </section>
-<section class="portfolio" id="portfolio">
+<section class="portfolio wipe" id="portfolio">
 <h2>What changes</h2>
 <p>Pricing that isn't guesswork. Systems that hold without you. A path that starts where you actually are — not where a course says you should be.</p>
-<div class="gallery"><figure class="gallery-item"><img src="../assets/img/miko-new-1.jpg" alt="Take the course. — The Institute" loading="lazy"><figcaption class="label">Take the course.</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-2.jpg" alt="See your stage. — The Institute" loading="lazy"><figcaption class="label">See your stage.</figcaption></figure>
-<figure class="gallery-item"><img src="../assets/img/miko-new-3.jpg" alt="Work the next step. — The Institute" loading="lazy"><figcaption class="label">Work the next step.</figcaption></figure>
+<div class="gallery"><figure class="gallery-item"><img src="../assets/img/v12-graded/miko-new-1.jpg" alt="Take the course. — The Institute" loading="lazy"><figcaption class="label">Take the course.</figcaption></figure>
+<figure class="gallery-item"><img src="../assets/img/v12-graded/miko-new-2.jpg" alt="See your stage. — The Institute" loading="lazy"><figcaption class="label">See your stage.</figcaption></figure>
+<figure class="gallery-item"><img src="../assets/img/v12-graded/miko-new-3.jpg" alt="Work the next step. — The Institute" loading="lazy"><figcaption class="label">Work the next step.</figcaption></figure>
 </div>
 </section>
-<section class="faq" id="faq">
+<section class="faq wipe" id="faq">
 <h2>Straight answers</h2>
 <p>The questions stylists actually ask before they start.</p>
 <div class="faq-grid">
@@ -280,7 +284,7 @@ background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,
 </div>
 </section>
 <section class="cta-band">
-<div class="cta-band-bg"><img src="../assets/img/miko-new-12.jpg" alt=""></div>
+<div class="cta-band-bg"><img src="../assets/img/v12-graded/miko-new-12.jpg" alt=""></div>
 <div class="cta-band-content">
 <h2 id="kinetic">Are you actually ready to own?</h2>
 <p>Take the free Owner Readiness Score — 12 questions that show you exactly where you stand and what to fix first.</p>
@@ -360,7 +364,7 @@ const steps=bp.querySelectorAll('.stage-step,.stage-arrow');
 steps.forEach((s,i)=>s.classList.toggle('lit',prog>(i+1)/(steps.length+1)));}
 tick=false;});},{passive:true});
 const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal,.wipe').forEach(el=>obs.observe(el));
 /* stat counters */
 const statObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
 e.target.querySelectorAll('b[data-count]').forEach(b=>{const end=+b.dataset.count,t0=performance.now();
