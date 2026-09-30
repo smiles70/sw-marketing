@@ -50,6 +50,13 @@
 .v10 .how-cell b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .v10 .how-cell p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
 @media(max-width:760px){.v10 .how-it-runs{grid-template-columns:1fr 1fr}}
+/* spotlight hover — cursor-tracked glow inside cards (pointer devices only) */
+@media(hover:hover){
+.v10 .service-card,.v10 .path-card{position:relative;overflow:hidden}
+.v10 .service-card::after,.v10 .path-card::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .35s;pointer-events:none;
+background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,85,48,.09),transparent 42%)}
+.v10 .service-card:hover::after,.v10 .path-card:hover::after{opacity:1}
+}
 @media(prefers-reduced-motion:reduce){.v10 .service-card,.v10 .path-card,.v10 .stage-step,.v10 .gallery-item,.v10 .gallery-item img,.v10 .testimonial,.v10 .btn,.v10 .book-btn{transition:none!important;transform:none!important}}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Miko Pierson Institute","description":"Miko Pierson Institute — Business coaching for hairstylists. Beauty school teaches the craft. Nobody teaches the business.","founder":{"@type":"Person","name":"Miko Pierson"}}</script>
 </head>
@@ -278,6 +285,11 @@ if(!reduced&&gItems.length){let tick=false;
 window.addEventListener('scroll',()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{
 gItems.forEach((g,i)=>{const r=g.getBoundingClientRect();const p=(r.top+r.height/2-innerHeight/2)/innerHeight;
 g.style.transform=`translateY(${p*(i%2?26:-26)}px)`;});tick=false;});},{passive:true});}
+/* spotlight — feed cursor pos into card vars */
+if(matchMedia('(hover:hover)').matches){
+document.querySelectorAll('.service-card,.path-card').forEach(c=>{
+c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();
+c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});}
 </script>
 <script>(function(){var M={'0':'../index.html','1':'../v10/index.html','2':'../v12/index.html','3':'programs.html','4':'blueprint.html','5':'https://shear-equity-course-production.up.railway.app/syllabus.html','6':'https://shear-equity-course-production.up.railway.app/login.html','7':'https://app-production-fd4a.up.railway.app'};document.addEventListener('keydown',function(e){if(e.target.matches('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;var t=M[e.key];if(t)location.href=t;});})();</script></body>
 </html>
