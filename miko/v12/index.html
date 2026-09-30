@@ -106,7 +106,9 @@ figure.testimonial{border-left:none!important}
 .v12 .how-cell{border-top:2px solid var(--accent);padding-top:16px}
 .v12 .how-cell b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .v12 .how-cell p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
-@media(max-width:760px){.v12 .how-it-runs{grid-template-columns:1fr 1fr}#concierge .cg-panel{width:calc(100vw - 40px)}}
+@media(max-width:760px){.v12 .how-it-runs{grid-template-columns:1fr 1fr}#concierge .cg-panel{width:calc(100vw - 40px)}
+/* mobile hierarchy — keep display vs body ratio ≥1.5 */
+.v12 h2{font-size:clamp(28px,7vw,34px)!important}}
 /* seam wipes — sections diagonal-clip open on entry */
 .v12 section.wipe{clip-path:polygon(0 6%,100% 0,100% 94%,0 100%);opacity:.35;transition:clip-path var(--d3) var(--ease),opacity var(--d3) var(--ease)}
 .v12 section.wipe.visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);opacity:1}
