@@ -13,7 +13,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/video/poster-v10.jpg">
 <link rel="stylesheet" href="../assets/css/scrub-beauty.css?v=8">
+<style>/* a11y: darken muted 8A7A6C(3.59) -> 6E6154(≥4.5) on cream + card */
+.v10{--muted:#6E6154}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Miko Pierson Institute","description":"Miko Pierson Institute — Business coaching for hairstylists. Beauty school teaches the craft. Nobody teaches the business.","founder":{"@type":"Person","name":"Miko Pierson"}}</script>
 </head>
 <body class="v10">
@@ -21,9 +24,8 @@
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
 <a class="brand" href="../index.html" aria-label="Miko Pierson — home">Miko <span>Pierson</span></a>
 <div class="links" role="menubar">
-<a href="../index.html" role="menuitem">Options</a>
-<a href="https://app-production-fd4a.up.railway.app" role="menuitem">Admin</a>
-<a href="#portfolio" role="menuitem">Proof</a>
+<a href="#blueprint" role="menuitem">Blueprint</a>
+<a href="#proof" role="menuitem">Results</a>
 <a href="#coaching" role="menuitem">Coaching</a>
 <a href="https://shear-equity-course-production.up.railway.app/syllabus.html" class="book-btn" role="menuitem" target="_blank" rel="noopener">Take the Course</a>
 </div>
@@ -130,6 +132,31 @@
 <div class="founder-video-inner">
 <video src="../assets/video/founder-talk.mp4" poster="../assets/video/poster-founder.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Miko Pierson"></video>
 <div class="fv-copy"><div class="tag">YOUR GUIDE</div><h2>A salon owner first.<br>A coach because she had to be.</h2><p>She teaches the numbers nobody taught her — rebooking, payroll share, margin.</p></div>
+</div>
+</section>
+<section class="testimonials" id="proof">
+<!-- MOCK PROOF — placeholder testimonials + credentials pending real data. Do not ship as final. -->
+<div class="testimonials-inner">
+<h2>Stylists who stopped guessing</h2>
+<figure class="testimonial reveal">
+<blockquote class="quote">&ldquo;I raised my prices 30% in month one and nobody blinked. I&rsquo;d been leaving rent money on the table for years.&rdquo;</blockquote>
+<figcaption class="author">— Dana R.</figcaption>
+<div class="source">Salon suite owner, 6 yrs behind the chair</div>
+</figure>
+<figure class="testimonial reveal">
+<blockquote class="quote">&ldquo;I finally know my payroll share. I stopped paying myself last and panicking at the end of the month.&rdquo;</blockquote>
+<figcaption class="author">— Marisol T.</figcaption>
+<div class="source">Studio owner, 3 chairs</div>
+</figure>
+<figure class="testimonial reveal">
+<blockquote class="quote">&ldquo;The 12-question score alone told me why I felt stuck. Then the masterclass told me what to do about it.&rdquo;</blockquote>
+<figcaption class="author">— Jess K.</figcaption>
+<div class="source">Commission stylist → suite renter</div>
+</figure>
+<div class="credentials reveal" style="margin-top:60px;text-align:center;border-top:1px solid var(--line);padding-top:48px;">
+<div class="tag" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px;">The person teaching this</div>
+<p style="color:var(--muted);font-size:16px;max-width:560px;margin:0 auto;line-height:1.6;">Miko Pierson — salon owner first, coach second. Built a booked-out book and a working salon before teaching anyone else how. Teaches rebooking math, payroll share, and margin — the numbers beauty school skipped.</p>
+</div>
 </div>
 </section>
 <section class="portfolio" id="portfolio">
