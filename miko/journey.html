@@ -71,7 +71,7 @@
 .crmband .d{font-size:13.5px;color:#F4EEE6;opacity:.9}
 .loopband{margin-top:14px;border:1.5px dashed #D08A5E;border-radius:14px;padding:13px 22px;font-size:13.5px;color:#9C5530;font-style:italic;text-align:center}
 .ovall{opacity:0;transform:translateY(8px);animation:jcin .55s var(--ease) forwards}
-.ovall:nth-child(2){animation-delay:.12s}.ovall:nth-child(3){animation-delay:.22s}.ovall:nth-child(4){animation-delay:.32s}.ovall:nth-child(5){animation-delay:.42s}.ovall:nth-child(6){animation-delay:.52s}.ovall:nth-child(7){animation-delay:.62s}
+.ovall:nth-child(2){animation-delay:.12s}.ovall:nth-child(3){animation-delay:.22s}.ovall:nth-child(4){animation-delay:.32s}.ovall:nth-child(5){animation-delay:.42s}.ovall:nth-child(6){animation-delay:.52s}.ovall:nth-child(7){animation-delay:.62s}.ovall:nth-child(8){animation-delay:.72s}
 
 @keyframes jcin{to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.jcard,.chev,.ovall{animation:none;opacity:1;transform:none}}
@@ -114,8 +114,19 @@
 </div>
 </div>
 
-<!-- STEP 3 · +website -->
+<!-- STEP 3 · social -->
 <div class="stepview" id="V3">
+<div class="lanetag">today · instagram + tiktok</div>
+<div class="cards">
+  <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>scrolls her feed</b><i>sees the work</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>2</span></span><span class="kicker">She’s</span><b>impressed — proof</b><i>‘she’s the real thing’</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>3</span></span><span class="kicker">She wants in</span><b>link in bio — where to?</b><i>nowhere to land</i></div><span class="chev"></span>
+  <div class="jcard dead"><span class="num"><span>4</span></span><span class="kicker">Then</span><b>Ends</b><i>the feed can’t hold her</i></div>
+</div>
+</div>
+
+<!-- STEP 4 · +website -->
+<div class="stepview" id="V4">
 <div class="lanetag new">+ website · awareness</div>
 <div class="cards">
   <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>a stranger searches</b><i>looking</i></div><span class="chev"></span>
@@ -125,8 +136,8 @@
 </div>
 </div>
 
-<!-- STEP 4 · +readiness score -->
-<div class="stepview" id="V4">
+<!-- STEP 5 · +readiness score -->
+<div class="stepview" id="V5">
 <div class="lanetag new">+ readiness score · placement</div>
 <div class="cards">
   <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>takes the free score</b><i>twelve questions</i></div><span class="chev"></span>
@@ -136,8 +147,8 @@
 </div>
 </div>
 
-<!-- STEP 5 · +course -->
-<div class="stepview" id="V5">
+<!-- STEP 6 · +course -->
+<div class="stepview" id="V6">
 <div class="lanetag new">+ course · the third stream</div>
 <div class="cards">
   <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>workshop done</b><i>momentum</i></div><span class="chev"></span>
@@ -148,13 +159,16 @@
 </div>
 </div>
 
-<!-- STEP 6 · whole picture + CRM -->
-<div class="stepview" id="V6">
+<!-- STEP 7 · whole picture + CRM -->
+<div class="stepview" id="V7">
 <div class="ovall"><div class="ovlane"><span class="ovtag">today · the chair</span><div class="ovcards">
   <span class="ovcard">in her chair</span><span class="ovcard">hears about the workshop</span><span class="ovcard">attends — lit up</span><span class="ovcard dead">ends · no follow-up</span>
 </div></div></div>
 <div class="ovall"><div class="ovlane"><span class="ovtag">today · word of mouth</span><div class="ovcards">
   <span class="ovcard">tells a friend</span><span class="ovcard">friend tries to find her</span><span class="ovcard">a link in bio</span><span class="ovcard dead">ends · gone</span>
+</div></div></div>
+<div class="ovall"><div class="ovlane"><span class="ovtag">today · instagram + tiktok</span><div class="ovcards">
+  <span class="ovcard">scrolls her feed</span><span class="ovcard">impressed — proof</span><span class="ovcard">link in bio — where to?</span><span class="ovcard dead">ends · feed can’t hold her</span>
 </div></div></div>
 <div class="ovall"><div class="ovlane"><span class="ovtag new">+ website · awareness</span><div class="ovcards">
   <span class="ovcard">a stranger searches</span><span class="ovcard">finds Miko’s site</span><span class="ovcard">reads what she offers</span><span class="ovcard goal">reaches the free score</span>
@@ -183,13 +197,15 @@
       lead:'A client asks — Miko mentions the workshop — she attends. Then the path ends. No follow-up exists.'},
     {view:'V2', title:'Word of mouth is the only engine — and there is no website.',
       lead:'An attendee tells a friend. The friend searches — and finds a link in bio, not a home. Same ending: gone.'},
-    {view:'V3', title:'+ The website makes her findable.',
-      lead:'The website’s role is awareness — today a search ends at a link in bio. This is the front door that never closes.'},
-    {view:'V4', title:'+ The score places her.',
+    {view:'V3', title:'Social proves the work — but proof is not a door.',
+      lead:'Instagram and TikTok show her craft — to ~2–3% of followers, with nowhere to land. The feed impresses, then lets her go.'},
+    {view:'V4', title:'+ The website gives the proof somewhere to land.',
+      lead:'The website’s role is awareness — the door the link in bio has been missing. Search catches her too, day or night.'},
+    {view:'V5', title:'+ The score places her.',
       lead:'The readiness score’s role is placement — twelve honest questions, and the right next step picks itself.'},
-    {view:'V5', title:'+ The course keeps her.',
+    {view:'V6', title:'+ The course keeps her.',
       lead:'The curriculum’s role is the carry — the workshop stops being the end and becomes the on-ramp. The third income stream.'},
-    {view:'V6', title:'+ The CRM remembers everyone.',
+    {view:'V7', title:'+ The CRM remembers everyone.',
       lead:'The CRM’s role is memory — every student on every path is known, and graduates bring friends back to any door.'},
   ];
   var step = -1;
