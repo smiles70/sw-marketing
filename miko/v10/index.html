@@ -57,6 +57,11 @@
 background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(156,85,48,.09),transparent 42%)}
 .v10 .service-card:hover::after,.v10 .path-card:hover::after{opacity:1}
 }
+/* hero final band — left quiet zone (face center); directional scrim behind text only */
+.v10 .scrim{background:linear-gradient(102deg,#1E1915d9 0%,#1E191580 30%,#1E191500 58%),linear-gradient(#0000 45%,#000a)}
+.v10 .band.final{left:8vw;right:auto;max-width:42vw;align-items:flex-start;text-align:left;bottom:16vh}
+.v10 .band.final h2{text-align:left;max-width:14ch}
+@media(max-width:900px){.v10 .band.final{max-width:84vw;bottom:14vh}.v10 .band.final h2{max-width:18ch}}
 /* v10 bespoke chrome + markers */
 .v10 ::-webkit-scrollbar{width:10px}
 .v10 ::-webkit-scrollbar-track{background:var(--bg)}
