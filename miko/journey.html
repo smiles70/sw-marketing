@@ -10,39 +10,43 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-.journey-wrap{max-width:1080px;margin:0 auto;padding:34px 6vw 40px}
-.jmap-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.jmap{width:100%;min-width:760px;height:auto;display:block;cursor:pointer}
+.journey-wrap{max-width:1100px;margin:0 auto;padding:30px 5vw 40px}
+.jmap{width:100%;height:auto;display:block;cursor:pointer}
 .jmap text{font-family:'Hanken Grotesk',sans-serif}
-.jmap .lbl{font-size:13.5px;fill:#4A423B}
-.jmap .sub{font-size:12px;fill:#8A7A6C}
-.jmap .lane-name{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;fill:#8A7A6C}
+.jmap .lbl{font-size:19px;fill:#4A423B}
+.jmap .lane-name{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;fill:#8A7A6C}
 .jmap .lane-new{fill:#9C5530}
-.jmap .node{fill:#F4EEE6;stroke:#1E1915;stroke-width:2}
+.jmap .node{fill:#F4EEE6;stroke:#1E1915;stroke-width:2.4}
 .jmap .node-far{fill:#1E1915}
-.jmap .path{stroke:#1E1915;stroke-width:2.2;fill:none}
-.jmap .path-old{stroke:#8A7A6C;stroke-width:1.8}
-.jmap .dead{stroke:#9C5530;stroke-width:1.8;fill:none}
-.jmap .trail{stroke:#D9CFC0;stroke-width:1.8;stroke-dasharray:3 6;fill:none}
+.jmap .path{stroke:#1E1915;stroke-width:3;fill:none}
+.jmap .path-old{stroke:#8A7A6C;stroke-width:2.4}
+.jmap .dead{stroke:#9C5530;stroke-width:2.2;fill:none}
 .jmap .mot{fill:#D08A5E}
-.jmap .emo{font-size:11px;fill:#8A7A6C;font-style:italic}
-.jmap .ends{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;fill:#9C5530}
+.jmap .emo{font-size:15px;fill:#8A7A6C;font-style:italic}
+.jmap .ends{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;fill:#9C5530}
 .jmap .known{fill:#1E1915}
-.jmap .known-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:#1E1915;font-weight:700}
-.jmap .loop{stroke:#D08A5E;stroke-width:2;fill:none}
-.jmap .loop-tag{font-size:11.5px;fill:#8A7A6C;font-style:italic}
-.jmap .mot-leader{font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:#D08A5E;font-weight:700}
-.st{opacity:0;transition:opacity .65s ease}
-.st.on{opacity:1}
+.jmap .known-tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;fill:#1E1915;font-weight:700}
+.jmap .loop{stroke:#D08A5E;stroke-width:2.4;fill:none}
+.jmap .loop-tag{font-size:14px;fill:#8A7A6C;font-style:italic}
+.jmap .mot-leader{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;fill:#D08A5E;font-weight:700}
+.stepview{display:none}
+.stepview.on{display:block}
 .jcap{font-size:12px;color:#8A7A6C;font-style:italic;margin-top:8px}
 .jstep{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:14px}
 .jstep b{color:#9C5530;font-weight:700}
 .jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;margin-top:22px}
 .jback:hover{color:#6B3A24}
-@media(prefers-reduced-motion:reduce){.st{transition:none}}
+/* overview scale-down: the full map reuses bigger type at a taller viewBox */
+.ov .lbl{font-size:15px}
+.ov .emo{font-size:11.5px}
+.ov .ends{font-size:12px}
+.ov .lane-name{font-size:11px}
+.ov .loop-tag{font-size:12.5px}
+.ov .known-tag{font-size:10.5px}
+.ov .mot-leader{font-size:10px}
 </style>
 </head>
-<body data-step="0">
+<body>
 <nav class="nav scrolled">
 <a class="brand" href="index.html">Miko <span>Pierson</span></a>
 <div class="links">
@@ -53,112 +57,125 @@
 <div class="eyebrow">The student journey</div>
 <h1 class="subh" id="jtitle">The chair is the door.</h1>
 <p class="sublead" id="jlead">Today a stylist finds Miko one way: she’s already in the chair.</p>
-<p class="jcap">Built one path at a time — press space or tap the map · schematic, not to scale</p>
-<div class="jmap-scroll">
-<svg class="jmap" viewBox="0 0 960 560" role="img" aria-labelledby="jt jdesc">
-<title id="jt">Student journey map</title>
-<desc id="jdesc">Today two dead-end paths exist — chair referral and word of mouth. The proposed website adds awareness, the course carries students past the workshop, and the CRM remembers everyone and loops graduates back.</desc>
+<p class="jcap">One path per step — press space or tap the graphic · schematic, not to scale</p>
 
-<defs>
-<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker>
-<marker id="ahc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#D08A5E"/></marker>
-</defs>
+<!-- ══ STEP 1 · chair → workshop → ends ══ -->
+<div class="stepview" id="V1">
+<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The chair path">
+<svg id="V1-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><svg id="V2-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><path class="path path-old" d="M120 80 L 735 80"/></svg></svg>
+<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="755" cy="80" r="9"/>
+<path class="dead" d="M755 71 l 13 13 m 0 -13 l -13 13" transform="translate(12,0)"/>
+<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">in her chair</text>
+<text class="emo" x="120" y="140" text-anchor="middle">trusts her</text>
+<text class="lbl" x="330" y="118" text-anchor="middle">hears about the workshop</text>
+<text class="emo" x="330" y="140" text-anchor="middle">curious</text>
+<text class="lbl" x="540" y="118" text-anchor="middle">attends — lit up</text>
+<text class="emo" x="540" y="140" text-anchor="middle">fired up</text>
+<text class="ends" x="795" y="86">ends</text>
+<text class="emo" x="795" y="118">no follow-up</text>
+</svg>
+</div>
 
-<!-- ══ STEP 1 · LANE A — chair → workshop → ends ══ -->
-<g class="st" id="SA">
-  <text class="lane-name" x="24" y="76">today · the chair</text>
-  <svg id="laneA" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
-    <path class="path path-old" d="M120 105 L 740 105"/>
-  </svg>
-  <circle class="node" cx="120" cy="105" r="7"/>
-  <circle class="node" cx="330" cy="105" r="7"/>
-  <circle class="node" cx="540" cy="105" r="7"/>
-  <circle class="node" cx="760" cy="105" r="7"/>
-  <text class="lbl" x="120" y="136" text-anchor="middle" font-weight="600">in her chair</text>
-  <text class="emo" x="120" y="152" text-anchor="middle">trusts her</text>
-  <text class="lbl" x="330" y="136" text-anchor="middle">hears about the workshop</text>
-  <text class="emo" x="330" y="152" text-anchor="middle">curious</text>
-  <text class="lbl" x="540" y="136" text-anchor="middle">attends — lit up</text>
-  <text class="emo" x="540" y="152" text-anchor="middle">fired up</text>
-  <text class="ends" x="760" y="140" text-anchor="middle">ends</text>
-  <path class="dead" d="M755 96 l 10 10 m 0 -10 l -10 10"/>
-  <text class="emo" x="795" y="140">no follow-up</text>
-</g>
+<!-- ══ STEP 2 · word of mouth → same end ══ -->
+<div class="stepview" id="V2">
+<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The word-of-mouth path">
+<path class="path path-old" d="M120 80 L 735 80"/>
+<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="755" cy="80" r="9"/>
+<path class="dead" d="M755 71 l 13 13 m 0 -13 l -13 13" transform="translate(12,0)"/>
+<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">tells a friend</text>
+<text class="emo" x="120" y="140" text-anchor="middle">talks it up</text>
+<text class="lbl" x="330" y="118" text-anchor="middle">friend tries to find her</text>
+<text class="emo" x="330" y="140" text-anchor="middle">hunts around</text>
+<text class="lbl" x="540" y="118" text-anchor="middle">maybe reaches a workshop</text>
+<text class="emo" x="540" y="140" text-anchor="middle">hopes it’s real</text>
+<text class="ends" x="795" y="86">ends</text>
+<text class="emo" x="795" y="118">…gone</text>
+</svg>
+</div>
 
-<!-- ══ STEP 2 · LANE B — word of mouth → same end ══ -->
-<g class="st" id="SB">
-  <text class="lane-name" x="24" y="206">today · word of mouth</text>
-  <svg id="laneB" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
-    <path class="path path-old" d="M120 235 L 740 235"/>
-  </svg>
-  <circle class="node" cx="120" cy="235" r="7"/>
-  <circle class="node" cx="330" cy="235" r="7"/>
-  <circle class="node" cx="540" cy="235" r="7"/>
-  <circle class="node" cx="760" cy="235" r="7"/>
-  <text class="lbl" x="120" y="266" text-anchor="middle" font-weight="600">tells a friend</text>
-  <text class="emo" x="120" y="282" text-anchor="middle">talks it up</text>
-  <text class="lbl" x="330" y="266" text-anchor="middle">friend tries to find her</text>
-  <text class="emo" x="330" y="282" text-anchor="middle">hunts around</text>
-  <text class="lbl" x="540" y="266" text-anchor="middle">maybe reaches a workshop</text>
-  <text class="emo" x="540" y="282" text-anchor="middle">hopes it’s real</text>
-  <text class="ends" x="760" y="270" text-anchor="middle">ends</text>
-  <path class="dead" d="M755 226 l 10 10 m 0 -10 l -10 10"/>
-  <text class="emo" x="795" y="270">…gone</text>
-</g>
+<!-- ══ STEP 3 · +website: stranger → warm arrival ══ -->
+<div class="stepview" id="V3">
+<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The website path">
+<svg id="V3-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><path class="path" d="M120 80 L 850 80" marker-end="url(#ah3)"/></svg>
+<defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker></defs>
+<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="mot" cx="330" cy="80" r="3.4"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="780" cy="80" r="9"/>
+<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">a stranger searches</text>
+<text class="emo" x="120" y="140" text-anchor="middle">looking</text>
+<text class="lbl" x="330" y="118" text-anchor="middle">takes the free score</text>
+<text class="emo" x="330" y="140" text-anchor="middle">seen</text>
+<text class="mot-leader" x="352" y="64">◆ moment of truth</text>
+<text class="lbl" x="540" y="118" text-anchor="middle">sees where she stands</text>
+<text class="emo" x="540" y="140" text-anchor="middle">placed</text>
+<text class="lbl" x="780" y="118" text-anchor="middle">arrives warm</text>
+<text class="emo" x="780" y="140" text-anchor="middle">ready</text>
+</svg>
+</div>
 
-<!-- ══ STEP 3 · LANE C — +website: stranger → score → arrives warm ══ -->
-<g class="st" id="SC">
-  <text class="lane-name lane-new" x="24" y="336">+ website · awareness</text>
-  <svg id="laneC" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
-    <path class="path" d="M120 365 L 760 365" marker-end="url(#ah)"/>
-  </svg>
-  <circle class="node" cx="120" cy="365" r="7"/>
-  <circle class="node" cx="330" cy="365" r="7"/><circle class="mot" cx="330" cy="365" r="2.6"/>
-  <circle class="node" cx="540" cy="365" r="7"/>
-  <circle class="node" cx="760" cy="365" r="7"/>
-  <text class="lbl" x="120" y="396" text-anchor="middle" font-weight="600">a stranger searches</text>
-  <text class="emo" x="120" y="412" text-anchor="middle">looking</text>
-  <text class="lbl" x="330" y="396" text-anchor="middle">takes the free score</text>
-  <text class="emo" x="330" y="412" text-anchor="middle">seen</text>
-  <text class="lbl" x="540" y="396" text-anchor="middle">sees where she stands</text>
-  <text class="emo" x="540" y="412" text-anchor="middle">placed</text>
-  <text class="lbl" x="760" y="396" text-anchor="middle">arrives warm</text>
-  <text class="emo" x="760" y="412" text-anchor="middle">ready</text>
-  <text class="mot-leader" x="352" y="352">◆ moment of truth</text>
-</g>
+<!-- ══ STEP 4 · +course: workshop → win → advocate ══ -->
+<div class="stepview" id="V4">
+<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The course path">
+<svg id="V4-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><path class="path" d="M120 80 L 840 80" marker-end="url(#ah4)"/></svg>
+<defs><marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker></defs>
+<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="mot" cx="330" cy="80" r="3.4"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="700" cy="80" r="9"/><circle class="mot" cx="700" cy="80" r="3.4"/><circle class="node node-far" cx="850" cy="80" r="9"/>
+<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">workshop done</text>
+<text class="emo" x="120" y="140" text-anchor="middle">momentum</text>
+<text class="lbl" x="330" y="118" text-anchor="middle">enrolls in the course</text>
+<text class="emo" x="330" y="140" text-anchor="middle">committed</text>
+<text class="lbl" x="540" y="118" text-anchor="middle">climbs the rungs</text>
+<text class="emo" x="540" y="140" text-anchor="middle">building</text>
+<text class="lbl" x="700" y="118" text-anchor="middle">first real win</text>
+<text class="emo" x="700" y="140" text-anchor="middle">proven</text>
+<text class="lbl" x="850" y="118" text-anchor="middle" font-weight="600">advocates</text>
+</svg>
+</div>
 
-<!-- ══ STEP 4 · LANE D — +course: the workshop stops being the end ══ -->
-<g class="st" id="SD">
-  <text class="lane-name lane-new" x="24" y="466">+ course · the third stream</text>
-  <svg id="laneD" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
-    <path class="path" d="M120 495 L 850 495" marker-end="url(#ah)"/>
-  </svg>
-  <circle class="node" cx="120" cy="495" r="7"/>
-  <circle class="node" cx="330" cy="495" r="7"/><circle class="mot" cx="330" cy="495" r="2.6"/>
-  <circle class="node" cx="540" cy="495" r="7"/>
-  <circle class="node" cx="700" cy="495" r="7"/><circle class="mot" cx="700" cy="495" r="2.6"/>
-  <circle class="node node-far" cx="850" cy="495" r="7"/>
-  <text class="lbl" x="120" y="526" text-anchor="middle" font-weight="600">workshop done</text>
-  <text class="emo" x="120" y="542" text-anchor="middle">momentum</text>
-  <text class="lbl" x="330" y="526" text-anchor="middle">enrolls in the course</text>
-  <text class="emo" x="330" y="542" text-anchor="middle">committed</text>
-  <text class="lbl" x="540" y="526" text-anchor="middle">climbs the rungs</text>
-  <text class="emo" x="540" y="542" text-anchor="middle">building</text>
-  <text class="lbl" x="700" y="526" text-anchor="middle">first real win</text>
-  <text class="emo" x="700" y="542" text-anchor="middle">proven</text>
-  <text class="lbl" x="850" y="526" text-anchor="middle" font-weight="600">advocates</text>
-</g>
+<!-- ══ STEP 5 · the whole picture + CRM loop ══ -->
+<div class="stepview" id="V5">
+<svg class="jmap ov" viewBox="0 0 960 560" role="img" aria-label="The whole system">
+<text class="lane-name" x="24" y="76">today · the chair</text>
+<svg id="V5-draw" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
+<path class="path path-old" d="M120 105 L 740 105"/>
+<circle class="node" cx="120" cy="105" r="7"/><circle class="node" cx="330" cy="105" r="7"/><circle class="node" cx="540" cy="105" r="7"/><circle class="node" cx="760" cy="105" r="7"/>
+<text class="lbl" x="120" y="136" text-anchor="middle">in her chair</text><text class="emo" x="120" y="152" text-anchor="middle">trusts her</text>
+<text class="lbl" x="330" y="136" text-anchor="middle">hears about the workshop</text><text class="emo" x="330" y="152" text-anchor="middle">curious</text>
+<text class="lbl" x="540" y="136" text-anchor="middle">attends — lit up</text><text class="emo" x="540" y="152" text-anchor="middle">fired up</text>
+<text class="ends" x="760" y="140" text-anchor="middle">ends</text><path class="dead" d="M767 96 l 10 10 m 0 -10 l -10 10"/><text class="emo" x="795" y="140">no follow-up</text>
 
-<!-- ══ STEP 5 · +CRM — everyone known + loop back ══ -->
-<g class="st" id="SE">
-  <circle class="known" cx="120" cy="86" r="3"/><circle class="known" cx="330" cy="86" r="3"/><circle class="known" cx="540" cy="86" r="3"/><circle class="known" cx="760" cy="86" r="3"/>
-  <circle class="known" cx="120" cy="216" r="3"/><circle class="known" cx="330" cy="216" r="3"/><circle class="known" cx="540" cy="216" r="3"/><circle class="known" cx="760" cy="216" r="3"/>
-  <circle class="known" cx="120" cy="346" r="3"/><circle class="known" cx="330" cy="346" r="3"/><circle class="known" cx="540" cy="346" r="3"/><circle class="known" cx="760" cy="346" r="3"/>
-  <circle class="known" cx="120" cy="476" r="3"/><circle class="known" cx="330" cy="476" r="3"/><circle class="known" cx="540" cy="476" r="3"/><circle class="known" cx="700" cy="476" r="3"/><circle class="known" cx="850" cy="476" r="3"/>
-  <text class="known-tag" x="936" y="60" text-anchor="end">+ crm · everyone on every path is known</text>
-  <path class="loop" d="M850 486 C 870 555 300 552 130 545" marker-end="url(#ahc)"/>
-  <text class="loop-tag" x="480" y="556" text-anchor="middle">she brings a friend — back in through any door</text>
-</g>
+<text class="lane-name" x="24" y="206">today · word of mouth</text>
+<path class="path path-old" d="M120 235 L 740 235"/>
+<circle class="node" cx="120" cy="235" r="7"/><circle class="node" cx="330" cy="235" r="7"/><circle class="node" cx="540" cy="235" r="7"/><circle class="node" cx="760" cy="235" r="7"/>
+<text class="lbl" x="120" y="266" text-anchor="middle">tells a friend</text><text class="emo" x="120" y="282" text-anchor="middle">talks it up</text>
+<text class="lbl" x="330" y="266" text-anchor="middle">friend tries to find her</text><text class="emo" x="330" y="282" text-anchor="middle">hunts around</text>
+<text class="lbl" x="540" y="266" text-anchor="middle">maybe reaches a workshop</text><text class="emo" x="540" y="282" text-anchor="middle">hopes it’s real</text>
+<text class="ends" x="760" y="270" text-anchor="middle">ends</text><path class="dead" d="M767 226 l 10 10 m 0 -10 l -10 10"/><text class="emo" x="795" y="270">…gone</text>
+
+<text class="lane-name lane-new" x="24" y="336">+ website · awareness</text>
+<path class="path" d="M120 365 L 760 365"/>
+<circle class="node" cx="120" cy="365" r="7"/><circle class="node" cx="330" cy="365" r="7"/><circle class="mot" cx="330" cy="365" r="2.6"/><circle class="node" cx="540" cy="365" r="7"/><circle class="node" cx="760" cy="365" r="7"/>
+<text class="lbl" x="120" y="396" text-anchor="middle">a stranger searches</text><text class="emo" x="120" y="412" text-anchor="middle">looking</text>
+<text class="lbl" x="330" y="396" text-anchor="middle">takes the free score</text><text class="emo" x="330" y="412" text-anchor="middle">seen</text>
+<text class="lbl" x="540" y="396" text-anchor="middle">sees where she stands</text><text class="emo" x="540" y="412" text-anchor="middle">placed</text>
+<text class="lbl" x="760" y="396" text-anchor="middle">arrives warm</text><text class="emo" x="760" y="412" text-anchor="middle">ready</text>
+<text class="mot-leader" x="352" y="352">◆ moment of truth</text>
+
+<text class="lane-name lane-new" x="24" y="466">+ course · the third stream</text>
+<path class="path" d="M120 495 L 850 495"/>
+</svg>
+<circle class="node" cx="120" cy="495" r="7"/><circle class="node" cx="330" cy="495" r="7"/><circle class="mot" cx="330" cy="495" r="2.6"/><circle class="node" cx="540" cy="495" r="7"/><circle class="node" cx="700" cy="495" r="7"/><circle class="mot" cx="700" cy="495" r="2.6"/><circle class="node node-far" cx="850" cy="495" r="7"/>
+<text class="lbl" x="120" y="526" text-anchor="middle">workshop done</text><text class="emo" x="120" y="542" text-anchor="middle">momentum</text>
+<text class="lbl" x="330" y="526" text-anchor="middle">enrolls in the course</text><text class="emo" x="330" y="542" text-anchor="middle">committed</text>
+<text class="lbl" x="540" y="526" text-anchor="middle">climbs the rungs</text><text class="emo" x="540" y="542" text-anchor="middle">building</text>
+<text class="lbl" x="700" y="526" text-anchor="middle">first real win</text><text class="emo" x="700" y="542" text-anchor="middle">proven</text>
+<text class="lbl" x="850" y="526" text-anchor="middle" font-weight="600">advocates</text>
+
+<circle class="known" cx="120" cy="86" r="3"/><circle class="known" cx="330" cy="86" r="3"/><circle class="known" cx="540" cy="86" r="3"/><circle class="known" cx="760" cy="86" r="3"/>
+<circle class="known" cx="120" cy="216" r="3"/><circle class="known" cx="330" cy="216" r="3"/><circle class="known" cx="540" cy="216" r="3"/><circle class="known" cx="760" cy="216" r="3"/>
+<circle class="known" cx="120" cy="346" r="3"/><circle class="known" cx="330" cy="346" r="3"/><circle class="known" cx="540" cy="346" r="3"/><circle class="known" cx="760" cy="346" r="3"/>
+<circle class="known" cx="120" cy="476" r="3"/><circle class="known" cx="330" cy="476" r="3"/><circle class="known" cx="540" cy="476" r="3"/><circle class="known" cx="700" cy="476" r="3"/><circle class="known" cx="850" cy="476" r="3"/>
+<text class="known-tag" x="936" y="60" text-anchor="end">+ crm · everyone on every path is known</text>
+<path class="loop" d="M850 486 C 870 555 300 552 130 545" marker-end="url(#ahc)"/>
+<defs><marker id="ahc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#D08A5E"/></marker></defs>
+<text class="loop-tag" x="480" y="556" text-anchor="middle">she brings a friend — back in through any door</text>
 </svg>
 </div>
 
@@ -171,49 +188,45 @@
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var STEPS = [
-    {ids:['SA'], draw:'laneA', title:'The chair is the door.',
+    {view:'V1', lane:'lanePathA', title:'The chair is the door.',
       lead:'A client asks — Miko mentions the workshop — she attends. Then the path ends. No follow-up exists.'},
-    {ids:['SB'], draw:'laneB', title:'Word of mouth is the only engine.',
+    {view:'V2', lane:'lanePathB', title:'Word of mouth is the only engine.',
       lead:'An attendee tells a friend. If the friend can find her — same path, same ending.'},
-    {ids:['SC'], draw:'laneC', title:'+ A website makes her findable.',
+    {view:'V3', lane:'lanePathC', title:'+ A website makes her findable.',
       lead:'A stranger searches, takes the score, sees where she stands — and arrives warm, day or night.'},
-    {ids:['SD'], draw:'laneD', title:'+ The course keeps her.',
+    {view:'V4', lane:'lanePathD', title:'+ The course keeps her.',
       lead:'The workshop stops being the end — it becomes the on-ramp. The third income stream.'},
-    {ids:['SE'], title:'+ The CRM remembers everyone.',
+    {view:'V5', title:'+ The CRM remembers everyone.',
       lead:'Every student on every path is known — and graduates bring friends back to any door.'},
   ];
   var step = -1, viv = {};
   var title = document.getElementById('jtitle');
   var lead = document.getElementById('jlead');
   var ind = document.getElementById('jstep');
+  var views = STEPS.map(function(s){ return document.getElementById(s.view); });
+
+  function draw(view){
+    var id = view.id + '-draw';
+    if(viv[view.id] || reduced || !window.Vivus || !document.getElementById(id)) return;
+    viv[view.id] = new Vivus(id,{duration:70,type:'scenario',animTimingFunction:Vivus.EASE});
+  }
 
   function apply(i){
-    STEPS.slice(0, i+1).forEach(function(s){
-      s.ids.forEach(function(id){ document.getElementById(id).classList.add('on'); });
-      if(s.draw && window.Vivus && !reduced && !viv[s.draw]){
-        viv[s.draw] = new Vivus(s.draw,{duration:80,type:'scenario',animTimingFunction:Vivus.EASE});
-      }
-    });
+    views.forEach(function(el,idx){ el.classList.toggle('on', idx===i); });
     var s = STEPS[i];
     title.textContent = s.title; lead.textContent = s.lead;
     ind.innerHTML = '<b>' + (i+1) + ' / ' + STEPS.length + '</b> — ' +
       (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture');
-  }
-  function unapply(i){
-    var s = STEPS[i];
-    s.ids.forEach(function(id){ document.getElementById(id).classList.remove('on'); });
-    var p = STEPS[i-1];
-    title.textContent = p.title; lead.textContent = p.lead;
-    ind.innerHTML = '<b>' + i + ' / ' + STEPS.length + '</b> — space or tap → next path';
+    draw(views[i]);
   }
   function next(){ if(step < STEPS.length-1){ step++; apply(step); } }
-  function prev(){ if(step > 0){ unapply(step); step--; } }
+  function prev(){ if(step > 0){ step--; apply(step); } }
   if(reduced){ step = STEPS.length-1; apply(step); return; }
   document.addEventListener('keydown', function(e){
     if(e.code==='Space'||e.code==='ArrowRight'){ e.preventDefault(); next(); }
     if(e.code==='ArrowLeft'){ e.preventDefault(); prev(); }
   });
-  document.querySelector('.jmap').addEventListener('click', next);
+  document.querySelectorAll('.jmap').forEach(function(m){ m.addEventListener('click', next); });
   next();
 })();
 </script>
