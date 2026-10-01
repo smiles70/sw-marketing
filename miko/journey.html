@@ -10,206 +10,158 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-.journey-wrap{max-width:1100px;margin:0 auto;padding:30px 5vw 40px}
-.jmap{width:100%;height:auto;display:block;cursor:pointer}
-.jmap text{font-family:'Hanken Grotesk',sans-serif}
-.jmap .lbl{font-size:19px;fill:#4A423B}
-.jmap .lane-name{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;fill:#8A7A6C}
-.jmap .lane-new{fill:#9C5530}
-.jmap .node{fill:#F4EEE6;stroke:#1E1915;stroke-width:2.4}
-.jmap .node-far{fill:#1E1915}
-.jmap .path{stroke:#1E1915;stroke-width:3;fill:none}
-.jmap .path-old{stroke:#8A7A6C;stroke-width:2.4}
-.jmap .dead{stroke:#9C5530;stroke-width:2.2;fill:none}
-.jmap .mot{fill:#D08A5E}
-.jmap .emo{font-size:15px;fill:#8A7A6C;font-style:italic}
-.jmap .ends{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;fill:#9C5530}
-.jmap .known{fill:#1E1915}
-.jmap .known-tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;fill:#1E1915;font-weight:700}
-.jmap .loop{stroke:#D08A5E;stroke-width:2.4;fill:none}
-.jmap .loop-tag{font-size:14px;fill:#8A7A6C;font-style:italic}
-.jmap .mot-leader{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;fill:#D08A5E;font-weight:700}
-.stepview{display:none}
-.stepview.on{display:block}
-.jcap{font-size:12px;color:#8A7A6C;font-style:italic;margin-top:8px}
-.jstep{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:14px}
+.journey-wrap{max-width:1180px;margin:0 auto;padding:36px 5vw 48px}
+.jcap{font-size:12px;color:#8A7A6C;font-style:italic;margin-top:10px}
+.jstep{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:22px}
 .jstep b{color:#9C5530;font-weight:700}
-.jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;margin-top:22px}
+.jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;margin-top:26px}
 .jback:hover{color:#6B3A24}
-/* overview scale-down: the full map reuses bigger type at a taller viewBox */
-.ov .lbl{font-size:15px}
-.ov .emo{font-size:11.5px}
-.ov .ends{font-size:12px}
-.ov .lane-name{font-size:11px}
-.ov .loop-tag{font-size:12.5px}
-.ov .known-tag{font-size:10.5px}
-.ov .mot-leader{font-size:10px}
+
+.stepview{display:none}
+.stepview.on{display:block;cursor:pointer}
+
+.lanetag{display:inline-block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#8A7A6C;border:1px solid #E3D9CB;border-radius:99px;padding:6px 16px;margin-bottom:26px}
+.lanetag.new{color:#F4EEE6;background:#9C5530;border-color:#9C5530}
+
+.cards{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.jcard{flex:1 1 160px;min-width:150px;background:#fff;border:1px solid #E3D9CB;border-radius:16px;padding:24px 22px 20px;box-shadow:0 1px 3px rgba(30,25,21,.05),0 12px 32px -18px rgba(30,25,21,.18);display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(10px);animation:jcin .55s cubic-bezier(.2,.7,.3,1) forwards}
+.jcard:nth-of-type(1){animation-delay:.05s}
+.chev{align-self:center;color:#C4B7A8;font-size:22px;padding:0 14px;opacity:0;animation:jcin .4s ease .3s forwards}
+.jcard:nth-of-type(2){animation-delay:.15s}
+.jcard:nth-of-type(3){animation-delay:.25s}
+.jcard:nth-of-type(4){animation-delay:.35s}
+.jcard:nth-of-type(5){animation-delay:.45s}
+.jcard b{font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1E1915;line-height:1.3}
+.jcard i{font-style:italic;font-size:14px;color:#8A7A6C;margin-top:6px}
+.jcard .kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#B9AC9C;font-weight:700;margin-bottom:8px}
+.jcard.mot{position:relative}
+.jcard.mot::after{content:"◆ moment of truth";position:absolute;top:-10px;left:18px;background:#D08A5E;color:#fff;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:99px}
+.jcard.dead{border-style:dashed;border-color:#D9CFC0;background:#FBF6EF;box-shadow:none}
+.jcard.dead b{color:#9C5530;letter-spacing:.1em;font-size:15px;text-transform:uppercase}
+.jcard.goal{border-color:#9C5530;border-width:1.5px}
+.jcard.goal b{color:#9C5530}
+
+/* overview */
+.ovlane{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.ovtag{flex:0 0 150px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#8A7A6C;text-align:right}
+.ovtag.new{color:#9C5530}
+.ovcards{display:flex;flex:1;gap:8px}
+.ovcard{flex:1;background:#fff;border:1px solid #E3D9CB;border-radius:10px;padding:10px 14px;font-size:13.5px;font-weight:600;color:#4A423B;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ovcard.dead{border-style:dashed;border-color:#D9CFC0;color:#9C5530;background:#FBF6EF}
+.ovcard.goal{border-color:#9C5530;color:#9C5530}
+.ovcard.motdot{position:relative}
+.ovcard.motdot::before{content:"◆";color:#D08A5E;margin-right:6px;font-size:10px}
+.crmband{display:flex;align-items:center;gap:14px;background:#1E1915;border-radius:14px;padding:16px 22px;margin-top:26px}
+.crmband .t{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#D08A5E;white-space:nowrap}
+.crmband .d{font-size:13.5px;color:#F4EEE6;opacity:.9}
+.loopband{margin-top:14px;border:1.5px dashed #D08A5E;border-radius:14px;padding:13px 22px;font-size:13.5px;color:#9C5530;font-style:italic;text-align:center}
+.ovall{opacity:0;transform:translateY(8px);animation:jcin .55s cubic-bezier(.2,.7,.3,1) forwards}
+.ovall:nth-child(2){animation-delay:.12s}.ovall:nth-child(3){animation-delay:.22s}.ovall:nth-child(4){animation-delay:.32s}.ovall:nth-child(5){animation-delay:.42s}.ovall:nth-child(6){animation-delay:.52s}
+
+@keyframes jcin{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.jcard,.chev,.ovall{animation:none;opacity:1;transform:none}}
+@media(max-width:760px){.cards{flex-direction:column}.chev{transform:rotate(90deg);padding:8px 0}.ovtag{flex-basis:0;display:none}.ovcard{font-size:11.5px;padding:8px 6px}}
 </style>
 </head>
 <body>
 <nav class="nav scrolled">
 <a class="brand" href="index.html">Miko <span>Pierson</span></a>
 <div class="links">
-<a href="deck.html">▶ Presentation</a>
+<a href="index.html">← Cover</a>
 </div>
 </nav>
 <div class="journey-wrap">
 <div class="eyebrow">The student journey</div>
 <h1 class="subh" id="jtitle">The chair is the door.</h1>
 <p class="sublead" id="jlead">Today a stylist finds Miko one way: she’s already in the chair.</p>
-<p class="jcap">One path per step — press space or tap the graphic · schematic, not to scale</p>
+<p class="jcap">One path per step — press space or tap · schematic, not to scale</p>
 
-<!-- ══ STEP 1 · chair → workshop → ends ══ -->
+<!-- STEP 1 · chair -->
 <div class="stepview" id="V1">
-<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The chair path">
-<svg id="V1-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><svg id="V2-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><path class="path path-old" d="M120 80 L 735 80"/></svg></svg>
-<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="755" cy="80" r="9"/>
-<path class="dead" d="M755 71 l 13 13 m 0 -13 l -13 13" transform="translate(12,0)"/>
-<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">in her chair</text>
-<text class="emo" x="120" y="140" text-anchor="middle">trusts her</text>
-<text class="lbl" x="330" y="118" text-anchor="middle">hears about the workshop</text>
-<text class="emo" x="330" y="140" text-anchor="middle">curious</text>
-<text class="lbl" x="540" y="118" text-anchor="middle">attends — lit up</text>
-<text class="emo" x="540" y="140" text-anchor="middle">fired up</text>
-<text class="ends" x="795" y="86">ends</text>
-<text class="emo" x="795" y="118">no follow-up</text>
-</svg>
+<div class="lanetag">today · the chair</div>
+<div class="cards">
+  <div class="jcard"><span class="kicker">Start</span><b>in her chair</b><i>trusts her</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">She hears</span><b>about the workshop</b><i>curious</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">She attends</span><b>— and it lands</b><i>fired up</i></div><span class="chev">→</span>
+  <div class="jcard dead"><span class="kicker">Then</span><b>Ends</b><i>no follow-up</i></div>
+</div>
 </div>
 
-<!-- ══ STEP 2 · word of mouth → same end ══ -->
+<!-- STEP 2 · word of mouth -->
 <div class="stepview" id="V2">
-<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The word-of-mouth path">
-<path class="path path-old" d="M120 80 L 735 80"/>
-<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="755" cy="80" r="9"/>
-<path class="dead" d="M755 71 l 13 13 m 0 -13 l -13 13" transform="translate(12,0)"/>
-<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">tells a friend</text>
-<text class="emo" x="120" y="140" text-anchor="middle">talks it up</text>
-<text class="lbl" x="330" y="118" text-anchor="middle">friend tries to find her</text>
-<text class="emo" x="330" y="140" text-anchor="middle">hunts around</text>
-<text class="lbl" x="540" y="118" text-anchor="middle">maybe reaches a workshop</text>
-<text class="emo" x="540" y="140" text-anchor="middle">hopes it’s real</text>
-<text class="ends" x="795" y="86">ends</text>
-<text class="emo" x="795" y="118">…gone</text>
-</svg>
+<div class="lanetag">today · word of mouth</div>
+<div class="cards">
+  <div class="jcard"><span class="kicker">Start</span><b>tells a friend</b><i>talks it up</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">The friend</span><b>tries to find her</b><i>hunts around</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">Maybe</span><b>reaches a workshop</b><i>hopes it’s real</i></div><span class="chev">→</span>
+  <div class="jcard dead"><span class="kicker">Then</span><b>Ends</b><i>…gone</i></div>
+</div>
 </div>
 
-<!-- ══ STEP 3 · +website: stranger → warm arrival ══ -->
+<!-- STEP 3 · +website -->
 <div class="stepview" id="V3">
-<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The website path">
-<svg id="V3-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><path class="path" d="M120 80 L 850 80" marker-end="url(#ah3)"/></svg>
-<defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker></defs>
-<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="mot" cx="330" cy="80" r="3.4"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="780" cy="80" r="9"/>
-<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">a stranger searches</text>
-<text class="emo" x="120" y="140" text-anchor="middle">looking</text>
-<text class="lbl" x="330" y="118" text-anchor="middle">takes the free score</text>
-<text class="emo" x="330" y="140" text-anchor="middle">seen</text>
-<text class="mot-leader" x="352" y="64">◆ moment of truth</text>
-<text class="lbl" x="540" y="118" text-anchor="middle">sees where she stands</text>
-<text class="emo" x="540" y="140" text-anchor="middle">placed</text>
-<text class="lbl" x="780" y="118" text-anchor="middle">arrives warm</text>
-<text class="emo" x="780" y="140" text-anchor="middle">ready</text>
-</svg>
+<div class="lanetag new">+ website · awareness</div>
+<div class="cards">
+  <div class="jcard"><span class="kicker">Start</span><b>a stranger searches</b><i>looking</i></div><span class="chev">→</span>
+  <div class="jcard mot"><span class="kicker">She finds</span><b>the free score</b><i>seen</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">She sees</span><b>where she stands</b><i>placed</i></div><span class="chev">→</span>
+  <div class="jcard goal"><span class="kicker">She arrives</span><b>warm</b><i>ready</i></div>
+</div>
 </div>
 
-<!-- ══ STEP 4 · +course: workshop → win → advocate ══ -->
+<!-- STEP 4 · +course -->
 <div class="stepview" id="V4">
-<svg class="jmap" viewBox="0 0 960 170" role="img" aria-label="The course path">
-<svg id="V4-draw" x="0" y="0" width="960" height="170" viewBox="0 0 960 170"><path class="path" d="M120 80 L 840 80" marker-end="url(#ah4)"/></svg>
-<defs><marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker></defs>
-<circle class="node" cx="120" cy="80" r="9"/><circle class="node" cx="330" cy="80" r="9"/><circle class="mot" cx="330" cy="80" r="3.4"/><circle class="node" cx="540" cy="80" r="9"/><circle class="node" cx="700" cy="80" r="9"/><circle class="mot" cx="700" cy="80" r="3.4"/><circle class="node node-far" cx="850" cy="80" r="9"/>
-<text class="lbl" x="120" y="118" text-anchor="middle" font-weight="600">workshop done</text>
-<text class="emo" x="120" y="140" text-anchor="middle">momentum</text>
-<text class="lbl" x="330" y="118" text-anchor="middle">enrolls in the course</text>
-<text class="emo" x="330" y="140" text-anchor="middle">committed</text>
-<text class="lbl" x="540" y="118" text-anchor="middle">climbs the rungs</text>
-<text class="emo" x="540" y="140" text-anchor="middle">building</text>
-<text class="lbl" x="700" y="118" text-anchor="middle">first real win</text>
-<text class="emo" x="700" y="140" text-anchor="middle">proven</text>
-<text class="lbl" x="850" y="118" text-anchor="middle" font-weight="600">advocates</text>
-</svg>
+<div class="lanetag new">+ course · the third stream</div>
+<div class="cards">
+  <div class="jcard"><span class="kicker">Start</span><b>workshop done</b><i>momentum</i></div><span class="chev">→</span>
+  <div class="jcard mot"><span class="kicker">She commits</span><b>enrolls in the course</b><i>committed</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">She builds</span><b>climbs the rungs</b><i>building</i></div><span class="chev">→</span>
+  <div class="jcard mot"><span class="kicker">She proves it</span><b>first real win</b><i>proven</i></div><span class="chev">→</span>
+  <div class="jcard goal"><span class="kicker">Then</span><b>advocates</b><i>for Miko</i></div>
+</div>
 </div>
 
-<!-- ══ STEP 5 · the whole picture + CRM loop ══ -->
+<!-- STEP 5 · whole picture + CRM -->
 <div class="stepview" id="V5">
-<svg class="jmap ov" viewBox="0 0 960 560" role="img" aria-label="The whole system">
-<text class="lane-name" x="24" y="76">today · the chair</text>
-<svg id="V5-draw" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
-<path class="path path-old" d="M120 105 L 740 105"/>
-<circle class="node" cx="120" cy="105" r="7"/><circle class="node" cx="330" cy="105" r="7"/><circle class="node" cx="540" cy="105" r="7"/><circle class="node" cx="760" cy="105" r="7"/>
-<text class="lbl" x="120" y="136" text-anchor="middle">in her chair</text><text class="emo" x="120" y="152" text-anchor="middle">trusts her</text>
-<text class="lbl" x="330" y="136" text-anchor="middle">hears about the workshop</text><text class="emo" x="330" y="152" text-anchor="middle">curious</text>
-<text class="lbl" x="540" y="136" text-anchor="middle">attends — lit up</text><text class="emo" x="540" y="152" text-anchor="middle">fired up</text>
-<text class="ends" x="760" y="140" text-anchor="middle">ends</text><path class="dead" d="M767 96 l 10 10 m 0 -10 l -10 10"/><text class="emo" x="795" y="140">no follow-up</text>
-
-<text class="lane-name" x="24" y="206">today · word of mouth</text>
-<path class="path path-old" d="M120 235 L 740 235"/>
-<circle class="node" cx="120" cy="235" r="7"/><circle class="node" cx="330" cy="235" r="7"/><circle class="node" cx="540" cy="235" r="7"/><circle class="node" cx="760" cy="235" r="7"/>
-<text class="lbl" x="120" y="266" text-anchor="middle">tells a friend</text><text class="emo" x="120" y="282" text-anchor="middle">talks it up</text>
-<text class="lbl" x="330" y="266" text-anchor="middle">friend tries to find her</text><text class="emo" x="330" y="282" text-anchor="middle">hunts around</text>
-<text class="lbl" x="540" y="266" text-anchor="middle">maybe reaches a workshop</text><text class="emo" x="540" y="282" text-anchor="middle">hopes it’s real</text>
-<text class="ends" x="760" y="270" text-anchor="middle">ends</text><path class="dead" d="M767 226 l 10 10 m 0 -10 l -10 10"/><text class="emo" x="795" y="270">…gone</text>
-
-<text class="lane-name lane-new" x="24" y="336">+ website · awareness</text>
-<path class="path" d="M120 365 L 760 365"/>
-<circle class="node" cx="120" cy="365" r="7"/><circle class="node" cx="330" cy="365" r="7"/><circle class="mot" cx="330" cy="365" r="2.6"/><circle class="node" cx="540" cy="365" r="7"/><circle class="node" cx="760" cy="365" r="7"/>
-<text class="lbl" x="120" y="396" text-anchor="middle">a stranger searches</text><text class="emo" x="120" y="412" text-anchor="middle">looking</text>
-<text class="lbl" x="330" y="396" text-anchor="middle">takes the free score</text><text class="emo" x="330" y="412" text-anchor="middle">seen</text>
-<text class="lbl" x="540" y="396" text-anchor="middle">sees where she stands</text><text class="emo" x="540" y="412" text-anchor="middle">placed</text>
-<text class="lbl" x="760" y="396" text-anchor="middle">arrives warm</text><text class="emo" x="760" y="412" text-anchor="middle">ready</text>
-<text class="mot-leader" x="352" y="352">◆ moment of truth</text>
-
-<text class="lane-name lane-new" x="24" y="466">+ course · the third stream</text>
-<path class="path" d="M120 495 L 850 495"/>
-</svg>
-<circle class="node" cx="120" cy="495" r="7"/><circle class="node" cx="330" cy="495" r="7"/><circle class="mot" cx="330" cy="495" r="2.6"/><circle class="node" cx="540" cy="495" r="7"/><circle class="node" cx="700" cy="495" r="7"/><circle class="mot" cx="700" cy="495" r="2.6"/><circle class="node node-far" cx="850" cy="495" r="7"/>
-<text class="lbl" x="120" y="526" text-anchor="middle">workshop done</text><text class="emo" x="120" y="542" text-anchor="middle">momentum</text>
-<text class="lbl" x="330" y="526" text-anchor="middle">enrolls in the course</text><text class="emo" x="330" y="542" text-anchor="middle">committed</text>
-<text class="lbl" x="540" y="526" text-anchor="middle">climbs the rungs</text><text class="emo" x="540" y="542" text-anchor="middle">building</text>
-<text class="lbl" x="700" y="526" text-anchor="middle">first real win</text><text class="emo" x="700" y="542" text-anchor="middle">proven</text>
-<text class="lbl" x="850" y="526" text-anchor="middle" font-weight="600">advocates</text>
-
-<circle class="known" cx="120" cy="86" r="3"/><circle class="known" cx="330" cy="86" r="3"/><circle class="known" cx="540" cy="86" r="3"/><circle class="known" cx="760" cy="86" r="3"/>
-<circle class="known" cx="120" cy="216" r="3"/><circle class="known" cx="330" cy="216" r="3"/><circle class="known" cx="540" cy="216" r="3"/><circle class="known" cx="760" cy="216" r="3"/>
-<circle class="known" cx="120" cy="346" r="3"/><circle class="known" cx="330" cy="346" r="3"/><circle class="known" cx="540" cy="346" r="3"/><circle class="known" cx="760" cy="346" r="3"/>
-<circle class="known" cx="120" cy="476" r="3"/><circle class="known" cx="330" cy="476" r="3"/><circle class="known" cx="540" cy="476" r="3"/><circle class="known" cx="700" cy="476" r="3"/><circle class="known" cx="850" cy="476" r="3"/>
-<text class="known-tag" x="936" y="60" text-anchor="end">+ crm · everyone on every path is known</text>
-<path class="loop" d="M850 486 C 870 555 300 552 130 545" marker-end="url(#ahc)"/>
-<defs><marker id="ahc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#D08A5E"/></marker></defs>
-<text class="loop-tag" x="480" y="556" text-anchor="middle">she brings a friend — back in through any door</text>
-</svg>
+<div class="ovall"><div class="ovlane"><span class="ovtag">today · the chair</span><div class="ovcards">
+  <span class="ovcard">in her chair</span><span class="ovcard">hears about the workshop</span><span class="ovcard">attends — lit up</span><span class="ovcard dead">ends · no follow-up</span>
+</div></div></div>
+<div class="ovall"><div class="ovlane"><span class="ovtag">today · word of mouth</span><div class="ovcards">
+  <span class="ovcard">tells a friend</span><span class="ovcard">friend tries to find her</span><span class="ovcard">maybe a workshop</span><span class="ovcard dead">ends · gone</span>
+</div></div></div>
+<div class="ovall"><div class="ovlane"><span class="ovtag new">+ website · awareness</span><div class="ovcards">
+  <span class="ovcard">a stranger searches</span><span class="ovcard motdot">the free score</span><span class="ovcard">sees where she stands</span><span class="ovcard goal">arrives warm</span>
+</div></div></div>
+<div class="ovall"><div class="ovlane"><span class="ovtag new">+ course · the third stream</span><div class="ovcards">
+  <span class="ovcard">workshop done</span><span class="ovcard motdot">enrolls</span><span class="ovcard">climbs the rungs</span><span class="ovcard motdot">first real win</span><span class="ovcard goal">advocates</span>
+</div></div></div>
+<div class="ovall"><div class="crmband"><span class="t">+ CRM</span><span class="d">everyone on every path is known — nobody stalls unseen</span></div></div>
+<div class="ovall"><div class="loopband">she brings a friend — the loop feeds every door</div></div>
 </div>
 
 <p class="jstep" id="jstep"></p>
-<a class="jback" href="deck.html">← back to the presentation</a>
+<a class="jback" href="index.html">← back to the cover</a>
 </div>
 
-<script src="assets/vendor/vivus/vivus.min.js"></script>
 <script>
 (function(){
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var STEPS = [
-    {view:'V1', lane:'lanePathA', title:'The chair is the door.',
+    {view:'V1', title:'The chair is the door.',
       lead:'A client asks — Miko mentions the workshop — she attends. Then the path ends. No follow-up exists.'},
-    {view:'V2', lane:'lanePathB', title:'Word of mouth is the only engine.',
+    {view:'V2', title:'Word of mouth is the only engine.',
       lead:'An attendee tells a friend. If the friend can find her — same path, same ending.'},
-    {view:'V3', lane:'lanePathC', title:'+ A website makes her findable.',
+    {view:'V3', title:'+ A website makes her findable.',
       lead:'A stranger searches, takes the score, sees where she stands — and arrives warm, day or night.'},
-    {view:'V4', lane:'lanePathD', title:'+ The course keeps her.',
+    {view:'V4', title:'+ The course keeps her.',
       lead:'The workshop stops being the end — it becomes the on-ramp. The third income stream.'},
     {view:'V5', title:'+ The CRM remembers everyone.',
       lead:'Every student on every path is known — and graduates bring friends back to any door.'},
   ];
-  var step = -1, viv = {};
+  var step = -1;
   var title = document.getElementById('jtitle');
   var lead = document.getElementById('jlead');
   var ind = document.getElementById('jstep');
   var views = STEPS.map(function(s){ return document.getElementById(s.view); });
-
-  function draw(view){
-    var id = view.id + '-draw';
-    if(viv[view.id] || reduced || !window.Vivus || !document.getElementById(id)) return;
-    viv[view.id] = new Vivus(id,{duration:70,type:'scenario',animTimingFunction:Vivus.EASE});
-  }
 
   function apply(i){
     views.forEach(function(el,idx){ el.classList.toggle('on', idx===i); });
@@ -217,16 +169,16 @@
     title.textContent = s.title; lead.textContent = s.lead;
     ind.innerHTML = '<b>' + (i+1) + ' / ' + STEPS.length + '</b> — ' +
       (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture');
-    draw(views[i]);
   }
   function next(){ if(step < STEPS.length-1){ step++; apply(step); } }
   function prev(){ if(step > 0){ step--; apply(step); } }
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced){ step = STEPS.length-1; apply(step); return; }
   document.addEventListener('keydown', function(e){
     if(e.code==='Space'||e.code==='ArrowRight'){ e.preventDefault(); next(); }
     if(e.code==='ArrowLeft'){ e.preventDefault(); prev(); }
   });
-  document.querySelectorAll('.jmap').forEach(function(m){ m.addEventListener('click', next); });
+  document.querySelectorAll('.stepview').forEach(function(v){ v.addEventListener('click', next); });
   next();
 })();
 </script>
