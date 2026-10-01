@@ -12,37 +12,28 @@
 <style>
 .journey-wrap{max-width:1080px;margin:0 auto;padding:34px 6vw 40px}
 .jmap-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.jmap{width:100%;min-width:720px;height:auto;display:block;cursor:pointer}
+.jmap{width:100%;min-width:760px;height:auto;display:block;cursor:pointer}
 .jmap text{font-family:'Hanken Grotesk',sans-serif}
 .jmap .lbl{font-size:13.5px;fill:#4A423B}
 .jmap .sub{font-size:12px;fill:#8A7A6C}
-.jmap .badge{font-size:11px;font-weight:700;letter-spacing:.14em;fill:#F4EEE6;text-transform:uppercase}
-.jmap .door{fill:#FBF6EF;stroke:#E3D9CB;stroke-width:1.5}
-.jmap .door-line{stroke:#8A7A6C;stroke-width:1.4;stroke-dasharray:4 4;fill:none}
-.jmap .spine{stroke:#1E1915;stroke-width:2.5;fill:none}
+.jmap .lane-name{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;fill:#8A7A6C}
+.jmap .lane-new{fill:#9C5530}
 .jmap .node{fill:#F4EEE6;stroke:#1E1915;stroke-width:2}
-.jmap .mot{fill:#D08A5E;stroke:#F4EEE6;stroke-width:1.5}
-.jmap .leak{stroke:#9C5530;stroke-width:1.6;stroke-dasharray:5 4;fill:none}
-.jmap .leakflag{fill:#9C5530}
-.jmap .layer{fill:#1E1915}
-.jmap .conn{stroke:#9C5530;stroke-width:2;fill:none}
-.jmap .closed{fill:#9C5530}
-.jmap .loop{stroke:#D08A5E;stroke-width:2;fill:none;stroke-dasharray:6 5}
-.jmap .loop-tag{font-size:11.5px;fill:#8A7A6C;font-style:italic}
+.jmap .node-far{fill:#1E1915}
+.jmap .path{stroke:#1E1915;stroke-width:2.2;fill:none}
+.jmap .path-old{stroke:#8A7A6C;stroke-width:1.8}
+.jmap .dead{stroke:#9C5530;stroke-width:1.8;fill:none}
+.jmap .trail{stroke:#D9CFC0;stroke-width:1.8;stroke-dasharray:3 6;fill:none}
+.jmap .mot{fill:#D08A5E}
 .jmap .emo{font-size:11px;fill:#8A7A6C;font-style:italic}
+.jmap .ends{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;fill:#9C5530}
+.jmap .known{fill:#1E1915}
+.jmap .known-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:#1E1915;font-weight:700}
+.jmap .loop{stroke:#D08A5E;stroke-width:2;fill:none}
+.jmap .loop-tag{font-size:11.5px;fill:#8A7A6C;font-style:italic}
 .jmap .mot-leader{font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:#D08A5E;font-weight:700}
-.jmap .lane{font-size:10.5px;letter-spacing:.18em;fill:#8A7A6C;text-transform:uppercase;font-weight:700}
-.st{opacity:0;transition:opacity .6s ease}
+.st{opacity:0;transition:opacity .65s ease}
 .st.on{opacity:1}
-.st.on .conn{stroke-dasharray:300;stroke-dashoffset:300;animation:jconn .8s ease forwards}
-@keyframes jconn{to{stroke-dashoffset:0}}
-.jmap .leak,.jmap .leakflag{transition:stroke .8s,opacity .8s}
-body[data-dim1] .lk1 .leak{stroke:#D9CFC0}
-body[data-dim1] .lk1 .leakflag{opacity:.35}
-body[data-dim2] .lk2 .leak{stroke:#D9CFC0}
-body[data-dim2] .lk2 .leakflag{opacity:.35}
-body[data-dim3] .lk3 .leak{stroke:#D9CFC0}
-body[data-dim3] .lk3 .leakflag{opacity:.35}
 .jcap{font-size:12px;color:#8A7A6C;font-style:italic;margin-top:8px}
 .jstep{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:14px}
 .jstep b{color:#9C5530;font-weight:700}
@@ -60,117 +51,113 @@ body[data-dim3] .lk3 .leakflag{opacity:.35}
 </nav>
 <div class="journey-wrap">
 <div class="eyebrow">The student journey</div>
-<h1 class="subh" id="jtitle">One student. Three doors.</h1>
-<p class="sublead" id="jlead">Every stylist arrives one of three ways — the site, a workshop, or her chair.</p>
-<p class="jcap">Each layer closes a leak · schematic, not to scale · press space or tap the map to build it</p>
+<h1 class="subh" id="jtitle">The chair is the door.</h1>
+<p class="sublead" id="jlead">Today a stylist finds Miko one way: she’s already in the chair.</p>
+<p class="jcap">Built one path at a time — press space or tap the map · schematic, not to scale</p>
 <div class="jmap-scroll">
-<svg class="jmap" viewBox="0 0 960 600" role="img" aria-labelledby="jt jdesc">
+<svg class="jmap" viewBox="0 0 960 560" role="img" aria-labelledby="jt jdesc">
 <title id="jt">Student journey map</title>
-<desc id="jdesc">Three entry paths — website, workshop, and chair referral — converge on one journey. Today the path is manual and leaks at three points; the website, curriculum, and CRM each close one leak.</desc>
+<desc id="jdesc">Today two dead-end paths exist — chair referral and word of mouth. The proposed website adds awareness, the course carries students past the workshop, and the CRM remembers everyone and loops graduates back.</desc>
 
-<defs><marker id="jhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker></defs>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1E1915"/></marker>
+<marker id="ahc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#D08A5E"/></marker>
+</defs>
 
-<!-- STEP 3-5: layer bands -->
-<g class="st" id="L1">
-  <rect class="layer" x="230" y="80" width="200" height="34" rx="17"/>
-  <text class="badge" x="330" y="101" text-anchor="middle">+ Website · captures</text>
-</g>
-<g class="st" id="L2">
-  <rect class="layer" x="430" y="80" width="220" height="34" rx="17"/>
-  <text class="badge" x="540" y="101" text-anchor="middle">+ Curriculum · carries</text>
-</g>
-<g class="st" id="L3">
-  <rect class="layer" x="650" y="80" width="200" height="34" rx="17"/>
-  <text class="badge" x="750" y="101" text-anchor="middle">+ CRM · remembers</text>
-</g>
-<g class="st" id="C1">
-  <path class="conn" d="M330 114 V 386"/>
-  <circle class="closed" cx="330" cy="386" r="5"/>
-</g>
-<g class="st" id="C2">
-  <path class="conn" d="M540 114 V 386"/>
-  <circle class="closed" cx="540" cy="386" r="5"/>
-</g>
-<g class="st" id="C3">
-  <path class="conn" d="M750 114 V 386"/>
-  <circle class="closed" cx="750" cy="386" r="5"/>
+<!-- ══ STEP 1 · LANE A — chair → workshop → ends ══ -->
+<g class="st" id="SA">
+  <text class="lane-name" x="24" y="76">today · the chair</text>
+  <svg id="laneA" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
+    <path class="path path-old" d="M120 105 L 740 105"/>
+  </svg>
+  <circle class="node" cx="120" cy="105" r="7"/>
+  <circle class="node" cx="330" cy="105" r="7"/>
+  <circle class="node" cx="540" cy="105" r="7"/>
+  <circle class="node" cx="760" cy="105" r="7"/>
+  <text class="lbl" x="120" y="136" text-anchor="middle" font-weight="600">in her chair</text>
+  <text class="emo" x="120" y="152" text-anchor="middle">trusts her</text>
+  <text class="lbl" x="330" y="136" text-anchor="middle">hears about the workshop</text>
+  <text class="emo" x="330" y="152" text-anchor="middle">curious</text>
+  <text class="lbl" x="540" y="136" text-anchor="middle">attends — lit up</text>
+  <text class="emo" x="540" y="152" text-anchor="middle">fired up</text>
+  <text class="ends" x="760" y="140" text-anchor="middle">ends</text>
+  <path class="dead" d="M755 96 l 10 10 m 0 -10 l -10 10"/>
+  <text class="emo" x="795" y="140">no follow-up</text>
 </g>
 
-<!-- STEP 0: ingress doors -->
-<g class="st" id="D1">
-  <rect class="door" x="28" y="158" width="150" height="56" rx="12"/>
-  <text class="lbl" x="103" y="182" text-anchor="middle" font-weight="600">finds the site</text>
-  <text class="sub" x="103" y="200" text-anchor="middle">search · a friend · a link</text>
-</g>
-<g class="st" id="D2">
-  <rect class="door" x="28" y="268" width="150" height="56" rx="12"/>
-  <text class="lbl" x="103" y="292" text-anchor="middle" font-weight="600">in a workshop</text>
-  <text class="sub" x="103" y="310" text-anchor="middle">live, in the room</text>
-</g>
-<g class="st" id="D3">
-  <rect class="door" x="28" y="378" width="150" height="56" rx="12"/>
-  <text class="lbl" x="103" y="402" text-anchor="middle" font-weight="600">in her chair</text>
-  <text class="sub" x="103" y="420" text-anchor="middle">a client asks</text>
-</g>
-
-<!-- STEP 1: today label + spine (vivus draws) + nodes -->
-<g class="st" id="T1">
-  <text class="lane" x="230" y="292">today — manual, in her head</text>
-  <circle class="mot" cx="232" cy="305" r="3"/><text class="mot-leader" x="242" y="308">moment of truth — where she’s judged</text>
-</g>
-<svg id="jdraw" x="0" y="0" width="960" height="600" viewBox="0 0 960 600">
-  <path class="door-line" d="M178 186 C 205 200 215 260 228 310"/>
-  <path class="door-line" d="M178 296 L 228 316"/>
-  <path class="door-line" d="M178 406 C 205 390 215 345 228 322"/>
-  <path class="spine" d="M230 320 L 890 320" marker-end="url(#jhead)"/>
-</svg>
-<g class="st" id="N1">
-  <circle class="node" cx="290" cy="320" r="7"/><circle class="mot" cx="290" cy="320" r="2.6"/>
-  <text class="lbl" x="290" y="348" text-anchor="middle">takes the score</text>
-  <text class="emo" x="290" y="364" text-anchor="middle">curious</text>
-</g>
-<g class="st" id="N2">
-  <circle class="node" cx="400" cy="320" r="7"/>
-  <text class="lbl" x="400" y="348" text-anchor="middle">sees her stage</text>
-</g>
-<g class="st" id="N3">
-  <circle class="node" cx="510" cy="320" r="7"/><circle class="mot" cx="510" cy="320" r="2.6"/>
-  <text class="lbl" x="510" y="348" text-anchor="middle">enrolls</text>
-  <text class="emo" x="510" y="364" text-anchor="middle">committing</text>
-</g>
-<g class="st" id="N4">
-  <circle class="node" cx="620" cy="320" r="7"/>
-  <text class="lbl" x="620" y="348" text-anchor="middle">works the steps</text>
-</g>
-<g class="st" id="N5">
-  <circle class="node" cx="730" cy="320" r="7"/><circle class="mot" cx="730" cy="320" r="2.6"/>
-  <text class="lbl" x="730" y="348" text-anchor="middle">first real win</text>
-  <text class="emo" x="730" y="364" text-anchor="middle">confident</text>
-</g>
-<g class="st" id="N6">
-  <circle class="node" cx="860" cy="320" r="7"/>
-  <text class="lbl" x="860" y="348" text-anchor="middle">advocates</text>
+<!-- ══ STEP 2 · LANE B — word of mouth → same end ══ -->
+<g class="st" id="SB">
+  <text class="lane-name" x="24" y="206">today · word of mouth</text>
+  <svg id="laneB" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
+    <path class="path path-old" d="M120 235 L 740 235"/>
+  </svg>
+  <circle class="node" cx="120" cy="235" r="7"/>
+  <circle class="node" cx="330" cy="235" r="7"/>
+  <circle class="node" cx="540" cy="235" r="7"/>
+  <circle class="node" cx="760" cy="235" r="7"/>
+  <text class="lbl" x="120" y="266" text-anchor="middle" font-weight="600">tells a friend</text>
+  <text class="emo" x="120" y="282" text-anchor="middle">talks it up</text>
+  <text class="lbl" x="330" y="266" text-anchor="middle">friend tries to find her</text>
+  <text class="emo" x="330" y="282" text-anchor="middle">hunts around</text>
+  <text class="lbl" x="540" y="266" text-anchor="middle">maybe reaches a workshop</text>
+  <text class="emo" x="540" y="282" text-anchor="middle">hopes it’s real</text>
+  <text class="ends" x="760" y="270" text-anchor="middle">ends</text>
+  <path class="dead" d="M755 226 l 10 10 m 0 -10 l -10 10"/>
+  <text class="emo" x="795" y="270">…gone</text>
 </g>
 
-<!-- STEP 2: leak flags -->
-<g class="st lk1" id="K1">
-  <path class="leak" d="M330 320 V 386"/><path class="leakflag" d="M330 386 l 14 -7 v 14 z"/>
-  <text class="sub" x="348" y="392">interested — nowhere to go</text>
-</g>
-<g class="st lk2" id="K2">
-  <path class="leak" d="M540 320 V 386"/><path class="leakflag" d="M540 386 l 14 -7 v 14 z"/>
-  <text class="sub" x="558" y="392">workshop ends — momentum dies</text>
-</g>
-<g class="st lk3" id="K3">
-  <path class="leak" d="M750 320 V 386"/><path class="leakflag" d="M750 386 l 14 -7 v 14 z"/>
-  <text class="sub" x="768" y="392">stalled — nobody remembers</text>
+<!-- ══ STEP 3 · LANE C — +website: stranger → score → arrives warm ══ -->
+<g class="st" id="SC">
+  <text class="lane-name lane-new" x="24" y="336">+ website · awareness</text>
+  <svg id="laneC" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
+    <path class="path" d="M120 365 L 760 365" marker-end="url(#ah)"/>
+  </svg>
+  <circle class="node" cx="120" cy="365" r="7"/>
+  <circle class="node" cx="330" cy="365" r="7"/><circle class="mot" cx="330" cy="365" r="2.6"/>
+  <circle class="node" cx="540" cy="365" r="7"/>
+  <circle class="node" cx="760" cy="365" r="7"/>
+  <text class="lbl" x="120" y="396" text-anchor="middle" font-weight="600">a stranger searches</text>
+  <text class="emo" x="120" y="412" text-anchor="middle">looking</text>
+  <text class="lbl" x="330" y="396" text-anchor="middle">takes the free score</text>
+  <text class="emo" x="330" y="412" text-anchor="middle">seen</text>
+  <text class="lbl" x="540" y="396" text-anchor="middle">sees her stage</text>
+  <text class="emo" x="540" y="412" text-anchor="middle">placed</text>
+  <text class="lbl" x="760" y="396" text-anchor="middle">arrives warm</text>
+  <text class="emo" x="760" y="412" text-anchor="middle">ready</text>
+  <text class="mot-leader" x="352" y="352">◆ moment of truth</text>
 </g>
 
-<!-- STEP 5: loyalty loop -->
-<g class="st" id="LP">
-  <path class="loop" d="M860 332 C 850 480 250 480 105 448"/>
-  <path class="loop" d="M105 448 l -4 -12 m 4 12 l 12 -4" stroke-dasharray="none"/>
-  <text class="loop-tag" x="480" y="505" text-anchor="middle">she brings a friend — the loop feeds the next workshop</text>
+<!-- ══ STEP 4 · LANE D — +course: the workshop stops being the end ══ -->
+<g class="st" id="SD">
+  <text class="lane-name lane-new" x="24" y="466">+ course · the third stream</text>
+  <svg id="laneD" x="0" y="0" width="960" height="560" viewBox="0 0 960 560">
+    <path class="path" d="M120 495 L 850 495" marker-end="url(#ah)"/>
+  </svg>
+  <circle class="node" cx="120" cy="495" r="7"/>
+  <circle class="node" cx="330" cy="495" r="7"/><circle class="mot" cx="330" cy="495" r="2.6"/>
+  <circle class="node" cx="540" cy="495" r="7"/>
+  <circle class="node" cx="700" cy="495" r="7"/><circle class="mot" cx="700" cy="495" r="2.6"/>
+  <circle class="node node-far" cx="850" cy="495" r="7"/>
+  <text class="lbl" x="120" y="526" text-anchor="middle" font-weight="600">workshop done</text>
+  <text class="emo" x="120" y="542" text-anchor="middle">momentum</text>
+  <text class="lbl" x="330" y="526" text-anchor="middle">enrolls in the course</text>
+  <text class="emo" x="330" y="542" text-anchor="middle">committed</text>
+  <text class="lbl" x="540" y="526" text-anchor="middle">works the stages</text>
+  <text class="emo" x="540" y="542" text-anchor="middle">building</text>
+  <text class="lbl" x="700" y="526" text-anchor="middle">first real win</text>
+  <text class="emo" x="700" y="542" text-anchor="middle">proven</text>
+  <text class="lbl" x="850" y="526" text-anchor="middle" font-weight="600">advocates</text>
+</g>
+
+<!-- ══ STEP 5 · +CRM — everyone known + loop back ══ -->
+<g class="st" id="SE">
+  <circle class="known" cx="120" cy="86" r="3"/><circle class="known" cx="330" cy="86" r="3"/><circle class="known" cx="540" cy="86" r="3"/><circle class="known" cx="760" cy="86" r="3"/>
+  <circle class="known" cx="120" cy="216" r="3"/><circle class="known" cx="330" cy="216" r="3"/><circle class="known" cx="540" cy="216" r="3"/><circle class="known" cx="760" cy="216" r="3"/>
+  <circle class="known" cx="120" cy="346" r="3"/><circle class="known" cx="330" cy="346" r="3"/><circle class="known" cx="540" cy="346" r="3"/><circle class="known" cx="760" cy="346" r="3"/>
+  <circle class="known" cx="120" cy="476" r="3"/><circle class="known" cx="330" cy="476" r="3"/><circle class="known" cx="540" cy="476" r="3"/><circle class="known" cx="700" cy="476" r="3"/><circle class="known" cx="850" cy="476" r="3"/>
+  <text class="known-tag" x="936" y="60" text-anchor="end">+ crm · everyone on every path is known</text>
+  <path class="loop" d="M850 486 C 870 555 300 552 130 545" marker-end="url(#ahc)"/>
+  <text class="loop-tag" x="480" y="556" text-anchor="middle">she brings a friend — back in through any door</text>
 </g>
 </svg>
 </div>
@@ -184,14 +171,18 @@ body[data-dim3] .lk3 .leakflag{opacity:.35}
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var STEPS = [
-    {ids:['D1','D2','D3'], title:'One student. Three doors.', lead:'Every stylist arrives one of three ways — the site, a workshop, or her chair.'},
-    {ids:['T1','N1','N2','N3','N4','N5','N6'], draw:true, title:'Where she goes today.', lead:'Six stages — all of it manual, all of it in Miko’s head.'},
-    {ids:['K1','K2','K3'], title:'Where she falls out.', lead:'Three leaks — interest with nowhere to go, momentum that dies, students nobody remembers.'},
-    {ids:['L1','C1'], dim:1, title:'The website catches her.', lead:'A door that never closes — the score captures every arrival.'},
-    {ids:['L2','C2'], dim:2, title:'The curriculum carries her.', lead:'The workshop no longer ends the relationship — it starts it.'},
-    {ids:['L3','C3','LP'], dim:3, title:'The system remembers her.', lead:'Nobody stalls unseen — and every graduate feeds the next workshop.'},
+    {ids:['SA'], draw:'laneA', title:'The chair is the door.',
+      lead:'A client asks — Miko mentions the workshop — she attends. Then the path ends. No follow-up exists.'},
+    {ids:['SB'], draw:'laneB', title:'Word of mouth is the only engine.',
+      lead:'An attendee tells a friend. If the friend can find her — same path, same ending.'},
+    {ids:['SC'], draw:'laneC', title:'+ A website makes her findable.',
+      lead:'A stranger searches, takes the score, sees her stage — and arrives warm, day or night.'},
+    {ids:['SD'], draw:'laneD', title:'+ The course keeps her.',
+      lead:'The workshop stops being the end — it becomes the on-ramp. The third income stream.'},
+    {ids:['SE'], title:'+ The CRM remembers everyone.',
+      lead:'Every student on every path is known — and graduates bring friends back to any door.'},
   ];
-  var step = -1, v = null;
+  var step = -1, viv = {};
   var title = document.getElementById('jtitle');
   var lead = document.getElementById('jlead');
   var ind = document.getElementById('jstep');
@@ -199,22 +190,21 @@ body[data-dim3] .lk3 .leakflag{opacity:.35}
   function apply(i){
     STEPS.slice(0, i+1).forEach(function(s){
       s.ids.forEach(function(id){ document.getElementById(id).classList.add('on'); });
-      if(s.dim) document.body.dataset['dim'+s.dim] = '1';
+      if(s.draw && window.Vivus && !reduced && !viv[s.draw]){
+        viv[s.draw] = new Vivus(s.draw,{duration:80,type:'scenario',animTimingFunction:Vivus.EASE});
+      }
     });
     var s = STEPS[i];
     title.textContent = s.title; lead.textContent = s.lead;
-    ind.innerHTML = '<b>' + (i+1) + ' / ' + STEPS.length + '</b> — ' + (i+1 < STEPS.length ? 'space or tap → next' : 'the whole picture');
-    if(s.draw && window.Vivus && !reduced && !v){
-      v = new Vivus('jdraw',{duration:110,type:'scenario',animTimingFunction:Vivus.EASE});
-    }
+    ind.innerHTML = '<b>' + (i+1) + ' / ' + STEPS.length + '</b> — ' +
+      (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture');
   }
   function unapply(i){
     var s = STEPS[i];
     s.ids.forEach(function(id){ document.getElementById(id).classList.remove('on'); });
-    if(s.dim) delete document.body.dataset['dim'+s.dim];
-    var p = STEPS[i-1] || {title:'One student. Three doors.',lead:''};
-    title.textContent = p.title; lead.textContent = p.lead || '';
-    ind.innerHTML = '<b>' + i + ' / ' + STEPS.length + '</b> — space or tap → next';
+    var p = STEPS[i-1];
+    title.textContent = p.title; lead.textContent = p.lead;
+    ind.innerHTML = '<b>' + i + ' / ' + STEPS.length + '</b> — space or tap → next path';
   }
   function next(){ if(step < STEPS.length-1){ step++; apply(step); } }
   function prev(){ if(step > 0){ unapply(step); step--; } }
