@@ -110,6 +110,12 @@ figure.testimonial{border-left:none!important}
 @media(max-width:760px){.v12 .how-it-runs{grid-template-columns:1fr 1fr}#concierge .cg-panel{width:calc(100vw - 40px)}
 /* mobile hierarchy — keep display vs body ratio ≥1.5 (beat shared !important by specificity+order) */
 .v12 .blueprint-inner h2,.v12 .services-inner h2,.v12 .dual-path h2,.v12 .portfolio h2,.v12 .testimonials-inner h2,.v12 .founder-video h2,.v12 .faq h2,.v12 .cta-band h2{font-size:clamp(28px,7vw,34px)!important}}
+/* hero final band — move headline into the left quiet zone (face occupies center-right);
+   left scrim deepens only behind text — no black film over her face */
+.v12 .scrim{background:linear-gradient(102deg,#1E1915d9 0%,#1E191580 30%,#1E191500 58%),linear-gradient(#0000 45%,#000a)}
+.v12 .band.final{left:8vw;right:auto;max-width:42vw;align-items:flex-start;text-align:left;bottom:16vh}
+.v12 .band.final h2{text-align:left;max-width:14ch}
+@media(max-width:900px){.v12 .band.final{max-width:84vw;bottom:14vh}.v12 .band.final h2{max-width:18ch}}
 /* seam wipes — sections diagonal-clip open on entry */
 .v12 section.wipe{clip-path:polygon(0 6%,100% 0,100% 94%,0 100%);opacity:.35;transition:clip-path var(--d3) var(--ease),opacity var(--d3) var(--ease)}
 .v12 section.wipe.visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);opacity:1}
