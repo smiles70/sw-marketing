@@ -18,6 +18,11 @@
 .jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;margin-top:30px}
 .jback::before{content:"";width:22px;height:10px;background:currentColor;clip-path:polygon(100% 40%,28% 40%,42% 0,0 50%,42% 100%,28% 60%,100% 60%);order:-1}
 .jback:hover{color:#6B3A24}
+.jfoot{display:flex;align-items:center;gap:32px;margin-top:30px}
+.jfoot .jback{margin-top:0}
+.jback.jr::before{display:none}
+.jback.jr{color:#8A7A6C}
+.jback.jr:hover{color:#9C5530}
 
 .stepview{display:none}
 .stepview.on{display:block;cursor:pointer}
@@ -165,7 +170,10 @@
 </div>
 
 <p class="jstep" id="jstep"></p>
+<div class="jfoot">
 <a class="jback" href="index.html">← back to the cover</a>
+<a class="jback jr" href="#" id="jrestart">↺ start the journey over</a>
+</div>
 </div>
 
 <script>
@@ -195,9 +203,9 @@
     var s = STEPS[i];
     title.textContent = s.title; lead.textContent = s.lead;
     ind.innerHTML = '<span class="bignum">0' + (i+1) + '</span><span><b>of ' + STEPS.length + '</b> — ' +
-      (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture') + '</span>';
+      (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture — space or tap to start over') + '</span>';
   }
-  function next(){ if(step < STEPS.length-1){ step++; apply(step); } }
+  function next(){ step = (step < STEPS.length-1) ? step+1 : 0; apply(step); }
   function prev(){ if(step > 0){ step--; apply(step); } }
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced){ step = STEPS.length-1; apply(step); return; }
@@ -206,6 +214,7 @@
     if(e.code==='ArrowLeft'){ e.preventDefault(); prev(); }
   });
   document.querySelectorAll('.stepview').forEach(function(v){ v.addEventListener('click', next); });
+  document.getElementById('jrestart').addEventListener('click', function(e){ e.preventDefault(); step = 0; apply(0); });
   next();
 })();
 </script>
