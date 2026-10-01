@@ -10,15 +10,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-.journey-wrap{max-width:1180px;margin:0 auto;padding:36px 5vw 48px;--ease:cubic-bezier(.22,1,.36,1)}
+.journey-wrap{max-width:1180px;margin:0 auto;padding:36px 5vw 48px;--ease:cubic-bezier(.22,1,.36,1);text-align:center}
+.journey-wrap .subh{margin-bottom:22px}
+.journey-wrap .sublead{margin-bottom:36px;max-width:62ch;margin-left:auto;margin-right:auto}
 .jcap{font-size:12px;letter-spacing:.1em;color:#8A7A6C;font-style:italic;margin-top:10px}
-.jstep{display:flex;align-items:baseline;gap:14px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:26px}
+.jstep{display:flex;align-items:baseline;justify-content:center;gap:14px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:26px}
 .jstep .bignum{font-family:'Fraunces',serif;font-size:64px;font-weight:700;color:#E3D9CB;line-height:.8}
 .jstep b{color:#9C5530;font-weight:700}
 .jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;margin-top:30px}
 .jback::before{content:"";width:22px;height:10px;background:currentColor;clip-path:polygon(100% 40%,28% 40%,42% 0,0 50%,42% 100%,28% 60%,100% 60%);order:-1}
 .jback:hover{color:#6B3A24}
-.jfoot{display:flex;align-items:center;gap:32px;margin-top:30px}
+.jfoot{display:flex;align-items:center;justify-content:center;gap:32px;margin-top:30px}
 .jfoot .jback{margin-top:0}
 .jback.jr::before{display:none}
 .jback.jr{color:#8A7A6C}
@@ -43,8 +45,9 @@
 .jcard b{font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1E1915;line-height:1.3}
 .jcard i{font-style:italic;font-size:14px;color:#8A7A6C;margin-top:6px}
 .jcard .kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#B9AC9C;font-weight:700;margin-bottom:8px}
+.jcard{text-align:center}
 .chev{align-self:center;margin:0 12px;width:30px;height:12px;background:#9C5530;clip-path:polygon(0 40%,72% 40%,58% 0,100% 50%,58% 100%,72% 60%,0 60%);opacity:0;animation:jcin .4s ease .35s forwards;flex:0 0 auto}
-.jcard.mot::after{content:"◆ moment of truth";position:absolute;top:-10px;left:16px;background:#D08A5E;color:#fff;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:99px}
+.jcard.mot::after{content:"◆ moment of truth";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#D08A5E;color:#fff;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:99px;white-space:nowrap}
 .jcard.dead{background:#1E1915;border-color:#1E1915;box-shadow:0 20px 44px -20px rgba(30,25,21,.5)}
 .jcard.dead .num{background:#9C5530}
 .jcard.dead .kicker{color:#8A7A6C}
