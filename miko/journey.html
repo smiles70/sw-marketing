@@ -103,14 +103,25 @@
 <div class="lanetag new">+ website · awareness</div>
 <div class="cards">
   <div class="jcard"><span class="kicker">Start</span><b>a stranger searches</b><i>looking</i></div><span class="chev">→</span>
-  <div class="jcard mot"><span class="kicker">She finds</span><b>the free score</b><i>seen</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">She sees</span><b>where she stands</b><i>placed</i></div><span class="chev">→</span>
-  <div class="jcard goal"><span class="kicker">She arrives</span><b>warm</b><i>ready</i></div>
+  <div class="jcard"><span class="kicker">She finds</span><b>Miko’s site</b><i>found her</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">She reads</span><b>what Miko offers</b><i>this is for me</i></div><span class="chev">→</span>
+  <div class="jcard goal"><span class="kicker">She reaches</span><b>the free score</b><i>wants in</i></div>
 </div>
 </div>
 
-<!-- STEP 4 · +course -->
+<!-- STEP 4 · +readiness score -->
 <div class="stepview" id="V4">
+<div class="lanetag new">+ readiness score · placement</div>
+<div class="cards">
+  <div class="jcard"><span class="kicker">Start</span><b>takes the free score</b><i>twelve questions</i></div><span class="chev">→</span>
+  <div class="jcard mot"><span class="kicker">She learns</span><b>where she stands</b><i>seen</i></div><span class="chev">→</span>
+  <div class="jcard"><span class="kicker">The score</span><b>matches her next step</b><i>routed</i></div><span class="chev">→</span>
+  <div class="jcard goal"><span class="kicker">She arrives</span><b>at the right door</b><i>ready</i></div>
+</div>
+</div>
+
+<!-- STEP 5 · +course -->
+<div class="stepview" id="V5">
 <div class="lanetag new">+ course · the third stream</div>
 <div class="cards">
   <div class="jcard"><span class="kicker">Start</span><b>workshop done</b><i>momentum</i></div><span class="chev">→</span>
@@ -121,8 +132,8 @@
 </div>
 </div>
 
-<!-- STEP 5 · whole picture + CRM -->
-<div class="stepview" id="V5">
+<!-- STEP 6 · whole picture + CRM -->
+<div class="stepview" id="V6">
 <div class="ovall"><div class="ovlane"><span class="ovtag">today · the chair</span><div class="ovcards">
   <span class="ovcard">in her chair</span><span class="ovcard">hears about the workshop</span><span class="ovcard">attends — lit up</span><span class="ovcard dead">ends · no follow-up</span>
 </div></div></div>
@@ -130,7 +141,10 @@
   <span class="ovcard">tells a friend</span><span class="ovcard">friend tries to find her</span><span class="ovcard">maybe a workshop</span><span class="ovcard dead">ends · gone</span>
 </div></div></div>
 <div class="ovall"><div class="ovlane"><span class="ovtag new">+ website · awareness</span><div class="ovcards">
-  <span class="ovcard">a stranger searches</span><span class="ovcard motdot">the free score</span><span class="ovcard">sees where she stands</span><span class="ovcard goal">arrives warm</span>
+  <span class="ovcard">a stranger searches</span><span class="ovcard">finds Miko’s site</span><span class="ovcard">reads what she offers</span><span class="ovcard goal">reaches the free score</span>
+</div></div></div>
+<div class="ovall"><div class="ovlane"><span class="ovtag new">+ score · placement</span><div class="ovcards">
+  <span class="ovcard">takes the free score</span><span class="ovcard motdot">sees where she stands</span><span class="ovcard">matched to her next step</span><span class="ovcard goal">right door</span>
 </div></div></div>
 <div class="ovall"><div class="ovlane"><span class="ovtag new">+ course · the third stream</span><div class="ovcards">
   <span class="ovcard">workshop done</span><span class="ovcard motdot">enrolls</span><span class="ovcard">climbs the rungs</span><span class="ovcard motdot">first real win</span><span class="ovcard goal">advocates</span>
@@ -150,12 +164,14 @@
       lead:'A client asks — Miko mentions the workshop — she attends. Then the path ends. No follow-up exists.'},
     {view:'V2', title:'Word of mouth is the only engine.',
       lead:'An attendee tells a friend. If the friend can find her — same path, same ending.'},
-    {view:'V3', title:'+ A website makes her findable.',
-      lead:'A stranger searches, takes the score, sees where she stands — and arrives warm, day or night.'},
-    {view:'V4', title:'+ The course keeps her.',
-      lead:'The workshop stops being the end — it becomes the on-ramp. The third income stream.'},
-    {view:'V5', title:'+ The CRM remembers everyone.',
-      lead:'Every student on every path is known — and graduates bring friends back to any door.'},
+    {view:'V3', title:'+ The website makes her findable.',
+      lead:'The website’s role is awareness — the front door that never closes. A stranger searches and finds Miko, day or night.'},
+    {view:'V4', title:'+ The score places her.',
+      lead:'The readiness score’s role is placement — twelve honest questions, and the right next step picks itself.'},
+    {view:'V5', title:'+ The course keeps her.',
+      lead:'The curriculum’s role is the carry — the workshop stops being the end and becomes the on-ramp. The third income stream.'},
+    {view:'V6', title:'+ The CRM remembers everyone.',
+      lead:'The CRM’s role is memory — every student on every path is known, and graduates bring friends back to any door.'},
   ];
   var step = -1;
   var title = document.getElementById('jtitle');
