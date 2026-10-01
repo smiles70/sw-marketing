@@ -10,36 +10,47 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-.journey-wrap{max-width:1180px;margin:0 auto;padding:36px 5vw 48px}
-.jcap{font-size:12px;color:#8A7A6C;font-style:italic;margin-top:10px}
-.jstep{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:22px}
+.journey-wrap{max-width:1180px;margin:0 auto;padding:36px 5vw 48px;--ease:cubic-bezier(.22,1,.36,1)}
+.jcap{font-size:12px;letter-spacing:.1em;color:#8A7A6C;font-style:italic;margin-top:10px}
+.jstep{display:flex;align-items:baseline;gap:14px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A6C;margin-top:26px}
+.jstep .bignum{font-family:'Fraunces',serif;font-size:64px;font-weight:700;color:#E3D9CB;line-height:.8}
 .jstep b{color:#9C5530;font-weight:700}
-.jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;margin-top:26px}
+.jback{display:inline-flex;align-items:center;gap:8px;color:#9C5530;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;margin-top:30px}
+.jback::before{content:"";width:22px;height:10px;background:currentColor;clip-path:polygon(100% 40%,28% 40%,42% 0,0 50%,42% 100%,28% 60%,100% 60%);order:-1}
 .jback:hover{color:#6B3A24}
 
 .stepview{display:none}
 .stepview.on{display:block;cursor:pointer}
 
-.lanetag{display:inline-block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#8A7A6C;border:1px solid #E3D9CB;border-radius:99px;padding:6px 16px;margin-bottom:26px}
-.lanetag.new{color:#F4EEE6;background:#9C5530;border-color:#9C5530}
+.lanetag{display:inline-block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#8A7A6C;border:1px solid #E3D9CB;border-radius:99px;padding:6px 16px;margin-bottom:34px}
+.lanetag.new{color:#F4EEE6;background:#9C5530;border-color:#9C5530;box-shadow:0 8px 24px -10px rgba(156,85,48,.55)}
 
-.cards{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.jcard{flex:1 1 160px;min-width:150px;background:#fff;border:1px solid #E3D9CB;border-radius:16px;padding:24px 22px 20px;box-shadow:0 1px 3px rgba(30,25,21,.05),0 12px 32px -18px rgba(30,25,21,.18);display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(10px);animation:jcin .55s cubic-bezier(.2,.7,.3,1) forwards}
+.cards{display:flex;align-items:stretch;flex-wrap:wrap}
+.jcard{position:relative;flex:1 1 160px;min-width:150px;background:#fff;border:1px solid #E3D9CB;border-radius:16px;padding:26px 22px 22px;box-shadow:0 1px 3px rgba(30,25,21,.06),0 20px 44px -22px rgba(30,25,21,.22);display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(12px);animation:jcin .55s var(--ease) forwards;transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s var(--ease)}
+.jcard:hover{transform:translateY(-4px);box-shadow:0 2px 5px rgba(30,25,21,.06),0 26px 52px -24px rgba(30,25,21,.28)}
 .jcard:nth-of-type(1){animation-delay:.05s}
-.chev{align-self:center;color:#C4B7A8;font-size:22px;padding:0 14px;opacity:0;animation:jcin .4s ease .3s forwards}
 .jcard:nth-of-type(2){animation-delay:.15s}
 .jcard:nth-of-type(3){animation-delay:.25s}
 .jcard:nth-of-type(4){animation-delay:.35s}
 .jcard:nth-of-type(5){animation-delay:.45s}
+.jcard .num{position:absolute;top:-11px;left:20px;width:22px;height:22px;background:#1E1915;transform:rotate(45deg);display:flex;align-items:center;justify-content:center}
+.jcard .num span{transform:rotate(-45deg);font-size:10px;font-weight:700;color:#F4EEE6;letter-spacing:0}
 .jcard b{font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1E1915;line-height:1.3}
 .jcard i{font-style:italic;font-size:14px;color:#8A7A6C;margin-top:6px}
 .jcard .kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#B9AC9C;font-weight:700;margin-bottom:8px}
-.jcard.mot{position:relative}
-.jcard.mot::after{content:"◆ moment of truth";position:absolute;top:-10px;left:18px;background:#D08A5E;color:#fff;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:99px}
-.jcard.dead{border-style:dashed;border-color:#D9CFC0;background:#FBF6EF;box-shadow:none}
-.jcard.dead b{color:#9C5530;letter-spacing:.1em;font-size:15px;text-transform:uppercase}
-.jcard.goal{border-color:#9C5530;border-width:1.5px}
-.jcard.goal b{color:#9C5530}
+.chev{align-self:center;margin:0 12px;width:30px;height:12px;background:#9C5530;clip-path:polygon(0 40%,72% 40%,58% 0,100% 50%,58% 100%,72% 60%,0 60%);opacity:0;animation:jcin .4s ease .35s forwards;flex:0 0 auto}
+.jcard.mot::after{content:"◆ moment of truth";position:absolute;top:-10px;left:16px;background:#D08A5E;color:#fff;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:99px}
+.jcard.dead{background:#1E1915;border-color:#1E1915;box-shadow:0 20px 44px -20px rgba(30,25,21,.5)}
+.jcard.dead .num{background:#9C5530}
+.jcard.dead .kicker{color:#8A7A6C}
+.jcard.dead b{color:#D08A5E;letter-spacing:.1em;font-size:15px;text-transform:uppercase}
+.jcard.dead i{color:#B9AC9C}
+.jcard.goal{background:#9C5530;border-color:#9C5530;box-shadow:0 20px 44px -18px rgba(156,85,48,.5)}
+.jcard.goal .num{background:#F4EEE6}
+.jcard.goal .num span{color:#9C5530}
+.jcard.goal .kicker{color:rgba(244,238,230,.7)}
+.jcard.goal b{color:#F4EEE6}
+.jcard.goal i{color:rgba(244,238,230,.78)}
 
 /* overview */
 .ovlane{display:flex;align-items:center;gap:14px;margin-bottom:14px}
@@ -47,20 +58,19 @@
 .ovtag.new{color:#9C5530}
 .ovcards{display:flex;flex:1;gap:8px}
 .ovcard{flex:1;background:#fff;border:1px solid #E3D9CB;border-radius:10px;padding:10px 14px;font-size:13.5px;font-weight:600;color:#4A423B;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ovcard.dead{border-style:dashed;border-color:#D9CFC0;color:#9C5530;background:#FBF6EF}
-.ovcard.goal{border-color:#9C5530;color:#9C5530}
-.ovcard.motdot{position:relative}
+.ovcard.dead{background:#1E1915;border-color:#1E1915;color:#D08A5E}
+.ovcard.goal{background:#9C5530;border-color:#9C5530;color:#F4EEE6}
 .ovcard.motdot::before{content:"◆";color:#D08A5E;margin-right:6px;font-size:10px}
-.crmband{display:flex;align-items:center;gap:14px;background:#1E1915;border-radius:14px;padding:16px 22px;margin-top:26px}
+.crmband{display:flex;align-items:center;gap:14px;background:#1E1915;border-radius:14px;padding:16px 22px;margin-top:26px;box-shadow:0 18px 40px -18px rgba(30,25,21,.45)}
 .crmband .t{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#D08A5E;white-space:nowrap}
 .crmband .d{font-size:13.5px;color:#F4EEE6;opacity:.9}
 .loopband{margin-top:14px;border:1.5px dashed #D08A5E;border-radius:14px;padding:13px 22px;font-size:13.5px;color:#9C5530;font-style:italic;text-align:center}
-.ovall{opacity:0;transform:translateY(8px);animation:jcin .55s cubic-bezier(.2,.7,.3,1) forwards}
-.ovall:nth-child(2){animation-delay:.12s}.ovall:nth-child(3){animation-delay:.22s}.ovall:nth-child(4){animation-delay:.32s}.ovall:nth-child(5){animation-delay:.42s}.ovall:nth-child(6){animation-delay:.52s}
+.ovall{opacity:0;transform:translateY(8px);animation:jcin .55s var(--ease) forwards}
+.ovall:nth-child(2){animation-delay:.12s}.ovall:nth-child(3){animation-delay:.22s}.ovall:nth-child(4){animation-delay:.32s}.ovall:nth-child(5){animation-delay:.42s}.ovall:nth-child(6){animation-delay:.52s}.ovall:nth-child(7){animation-delay:.62s}
 
 @keyframes jcin{to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.jcard,.chev,.ovall{animation:none;opacity:1;transform:none}}
-@media(max-width:760px){.cards{flex-direction:column}.chev{transform:rotate(90deg);padding:8px 0}.ovtag{flex-basis:0;display:none}.ovcard{font-size:11.5px;padding:8px 6px}}
+@media(max-width:760px){.cards{flex-direction:column}.chev{transform:rotate(90deg);margin:8px auto}.ovtag{flex-basis:0;display:none}.ovcard{font-size:11.5px;padding:8px 6px}.jstep .bignum{font-size:40px}}
 </style>
 </head>
 <body>
@@ -68,6 +78,7 @@
 <a class="brand" href="index.html">Miko <span>Pierson</span></a>
 <div class="links">
 <a href="index.html">← Cover</a>
+<a href="deck.html">▶ Deck</a>
 </div>
 </nav>
 <div class="journey-wrap">
@@ -80,10 +91,10 @@
 <div class="stepview" id="V1">
 <div class="lanetag">today · the chair</div>
 <div class="cards">
-  <div class="jcard"><span class="kicker">Start</span><b>in her chair</b><i>trusts her</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">She hears</span><b>about the workshop</b><i>curious</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">She attends</span><b>— and it lands</b><i>fired up</i></div><span class="chev">→</span>
-  <div class="jcard dead"><span class="kicker">Then</span><b>Ends</b><i>no follow-up</i></div>
+  <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>in her chair</b><i>trusts her</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>2</span></span><span class="kicker">She hears</span><b>about the workshop</b><i>curious</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>3</span></span><span class="kicker">She attends</span><b>— and it lands</b><i>fired up</i></div><span class="chev"></span>
+  <div class="jcard dead"><span class="num"><span>4</span></span><span class="kicker">Then</span><b>Ends</b><i>no follow-up</i></div>
 </div>
 </div>
 
@@ -91,10 +102,10 @@
 <div class="stepview" id="V2">
 <div class="lanetag">today · word of mouth</div>
 <div class="cards">
-  <div class="jcard"><span class="kicker">Start</span><b>tells a friend</b><i>talks it up</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">The friend</span><b>tries to find her</b><i>hunts around</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">Maybe</span><b>reaches a workshop</b><i>hopes it’s real</i></div><span class="chev">→</span>
-  <div class="jcard dead"><span class="kicker">Then</span><b>Ends</b><i>…gone</i></div>
+  <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>tells a friend</b><i>talks it up</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>2</span></span><span class="kicker">The friend</span><b>tries to find her</b><i>hunts around</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>3</span></span><span class="kicker">Finds</span><b>a link in bio</b><i>a link is not a door</i></div><span class="chev"></span>
+  <div class="jcard dead"><span class="num"><span>4</span></span><span class="kicker">Then</span><b>Ends</b><i>…gone</i></div>
 </div>
 </div>
 
@@ -102,10 +113,10 @@
 <div class="stepview" id="V3">
 <div class="lanetag new">+ website · awareness</div>
 <div class="cards">
-  <div class="jcard"><span class="kicker">Start</span><b>a stranger searches</b><i>looking</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">She finds</span><b>Miko’s site</b><i>found her</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">She reads</span><b>what Miko offers</b><i>this is for me</i></div><span class="chev">→</span>
-  <div class="jcard goal"><span class="kicker">She reaches</span><b>the free score</b><i>wants in</i></div>
+  <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>a stranger searches</b><i>looking</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>2</span></span><span class="kicker">She finds</span><b>Miko’s site</b><i>found her</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>3</span></span><span class="kicker">She reads</span><b>what Miko offers</b><i>this is for me</i></div><span class="chev"></span>
+  <div class="jcard goal"><span class="num"><span>4</span></span><span class="kicker">She reaches</span><b>the free score</b><i>wants in</i></div>
 </div>
 </div>
 
@@ -113,10 +124,10 @@
 <div class="stepview" id="V4">
 <div class="lanetag new">+ readiness score · placement</div>
 <div class="cards">
-  <div class="jcard"><span class="kicker">Start</span><b>takes the free score</b><i>twelve questions</i></div><span class="chev">→</span>
-  <div class="jcard mot"><span class="kicker">She learns</span><b>where she stands</b><i>seen</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">The score</span><b>matches her next step</b><i>routed</i></div><span class="chev">→</span>
-  <div class="jcard goal"><span class="kicker">She arrives</span><b>at the right door</b><i>ready</i></div>
+  <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>takes the free score</b><i>twelve questions</i></div><span class="chev"></span>
+  <div class="jcard mot"><span class="num"><span>2</span></span><span class="kicker">She learns</span><b>where she stands</b><i>seen</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>3</span></span><span class="kicker">The score</span><b>matches her next step</b><i>routed</i></div><span class="chev"></span>
+  <div class="jcard goal"><span class="num"><span>4</span></span><span class="kicker">She arrives</span><b>at the right door</b><i>ready</i></div>
 </div>
 </div>
 
@@ -124,11 +135,11 @@
 <div class="stepview" id="V5">
 <div class="lanetag new">+ course · the third stream</div>
 <div class="cards">
-  <div class="jcard"><span class="kicker">Start</span><b>workshop done</b><i>momentum</i></div><span class="chev">→</span>
-  <div class="jcard mot"><span class="kicker">She commits</span><b>enrolls in the course</b><i>committed</i></div><span class="chev">→</span>
-  <div class="jcard"><span class="kicker">She builds</span><b>climbs the rungs</b><i>building</i></div><span class="chev">→</span>
-  <div class="jcard mot"><span class="kicker">She proves it</span><b>first real win</b><i>proven</i></div><span class="chev">→</span>
-  <div class="jcard goal"><span class="kicker">Then</span><b>advocates</b><i>for Miko</i></div>
+  <div class="jcard"><span class="num"><span>1</span></span><span class="kicker">Start</span><b>workshop done</b><i>momentum</i></div><span class="chev"></span>
+  <div class="jcard mot"><span class="num"><span>2</span></span><span class="kicker">She commits</span><b>enrolls in the course</b><i>committed</i></div><span class="chev"></span>
+  <div class="jcard"><span class="num"><span>3</span></span><span class="kicker">She builds</span><b>climbs the rungs</b><i>building</i></div><span class="chev"></span>
+  <div class="jcard mot"><span class="num"><span>4</span></span><span class="kicker">She proves it</span><b>first real win</b><i>proven</i></div><span class="chev"></span>
+  <div class="jcard goal"><span class="num"><span>5</span></span><span class="kicker">Then</span><b>advocates</b><i>for Miko</i></div>
 </div>
 </div>
 
@@ -138,7 +149,7 @@
   <span class="ovcard">in her chair</span><span class="ovcard">hears about the workshop</span><span class="ovcard">attends — lit up</span><span class="ovcard dead">ends · no follow-up</span>
 </div></div></div>
 <div class="ovall"><div class="ovlane"><span class="ovtag">today · word of mouth</span><div class="ovcards">
-  <span class="ovcard">tells a friend</span><span class="ovcard">friend tries to find her</span><span class="ovcard">maybe a workshop</span><span class="ovcard dead">ends · gone</span>
+  <span class="ovcard">tells a friend</span><span class="ovcard">friend tries to find her</span><span class="ovcard">a link in bio</span><span class="ovcard dead">ends · gone</span>
 </div></div></div>
 <div class="ovall"><div class="ovlane"><span class="ovtag new">+ website · awareness</span><div class="ovcards">
   <span class="ovcard">a stranger searches</span><span class="ovcard">finds Miko’s site</span><span class="ovcard">reads what she offers</span><span class="ovcard goal">reaches the free score</span>
@@ -162,10 +173,10 @@
   var STEPS = [
     {view:'V1', title:'The chair is the door.',
       lead:'A client asks — Miko mentions the workshop — she attends. Then the path ends. No follow-up exists.'},
-    {view:'V2', title:'Word of mouth is the only engine.',
-      lead:'An attendee tells a friend. If the friend can find her — same path, same ending.'},
+    {view:'V2', title:'Word of mouth is the only engine — and there is no website.',
+      lead:'An attendee tells a friend. The friend searches — and finds a link in bio, not a home. Same ending: gone.'},
     {view:'V3', title:'+ The website makes her findable.',
-      lead:'The website’s role is awareness — the front door that never closes. A stranger searches and finds Miko, day or night.'},
+      lead:'The website’s role is awareness — today a search ends at a link in bio. This is the front door that never closes.'},
     {view:'V4', title:'+ The score places her.',
       lead:'The readiness score’s role is placement — twelve honest questions, and the right next step picks itself.'},
     {view:'V5', title:'+ The course keeps her.',
@@ -183,8 +194,8 @@
     views.forEach(function(el,idx){ el.classList.toggle('on', idx===i); });
     var s = STEPS[i];
     title.textContent = s.title; lead.textContent = s.lead;
-    ind.innerHTML = '<b>' + (i+1) + ' / ' + STEPS.length + '</b> — ' +
-      (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture');
+    ind.innerHTML = '<span class="bignum">0' + (i+1) + '</span><span><b>of ' + STEPS.length + '</b> — ' +
+      (i+1 < STEPS.length ? 'space or tap → next path' : 'the whole picture') + '</span>';
   }
   function next(){ if(step < STEPS.length-1){ step++; apply(step); } }
   function prev(){ if(step > 0){ step--; apply(step); } }
