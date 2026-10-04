@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miko Pierson — Playbooks</title>
+<meta name="description" content="Four working playbooks from Miko's education — free for a name and an email.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='8' y='8' width='16' height='16' fill='%23B98A4A' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="v1.1.css?v=7">
+<style>
+.pb{grid-template-columns:200px 1fr;align-items:start}
+@media(max-width:720px){.pb{grid-template-columns:1fr}}
+.pb>img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r-md)}
+.mini-form{display:grid;gap:10px;margin-top:14px}
+.mini-form .row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px}
+@media(max-width:560px){.mini-form .row{grid-template-columns:1fr}}
+.mini-form input{font:inherit;font-size:15px;padding:11px 13px;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--bg-2);color:var(--bone)}
+.mini-form input::placeholder{color:var(--muted)}
+.mini-form .btn{padding:11px 18px;font-size:14px}
+.dl{display:none;margin-top:10px;font-size:14px;color:var(--bone-2)}
+.pb-cta a[hidden]{display:none}
+.dl.show{display:block}
+.dl a{color:var(--gold);font-weight:600}
+</style>
+</head>
+<body>
+<div id="thread" aria-hidden="true"><i></i></div>
+
+<nav class="topnav" style="background:var(--bg);border-bottom:1px solid var(--line-soft)" aria-label="Primary">
+  <a class="brand" href="index.html">Miko Pierson</a>
+  <a class="key" href="programs.html">Programs</a>
+  <a class="key" href="blueprint.html">The Blueprint</a>
+  <a class="key" href="index.html#capture">Start</a>
+  <a class="key cta" href="https://shear-equity-course-production.up.railway.app/ors.html" target="_blank" rel="noopener">Take the Score</a>
+</nav>
+
+<main>
+<section style="padding-top:110px">
+  <div class="wrap">
+    <div class="card-feature split pb rv on" style="--i:0">
+      <img src="../assets/img/pb-gate-headshot.jpg" alt="Miko Pierson">
+      <div>
+        <p class="kicker">Free resources</p>
+        <h1 style="font-size:clamp(34px,4.5vw,52px);margin:10px 0 12px">The playbooks.</h1>
+        <p class="lede" style="font-size:16px">Four working scripts she uses —
+        the rebook, the pricing, the follow-up, the DM.</p>
+        <form id="pb-gate-form" class="mini-form" novalidate>
+          <div class="row">
+            <input name="first_name" required placeholder="First name" aria-label="First name">
+            <input name="email" type="email" required placeholder="Email" aria-label="Email">
+            <button class="btn" type="submit">Get the playbooks</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pb-list" style="padding-top:0" hidden>
+  <div class="wrap">
+    <div class="row-list pb-rows">
+      <div class="row"><img src="../assets/img/pb-rebook.jpg" alt="The Rebook Script" style="width:52px;height:52px;object-fit:cover;border-radius:var(--r-sm);flex:none"><div>The Rebook Script</div>
+        <a class="btn" style="margin-left:auto;padding:10px 20px;font-size:14px"
+           href="../assets/playbooks/rebook-script.pdf" download>Download</a></div>
+      <div class="row"><img src="../assets/img/pb-pricing.jpg" alt="Pricing Your Chair" style="width:52px;height:52px;object-fit:cover;border-radius:var(--r-sm);flex:none"><div>Pricing Your Chair</div>
+        <a class="btn" style="margin-left:auto;padding:10px 20px;font-size:14px"
+           href="../assets/playbooks/pricing-your-chair.pdf" download>Download</a></div>
+      <div class="row"><img src="../assets/img/pb-followup.jpg" alt="The Follow-Up (Not Pushy)" style="width:52px;height:52px;object-fit:cover;border-radius:var(--r-sm);flex:none"><div>The Follow-Up (Not Pushy)</div>
+        <a class="btn" style="margin-left:auto;padding:10px 20px;font-size:14px"
+           href="../assets/playbooks/follow-up-not-pushy.pdf" download>Download</a></div>
+      <div class="row"><img src="../assets/img/pb-dm.jpg" alt="From DM to Booked" style="width:52px;height:52px;object-fit:cover;border-radius:var(--r-sm);flex:none"><div>From DM to Booked</div>
+        <a class="btn" style="margin-left:auto;padding:10px 20px;font-size:14px"
+           href="../assets/playbooks/dm-to-booked.pdf" download>Download</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="kicker">Miko Pierson Institute</p>
+      <p class="small" style="margin-top:14px;max-width:26ch">Business coaching
+      for hairstylists.</p>
+      <p style="margin:14px 0 0"><a class="phone-cta" href="tel:+19195550134">(919) 555-0134</a></p>
+    </div>
+    <div>
+      <p class="kicker">Programs</p>
+      <p class="small" style="margin-top:14px;line-height:2">
+      <a href="programs.html#ors">Owner Readiness Score</a><br>
+      <a href="programs.html#workshop">Price for Profit</a><br>
+      <a href="programs.html#chair">The Owner's Chair</a><br>
+      <a href="programs.html#ceo">Salon CEO Intensive</a></p>
+    </div>
+    <div>
+      <p class="kicker">The Blueprint</p>
+      <p class="small" style="margin-top:14px;line-height:2">
+      <a href="blueprint.html#artist">Artist</a><br>
+      <a href="blueprint.html#operator">Operator</a><br>
+      <a href="blueprint.html#owner">Owner</a><br>
+      <a href="blueprint.html#ceo">CEO</a></p>
+    </div>
+    <div>
+      <p class="kicker">Follow</p>
+      <p class="small" style="margin-top:14px"><a class="foot-soc" href="https://instagram.com/mikopierson" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.1" fill="currentColor" stroke="none"/></svg>@mikopierson</a></p>
+      <p class="small" style="margin-top:10px"><a class="foot-soc" href="https://tiktok.com/@mikopierson" target="_blank" rel="noopener"><svg width="14" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.8c-1.4-.9-2.5-2.4-2.8-4h-3.4v13.7c0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4 1.5-3.4 3.4-3.4c.3 0 .7 0 1 .1V8.7c-.3 0-.7-.1-1-.1-3.7 0-6.7 3-6.7 6.7s3 6.7 6.7 6.7 6.7-3 6.7-6.7V8.9c1.4 1 3.1 1.5 4.9 1.5V7c-.4 0-.9-.1-1.3-.2z"/></svg>@mikopierson</a></p>
+    </div>
+  </div>
+  <div class="wrap"><p class="small" style="margin-top:34px;color:var(--muted)">© 2026 Miko Pierson Institute · By signing up you may get occasional
+  playbooks and course openings — no spam, ever, and every message is easy
+  to leave.</p></div>
+</footer>
+
+<script>
+const t=document.querySelector('#thread i');
+addEventListener('scroll',()=>{const h=document.documentElement;
+  t.style.transform=`scaleY(${h.scrollTop/(h.scrollHeight-h.clientHeight||1)})`},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const b=innerHeight;
+  document.querySelectorAll('.rv:not(.on)').forEach(el=>{
+    if(el.getBoundingClientRect().top<b){el.classList.add('on');io.unobserve(el)}})},{passive:true});
+const PB_KEY='pb_unlocked';
+const pbList=document.getElementById('pb-list');
+function unlockPB(){localStorage.setItem(PB_KEY,'1');if(pbList)pbList.hidden=false;}
+if(localStorage.getItem(PB_KEY))unlockPB();
+const gf=document.getElementById('pb-gate-form');
+gf&&gf.addEventListener('submit',e=>{e.preventDefault();
+  if(!gf.checkValidity()){gf.reportValidity();return}
+  unlockPB();pbList.scrollIntoView({behavior:'smooth'});});
+</script>
+</body>
+</html>

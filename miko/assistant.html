@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miko Pierson — The Assistant · Mindbyndr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:'Hanken Grotesk',sans-serif;background:#F4EEE6;color:#4A423B;line-height:1.7}
+a,button{min-height:44px;display:inline-flex;align-items:center}
+header{padding:96px 8vw 24px;text-align:center}
+header h1{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,60px);margin-bottom:14px;font-weight:700;color:#1E1915}
+header .pitch{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.4vw,24px);color:#9C5530;max-width:660px;margin:0 auto;line-height:1.4}
+header .meta{margin-top:18px;font-size:13px;color:#8A7A6C}
+header .meta a{color:#9C5530;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 6vw}
+.secttl{font-family:'Fraunces',serif;font-size:clamp(24px,3.2vw,36px);color:#1E1915;text-align:center;margin:56px 0 8px}
+.sectsub{text-align:center;color:#8A7A6C;font-size:15px;max-width:560px;margin:0 auto 30px}
+
+/* — orbit diagram — */
+.orbit{position:relative;width:min(560px,88vw);height:min(560px,88vw);margin:24px auto 8px}
+.orbit .ring{position:absolute;inset:9%;border:1px dashed #C9BBA8;border-radius:50%;
+  animation:spin 90s linear infinite}
+.orbit .ring2{position:absolute;inset:24%;border:1px solid #E3D9CB;border-radius:50%;
+  animation:spinback 120s linear infinite}
+.orbit .spoke{position:absolute;top:50%;left:50%;width:0;height:0}
+.orbit .spoke .pin{position:absolute;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;gap:4px}
+.orbit .spoke .dot{width:14px;height:14px;background:#9C5530;border-radius:50%;
+  border:3px solid #F4EEE6;box-shadow:0 0 0 1px #C9BBA8}
+.orbit .spoke .lbl{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#4A423B;background:#F4EEE6;padding:2px 8px;border-radius:99px;border:1px solid #E3D9CB;white-space:nowrap}
+.orbit .core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:clamp(150px,26%,180px);height:clamp(150px,26%,180px);border-radius:50%;
+  background:#1E1915;color:#F4EEE6;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;box-shadow:0 20px 60px rgba(30,25,21,.25);padding:18px}
+.orbit .core .t{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,24px);font-weight:700;line-height:1.15}
+.orbit .core .s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#D4A574;margin-top:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinback{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+@keyframes spinback{to{transform:rotate(-360deg)}}
+@media(prefers-reduced-motion:reduce){.orbit .ring,.orbit .ring2{animation:none}}
+
+/* — flow strip — */
+.flowline{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:6px 4vw 0}
+.flowline .st{background:#fff;border:1px solid #E3D9CB;border-radius:99px;padding:8px 18px;
+  font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4A423B}
+.flowline .st.live{border-color:#9C5530;color:#9C5530}
+.flowline .arr{color:#9C5530;font-weight:700}
+
+/* — capability rows — */
+.caplist{max-width:880px;margin:10px auto 0}
+.cap{display:grid;grid-template-columns:200px 1fr 128px;gap:18px;align-items:start;
+  background:#fff;border:1px solid #E3D9CB;border-radius:12px;padding:18px 22px;margin:12px 0}
+.cap b{font-family:'Fraunces',serif;font-size:17px;color:#1E1915;line-height:1.25}
+.cap p{font-size:14px;color:#6E6156;line-height:1.55}
+.cap .tag{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  text-align:center;padding:6px 8px;border-radius:99px;border:1px solid #E3D9CB;color:#8A7A6C;align-self:center}
+.cap .tag.built{border-color:#9C5530;color:#9C5530}
+.cap .tag.config{border-color:#D4A574;color:#9C7740}
+@media(max-width:720px){.cap{grid-template-columns:1fr}.cap .tag{justify-self:start}}
+
+/* — honesty block — */
+.truth{max-width:880px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.truth>div{border-radius:14px;padding:26px 26px}
+.truth .yes{background:#1E1915;color:#F4EEE6}
+.truth .yes h3{color:#D4A574}
+.truth .later{background:#fff;border:1px solid #E3D9CB}
+.truth .later h3{color:#9C5530}
+.truth h3{font-family:'Fraunces',serif;font-size:19px;margin-bottom:10px}
+.truth ul{list-style:none;padding:0}
+.truth li{font-size:14px;line-height:1.6;padding:5px 0 5px 20px;position:relative}
+.truth li::before{content:'→';position:absolute;left:0;color:#D4A574}
+.truth .later li::before{color:#9C5530}
+@media(max-width:760px){.truth{grid-template-columns:1fr}}
+
+.signoff{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.6vw,26px);color:#1E1915;text-align:center;padding:44px 6vw 20px;max-width:720px;margin:0 auto;line-height:1.4}
+.keys{text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A7A6C;padding:0 6vw 56px}
+.keys a{color:#9C5530;text-decoration:none}
+.keys a:hover{text-decoration:underline}
+footer{text-align:center;padding:40px 8vw;color:#8A7A6C;font-size:13px;border-top:1px solid #E3D9CB;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+  <div style="color:#9C5530;font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700">The system behind the system</div>
+  <h1>Miko’s Assistant.</h1>
+  <div class="pitch">Every call, DM, email, form, and follow-up —<br>answered, logged, and moved forward by one machine.</div>
+  <div class="meta"><a href="options.html">← back to the package</a> · <a href="variants.html">mockups</a> · <a href="crm.html">the system</a></div>
+</header>
+
+<div class="wrap">
+  <div class="orbit" role="img" aria-label="Diagram: the assistant at the center handling calls, texts, email, forms, DMs, calendar, sales, marketing and follow-up">
+    <div class="ring"></div><div class="ring2"></div>
+    <!-- 9 spokes, 40° apart — positions set in script -->
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Calls</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Texts</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Email</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Forms</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">DMs</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Calendar</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Sales</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Marketing</span></div></div>
+    <div class="spoke"><div class="pin"><span class="dot"></span><span class="lbl">Follow-up</span></div></div>
+    <div class="core"><div class="t">The<br>Assistant</div><div class="s">Mindbyndr</div></div>
+  </div>
+
+  <div class="flowline">
+    <span class="st">Someone reaches her</span><span class="arr">→</span>
+    <span class="st live">Assistant answers &amp; scores</span><span class="arr">→</span>
+    <span class="st">Right next step booked</span><span class="arr">→</span>
+    <span class="st live">Followed up until done</span>
+  </div>
+
+  <h2 class="secttl">What it runs.</h2>
+  <p class="sectsub">Each lane verified against the built system — capability, not theater.</p>
+
+  <div class="caplist">
+    <div class="cap"><b>Calls — the receptionist</b>
+      <p>Answers inbound calls with her voice profile, asks the qualifying questions, books the next step onto the calendar. Missed-call texts back automatically.</p>
+      <span class="tag built">Built · Mindbyndr</span></div>
+    <div class="cap"><b>Texts &amp; SMS</b>
+      <p>SMS agent handles replies, reminders before workshops and calls, and the follow-up touches most solo owners never get to.</p>
+      <span class="tag built">Built · Mindbyndr</span></div>
+    <div class="cap"><b>Email</b>
+      <p>Every inbound email syncs into her pipeline natively — Gmail and Outlook — and lands on the right contact’s record. Sequences send the nurture cadence.</p>
+      <span class="tag built">Built · native sync</span></div>
+    <div class="cap"><b>Forms &amp; the Score</b>
+      <p>The Owner Readiness Score and site forms write straight to contact records — tracking pixel ties site visits to people, not pageviews.</p>
+      <span class="tag built">Built · verified</span></div>
+    <div class="cap"><b>DMs</b>
+      <p>IG DMs stay human today — the intake path is designed so any DM that becomes a lead lands in the same record. Meta-API bridge is a roadmap seam.</p>
+      <span class="tag config">Honest gap</span></div>
+    <div class="cap"><b>Calendar</b>
+      <p>Discovery calls, workshop seats, enrollment conversations — booked via the voice/text layer into her scheduler. Email-calendar sync is native.</p>
+      <span class="tag config">Connects Cal.com</span></div>
+    <div class="cap"><b>Sales — the pipeline</b>
+      <p>Every prospect tracked Attract → Amplify: score taken, stage known, deal recorded, next action queued. Nothing falls out of the funnel.</p>
+      <span class="tag built">Built · verified</span></div>
+    <div class="cap"><b>Marketing — sequences</b>
+      <p>Workshop promos, cohort opens, reactivation runs — drafted, sequenced, and sent by segment. Six touches run without her lifting a finger.</p>
+      <span class="tag built">Built · verified</span></div>
+    <div class="cap"><b>Follow-up</b>
+      <p>Post-call: the AI analyzes the conversation and writes the summary, sentiment, and next step onto the contact — then the follow-up fires on schedule.</p>
+      <span class="tag built">Two-lane sync</span></div>
+  </div>
+
+  <div class="truth">
+    <div class="yes">
+      <h3>Built &amp; verifiable in the room</h3>
+      <ul>
+        <li>Full record — contacts, deals, tasks, pipeline stages</li>
+        <li>Native email ingest + website visitor tracking</li>
+        <li>Built-in AI agents + secured API</li>
+        <li>Mindbyndr voice/SMS layer — two-lane sync into the system</li>
+      </ul>
+    </div>
+    <div class="later">
+      <h3>We switch on live, together</h3>
+      <ul>
+        <li>Her mailboxes connected (Gmail/Outlook)</li>
+        <li>Her scheduler linked for bookings</li>
+        <li>Her call flows tuned to her voice and offers</li>
+        <li>IG DM bridge when Meta-API access lands</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="signoff">She teaches stylists to build the machine.<br>This is the machine, built — running her education business while she teaches it.</p>
+  <div class="keys"><a href="index.html">0 cover</a> · <a href="options.html">8 options</a> · <a href="variants.html">1 mockups</a> · <a href="institute.html">2 institute</a> · <a href="crm.html">3 mindbyndr</a> · <a href="assistant.html">4 assistant</a> · <a href="roi.html">why a website</a> · <a href="curriculum.html">the curriculum</a> · <a href="deck.html">9 deck</a></div>
+</div>
+
+<footer>Miko Pierson · presentation package</footer>
+
+<script>
+// position the 9 spokes on the outer ring
+// 9 spokes around the outer ring — labels stay upright
+document.querySelectorAll('.orbit .spoke').forEach((s,i)=>{
+  const a=i*40-90; // start at top, 360/9
+  s.querySelector('.pin').style.transform=
+    `rotate(${a}deg) translateY(calc(min(560px,88vw)*-0.41)) rotate(${-a}deg) translate(-50%,-50%)`;
+});
+</script>
+<script>(function(){var M={'0':'index.html','1':'v10/index.html','2':'v12/index.html','3':'crm.html','4':'assistant.html','5':'https://shear-equity-course-production.up.railway.app/syllabus.html','6':'https://shear-equity-course-production.up.railway.app/login.html','7':'https://app-production-fd4a.up.railway.app','8':'options.html','9':'deck.html'};document.addEventListener('keydown',function(e){if(e.target.matches('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;var t=M[e.key];if(t)location.href=t;});})();</script>
+</body>
+</html>
